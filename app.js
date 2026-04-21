@@ -28,3 +28,16 @@ try {
 }
 
 render(state);
+
+const searchInput = document.getElementById("search-input");
+if (searchInput && !state.error) {
+  let debounceId;
+  searchInput.addEventListener("input", (e) => {
+    clearTimeout(debounceId);
+    const value = e.target.value;
+    debounceId = setTimeout(() => {
+      state.search = value;
+      render(state);
+    }, 150);
+  });
+}

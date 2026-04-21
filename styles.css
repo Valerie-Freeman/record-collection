@@ -73,6 +73,28 @@ img {
   font-size: 0.9rem;
 }
 
+.search-bar {
+  padding: var(--space-3) var(--space-4) 0;
+}
+
+.search-input {
+  width: 100%;
+  min-height: var(--tap-target);
+  padding: 0 var(--space-3);
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
 .record-list {
   padding: var(--space-4);
   display: flex;

@@ -1,3 +1,5 @@
+import { visibleRecords } from "./filter.js";
+
 const HTML_ESCAPES = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
 
 function escapeHtml(str) {
@@ -41,13 +43,15 @@ export function render(state) {
     return;
   }
 
+  const visible = visibleRecords(state.records, state);
+
   if (countEl) {
     countEl.hidden = false;
-    countEl.textContent = String(state.records.length);
+    countEl.textContent = String(visible.length);
   }
 
   const list = document.getElementById("record-list");
   if (list) {
-    list.innerHTML = state.records.map(renderCard).join("");
+    list.innerHTML = visible.map(renderCard).join("");
   }
 }
