@@ -41,3 +41,33 @@ if (searchInput && !state.error) {
     }, 150);
   });
 }
+
+const sortField = document.getElementById("sort-field");
+const sortDir = document.getElementById("sort-dir");
+
+function updateDirButton(dir) {
+  const asc = dir === "asc";
+  sortDir.textContent = asc ? "↑ Asc" : "↓ Desc";
+  sortDir.setAttribute("aria-pressed", asc ? "false" : "true");
+  sortDir.setAttribute(
+    "aria-label",
+    asc ? "Sort direction: ascending" : "Sort direction: descending"
+  );
+}
+
+if (sortField && sortDir && !state.error) {
+  sortField.addEventListener("change", (e) => {
+    const field = e.target.value;
+    const dir = field === "year" || field === "rating" ? "desc" : "asc";
+    state.sort = { field, dir };
+    updateDirButton(dir);
+    render(state);
+  });
+
+  sortDir.addEventListener("click", () => {
+    const dir = state.sort.dir === "asc" ? "desc" : "asc";
+    state.sort = { ...state.sort, dir };
+    updateDirButton(dir);
+    render(state);
+  });
+}

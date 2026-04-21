@@ -23,6 +23,26 @@
           autocomplete="off"
         />
       </div>
+      <div class="sort-bar">
+        <label class="sort-field">
+          <span class="sort-label">Sort</span>
+          <select id="sort-field" class="sort-select" aria-label="Sort by">
+            <option value="artist">Artist</option>
+            <option value="title">Title</option>
+            <option value="year">Year</option>
+            <option value="rating">Rating</option>
+          </select>
+        </label>
+        <button
+          id="sort-dir"
+          class="sort-dir"
+          type="button"
+          aria-pressed="false"
+          aria-label="Sort direction: ascending"
+        >
+          ↑ Asc
+        </button>
+      </div>
       <ul id="record-list" class="record-list"></ul>
     </main>
   </body>

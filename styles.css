@@ -95,6 +95,63 @@ img {
   outline-offset: 1px;
 }
 
+.sort-bar {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4) 0;
+}
+
+.sort-field {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.sort-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.sort-select {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: var(--tap-target);
+  padding: 0 var(--space-3);
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.sort-select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.sort-dir {
+  flex: 0 0 auto;
+  min-height: var(--tap-target);
+  min-width: var(--tap-target);
+  padding: 0 var(--space-3);
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.sort-dir:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
 .record-list {
   padding: var(--space-4);
   display: flex;
