@@ -1,4 +1,5 @@
 .claude/
 .tandem/
+.playwright-mcp/
 dev-docs/
 tandem.json
