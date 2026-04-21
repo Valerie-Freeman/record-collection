@@ -1,0 +1,349 @@
+[
+  {
+    "artwork": "images/the-alan-parsons-project-the-turn-of-a-friendly-card.jpg",
+    "artist": "The Alan Parsons Project",
+    "title": "The Turn of a Friendly Card",
+    "year": 1980,
+    "rating": 5,
+    "genres": ["Progressive Rock", "Art Rock"]
+  },
+  {
+    "artwork": "images/the-alan-parsons-project-eye-in-the-sky.jpg",
+    "artist": "The Alan Parsons Project",
+    "title": "Eye in the Sky",
+    "year": 1982,
+    "rating": 5,
+    "genres": ["Progressive Rock", "Art Rock"]
+  },
+  {
+    "artwork": "images/the-alan-parsons-project-i-robot.jpg",
+    "artist": "The Alan Parsons Project",
+    "title": "I Robot",
+    "year": 1977,
+    "rating": 4,
+    "genres": ["Progressive Rock", "Art Rock"]
+  },
+  {
+    "artwork": "images/the-alan-parsons-project-pyramid.jpg",
+    "artist": "The Alan Parsons Project",
+    "title": "Pyramid",
+    "year": 1978,
+    "rating": 3,
+    "genres": ["Progressive Rock", "Art Rock"],
+    "notes": "Haven't listened to this one very much, but it's great"
+  },
+  {
+    "artwork": "images/golden-records-animal-songs-20-delightful-songs-and-stories-my-first-golden-record-library-vol-4.jpg",
+    "artist": "Golden Records",
+    "title": "Animal Songs: 20 Delightful Songs and Stories (My First Golden Record Library, Vol. 4)",
+    "year": 1962,
+    "rating": 2,
+    "genres": ["Children's"],
+    "notes": "Keeping it cause it's happy and good for the kids"
+  },
+  {
+    "artwork": "images/atlanta-rhythm-section-underdog.jpg",
+    "artist": "Atlanta Rhythm Section",
+    "title": "Underdog",
+    "year": 1979,
+    "rating": 4,
+    "genres": ["Southern Rock"],
+    "notes": "This one has songs we know and love: \"I hate the Blues\", \"Spooky\""
+  },
+  {
+    "artwork": "images/atlanta-rhythm-section-champagne-jam.jpg",
+    "artist": "Atlanta Rhythm Section",
+    "title": "Champagne Jam",
+    "year": 1978,
+    "rating": 3,
+    "genres": ["Southern Rock"],
+    "notes": "Pretty good; bluesy 70s rock"
+  },
+  {
+    "artwork": "images/b-b-king-greatest-hits.jpg",
+    "artist": "B.B. King",
+    "title": "Greatest Hits",
+    "year": 1968,
+    "rating": 4,
+    "genres": ["Blues"],
+    "notes": "Great blues music"
+  },
+  {
+    "artwork": "images/bad-company-desolation-angels.jpg",
+    "artist": "Bad Company",
+    "title": "Desolation Angels",
+    "year": 1979,
+    "rating": 2,
+    "genres": ["Hard Rock"],
+    "notes": "Not my thing, it's got \"Rock 'n' Roll Fantasy\" on it; upbeat 70's hard rock"
+  },
+  {
+    "artwork": "images/the-band-the-band.jpg",
+    "artist": "The Band",
+    "title": "The Band",
+    "year": 1969,
+    "rating": 5,
+    "genres": ["Rock", "Americana"],
+    "notes": "Fantastic"
+  },
+  {
+    "artwork": "images/billie-holiday-everest-records-archive-of-folk-and-jazz-music-presents-billie-holiday.jpg",
+    "artist": "Billie Holiday",
+    "title": "Everest Records Archive of Folk and Jazz Music Presents Billie Holiday",
+    "year": 1945,
+    "rating": 4,
+    "genres": ["Vocal Jazz", "Jazz"]
+  },
+  {
+    "artwork": "images/billy-joel-the-stranger.jpg",
+    "artist": "Billy Joel",
+    "title": "The Stranger",
+    "year": 1977,
+    "rating": 5,
+    "genres": ["Rock", "Pop Rock"]
+  },
+  {
+    "artwork": "images/bobby-blue-bland-i-feel-good-i-feel-fine.jpg",
+    "artist": "Bobby \"Blue\" Bland",
+    "title": "I Feel Good, I Feel Fine",
+    "year": 1979,
+    "rating": 3,
+    "genres": ["Soul", "R&B", "Disco"],
+    "notes": "Little more disco-ish, but good, groovy"
+  },
+  {
+    "artwork": "images/bobby-blue-bland-his-california-album.jpg",
+    "artist": "Bobby \"Blue\" Bland",
+    "title": "His California Album",
+    "year": 1973,
+    "rating": 5,
+    "genres": ["Blues", "Soul"]
+  },
+  {
+    "artwork": "images/boston-boston.jpg",
+    "artist": "Boston",
+    "title": "Boston",
+    "year": 1976,
+    "rating": 5,
+    "genres": ["Hard Rock"],
+    "notes": "Great Boston record, but sleeve is in bad shape, need to replace it"
+  },
+  {
+    "artwork": "images/brook-benton-his-greatest-hits.jpg",
+    "artist": "Brook Benton",
+    "title": "His Greatest Hits",
+    "year": 1962,
+    "rating": 4,
+    "genres": ["Soul", "R&B", "Pop"],
+    "notes": "Good 50's Soul/Jazz; track pick: \"God Bless the Child\""
+  },
+  {
+    "artwork": "images/bruce-hornsby-and-the-range-the-way-it-is.jpg",
+    "artist": "Bruce Hornsby and the Range",
+    "title": "The Way It Is",
+    "year": 1986,
+    "rating": 4,
+    "genres": ["Rock", "Pop Rock"],
+    "notes": "Sunny day music; track pick: \"The Way It Is\""
+  },
+  {
+    "artwork": "images/carole-king-tapestry.jpg",
+    "artist": "Carole King",
+    "title": "Tapestry",
+    "year": 1971,
+    "rating": 4,
+    "genres": ["Singer-Songwriter", "Soft Rock"],
+    "notes": "Great easy listening; need to listen some more"
+  },
+  {
+    "artwork": "images/carpenters-the-singles-1969-1973.jpg",
+    "artist": "Carpenters",
+    "title": "The Singles: 1969-1973",
+    "year": 1973,
+    "rating": 3,
+    "genres": ["Pop", "Soft Rock"],
+    "notes": "All the good Carpenters songs"
+  },
+  {
+    "artwork": "images/christopher-cross-christopher-cross.jpg",
+    "artist": "Christopher Cross",
+    "title": "Christopher Cross",
+    "year": 1979,
+    "rating": 3,
+    "genres": ["Soft Rock", "Yacht Rock"],
+    "notes": "Yacht Rock; chill; track pick: \"Ride Like the Wind\""
+  },
+  {
+    "artwork": "images/coldplay-a-rush-of-blood-to-the-head.jpg",
+    "artist": "Coldplay",
+    "title": "A Rush of Blood to the Head",
+    "year": 2002,
+    "rating": 5,
+    "genres": ["Alternative Rock"]
+  },
+  {
+    "artwork": "images/count-basie-and-benny-goodman-from-broadway-to-paris.jpg",
+    "artist": "Count Basie and Benny Goodman",
+    "title": "From Broadway to Paris",
+    "year": 1973,
+    "rating": 5,
+    "genres": ["Jazz", "Big Band", "Swing"]
+  },
+  {
+    "artwork": "images/crosby-stills-nash-crosby-stills-nash.jpg",
+    "artist": "Crosby, Stills & Nash",
+    "title": "Crosby, Stills & Nash",
+    "year": 1969,
+    "rating": 5,
+    "genres": ["Folk Rock"]
+  },
+  {
+    "artwork": "images/crosby-stills-nash-csn.jpg",
+    "artist": "Crosby, Stills & Nash",
+    "title": "CSN",
+    "year": 1977,
+    "rating": 5,
+    "genres": ["Folk Rock", "Soft Rock"]
+  },
+  {
+    "artwork": "images/crosby-stills-nash-young-deja-vu.jpg",
+    "artist": "Crosby, Stills, Nash & Young",
+    "title": "Deja Vu",
+    "year": 1970,
+    "rating": 4,
+    "genres": ["Folk Rock"]
+  },
+  {
+    "artwork": "images/david-gilmour-david-gilmour.jpg",
+    "artist": "David Gilmour",
+    "title": "David Gilmour",
+    "year": 1978,
+    "rating": 5,
+    "genres": ["Rock", "Progressive Rock"]
+  },
+  {
+    "artwork": "images/david-gilmour-rattle-that-lock.jpg",
+    "artist": "David Gilmour",
+    "title": "Rattle That Lock",
+    "year": 2015,
+    "rating": 3,
+    "genres": ["Rock", "Progressive Rock"],
+    "notes": "It's ok, but Caylon got it for me for my birthday; track pick: \"A Boat Lies Waiting\""
+  },
+  {
+    "artwork": "images/dire-straits-making-movies.jpg",
+    "artist": "Dire Straits",
+    "title": "Making Movies",
+    "year": 1980,
+    "rating": 3,
+    "genres": ["Rock"]
+  },
+  {
+    "artwork": "images/the-doobie-brothers-minute-by-minute.jpg",
+    "artist": "The Doobie Brothers",
+    "title": "Minute by Minute",
+    "year": 1978,
+    "rating": 5,
+    "genres": ["Yacht Rock", "Soft Rock"]
+  },
+  {
+    "artwork": "images/doris-day-love-him.jpg",
+    "artist": "Doris Day",
+    "title": "Love Him",
+    "year": 1963,
+    "rating": 3,
+    "genres": ["Pop", "Vocal Jazz"]
+  },
+  {
+    "artwork": "images/eagles-their-greatest-hits-1971-1975.jpg",
+    "artist": "Eagles",
+    "title": "Their Greatest Hits 1971-1975",
+    "year": 1976,
+    "rating": 5,
+    "genres": ["Country Rock", "Rock"]
+  },
+  {
+    "artwork": "images/eagles-the-long-run.jpg",
+    "artist": "Eagles",
+    "title": "The Long Run",
+    "year": 1979,
+    "rating": 3,
+    "genres": ["Rock", "Country Rock"],
+    "notes": "track pick: \"I Can't Tell You Why\""
+  },
+  {
+    "artwork": "images/earl-klugh-and-bob-james-two-of-a-kind.jpg",
+    "artist": "Earl Klugh and Bob James",
+    "title": "Two of a Kind",
+    "year": 1982,
+    "rating": 4,
+    "genres": ["Smooth Jazz", "Jazz"],
+    "notes": "Good, groovy jazz"
+  },
+  {
+    "artwork": "images/earth-wind-fire-the-best-of-earth-wind-fire-vol-1.jpg",
+    "artist": "Earth, Wind & Fire",
+    "title": "The Best of Earth, Wind & Fire, Vol. 1",
+    "year": 1978,
+    "rating": 5,
+    "genres": ["Funk", "R&B", "Soul", "Disco"],
+    "notes": "Dance parties"
+  },
+  {
+    "artwork": "images/earth-wind-fire-i-am.jpg",
+    "artist": "Earth, Wind & Fire",
+    "title": "I Am",
+    "year": 1979,
+    "rating": 4,
+    "genres": ["Funk", "R&B", "Disco"]
+  },
+  {
+    "artwork": "images/elton-john-honky-chateau.jpg",
+    "artist": "Elton John",
+    "title": "Honky Chateau",
+    "year": 1972,
+    "rating": 5,
+    "genres": ["Rock", "Pop Rock"]
+  },
+  {
+    "artwork": "images/elvis-presley-aloha-from-hawaii-via-satellite.jpg",
+    "artist": "Elvis Presley",
+    "title": "Aloha from Hawaii via Satellite",
+    "year": 1973,
+    "rating": 5,
+    "genres": ["Rock and Roll", "Rock"]
+  },
+  {
+    "artwork": "images/emerson-lake-palmer-the-best-of-emerson-lake-palmer.jpg",
+    "artist": "Emerson, Lake & Palmer",
+    "title": "The Best of Emerson, Lake & Palmer",
+    "year": 1972,
+    "rating": 3,
+    "genres": ["Progressive Rock"],
+    "notes": "track pick: \"Lucky Man\""
+  },
+  {
+    "artwork": "images/erykah-badu-baduizm.jpg",
+    "artist": "Erykah Badu",
+    "title": "Baduizm",
+    "year": 1997,
+    "rating": 5,
+    "genres": ["Neo-Soul", "R&B"]
+  },
+  {
+    "artwork": "images/erykah-badu-new-amerykah-part-two-return-of-the-ankh.jpg",
+    "artist": "Erykah Badu",
+    "title": "New Amerykah Part Two (Return of the Ankh)",
+    "year": 2010,
+    "rating": 4,
+    "genres": ["Neo-Soul", "R&B"]
+  },
+  {
+    "artwork": "images/erykah-badu-worldwide-underground.jpg",
+    "artist": "Erykah Badu",
+    "title": "Worldwide Underground",
+    "year": 2003,
+    "rating": 3,
+    "genres": ["Neo-Soul", "R&B"]
+  }
+]

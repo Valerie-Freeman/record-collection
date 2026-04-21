@@ -35,12 +35,14 @@ Every record's `artist` value must exist in `artists.json` exactly. Every string
 | artwork  | string   | yes      | Repo-relative path under `images/`, must exist       |
 | artist   | string   | yes      | Must match an `artists.json` entry exactly           |
 | title    | string   | yes      | Album title                                          |
-| year     | integer  | yes      | 1900 to current year + 1                             |
+| year     | integer  | yes      | Original release year, not pressing year; 1900 to current year + 1 |
 | rating   | integer  | yes      | 1 to 5 inclusive                                     |
 | genres   | string[] | yes      | Non-empty; each must match a `genres.json` entry     |
 | notes    | string   | no       | Free text                                            |
 
 No other fields. Do not invent fields like `format`, `label`, `pressing`. Those are explicitly out of scope for v1 (PRD §11).
+
+**Year convention.** Use the album's original release year, not the pressing year on the jacket in hand. For compilations (greatest hits, best-of records), use the compilation's own release year. If the compilation is undated or its tracks span a long period, ask the owner; they may prefer the average year of the source recordings over the comp release year.
 
 ## Adding a record
 
