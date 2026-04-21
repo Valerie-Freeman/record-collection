@@ -42,8 +42,48 @@
         >
           ↑ Asc
         </button>
+        <button
+          id="filter-open"
+          class="filter-open"
+          type="button"
+          aria-haspopup="dialog"
+          aria-controls="filter-sheet"
+          aria-expanded="false"
+        >
+          Filter
+        </button>
       </div>
+      <div id="filter-chips" class="filter-chips" hidden></div>
       <ul id="record-list" class="record-list"></ul>
+      <section
+        id="filter-sheet"
+        class="filter-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="filter-sheet-title"
+        hidden
+      >
+        <header class="filter-sheet-header">
+          <h2 id="filter-sheet-title">Filters</h2>
+          <button
+            id="filter-close"
+            class="filter-close"
+            type="button"
+            aria-label="Close filters"
+          >
+            Close
+          </button>
+        </header>
+        <div id="filter-sheet-body" class="filter-sheet-body"></div>
+        <footer class="filter-sheet-footer">
+          <button id="filter-clear" class="filter-clear" type="button">
+            Clear all
+          </button>
+          <button id="filter-done" class="filter-done" type="button">
+            Done
+          </button>
+        </footer>
+      </section>
     </main>
   </body>
 </html>
