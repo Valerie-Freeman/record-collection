@@ -30,7 +30,12 @@ Every record's `artist` value must exist in `artists.json` exactly. Every string
   "year": 1969,
   "rating": 5,
   "genres": ["Rock", "Americana"],
-  "notes": "Brown album. Winchester pressing."
+  "notes": "Brown album. Winchester pressing.",
+  "tracks": [
+    { "side": "A", "title": "Across the Great Divide" },
+    { "side": "A", "title": "Rag Mama Rag" },
+    { "side": "B", "title": "Whispering Pines" }
+  ]
 }
 ```
 
@@ -39,14 +44,18 @@ Every record's `artist` value must exist in `artists.json` exactly. Every string
 | artwork  | string   | yes      | Repo-relative path under `images/`, must exist       |
 | artist   | string   | yes      | Must match an `artists.json` entry exactly           |
 | title    | string   | yes      | Album title                                          |
-| year     | integer  | yes      | Original release year, not pressing year; 1900 to current year + 1 |
+| year     | integer  | yes      | Year of the music, not the pressing year; 1900 to current year + 1 |
 | rating   | integer  | yes      | 1 to 5 inclusive                                     |
 | genres   | string[] | yes      | Non-empty; each must match a `genres.json` entry     |
 | notes    | string   | no       | Free text                                            |
+| tracks   | object[] | no       | Ordered array of `{ "side": string, "title": string }` objects. Array order is track order within each side. Sourced from Discogs. |
 
-No other fields. Do not invent fields like `format`, `label`, `pressing`. Those are explicitly out of scope for v1 (PRD §11).
+Do not invent fields like `format`, `label`, `pressing`. Those are explicitly out of scope for v1 (PRD §11).
 
-**Year convention.** Use the album's original release year, not the pressing year on the jacket in hand. For compilations (greatest hits, best-of records), use the compilation's own release year. If the compilation is undated or its tracks span a long period, ask the owner; they may prefer the average year of the source recordings over the comp release year.
+**Year convention.** Record the year of the music, not the year the physical record was pressed or the compilation assembled. The goal is to capture when the music itself was made; the physical object doesn't matter here.
+
+- **Studio albums:** use the master (original) release year. If the owner's copy is a later reissue, keep the master year, not the reissue year.
+- **Compilations (greatest hits, best-of records):** use the average year of the source recordings' master releases, or the earliest master if that better reflects when the music was made. Do not use the compilation's own release year. If the tracks span a long period and neither average nor earliest feels right, ask the owner.
 
 ## Adding a record
 

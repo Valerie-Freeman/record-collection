@@ -555,6 +555,12 @@ body.detail-open::before {
   -webkit-overflow-scrolling: touch;
   padding: var(--space-4);
   display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.detail-header-row {
+  display: flex;
   flex-direction: row;
   gap: var(--space-4);
 }
@@ -624,4 +630,49 @@ body.detail-open::before {
   font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.6;
+}
+
+.detail-tracks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.detail-tracks-heading {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.detail-side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.detail-side-label {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.detail-track-list {
+  margin: 0;
+  padding-left: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: 0.95rem;
+  color: var(--text);
+  list-style: decimal;
+}
+
+.detail-track-list li {
+  padding-left: var(--space-1);
 }

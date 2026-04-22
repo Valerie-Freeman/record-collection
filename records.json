@@ -5,7 +5,19 @@
     "title": "The Turn of a Friendly Card",
     "year": 1980,
     "rating": 5,
-    "genres": ["Progressive Rock", "Art Rock"]
+    "genres": ["Progressive Rock", "Art Rock"],
+    "tracks": [
+      { "side": "A", "title": "May Be a Price to Pay" },
+      { "side": "A", "title": "Games People Play" },
+      { "side": "A", "title": "Time" },
+      { "side": "A", "title": "I Don't Wanna Go Home" },
+      { "side": "B", "title": "The Gold Bug" },
+      { "side": "B", "title": "The Turn of a Friendly Card (Part 1)" },
+      { "side": "B", "title": "Snake Eyes" },
+      { "side": "B", "title": "The Ace of Swords" },
+      { "side": "B", "title": "Nothing Left to Lose" },
+      { "side": "B", "title": "The Turn of a Friendly Card (Part 2)" }
+    ]
   },
   {
     "artwork": "images/the-alan-parsons-project-eye-in-the-sky.jpg",
@@ -13,7 +25,19 @@
     "title": "Eye in the Sky",
     "year": 1982,
     "rating": 5,
-    "genres": ["Progressive Rock", "Art Rock"]
+    "genres": ["Progressive Rock", "Art Rock"],
+    "tracks": [
+      { "side": "A", "title": "Sirius" },
+      { "side": "A", "title": "Eye in the Sky" },
+      { "side": "A", "title": "Children of the Moon" },
+      { "side": "A", "title": "Gemini" },
+      { "side": "A", "title": "Silence and I" },
+      { "side": "B", "title": "You're Gonna Get Your Fingers Burned" },
+      { "side": "B", "title": "Psychobabble" },
+      { "side": "B", "title": "Mammagamma" },
+      { "side": "B", "title": "Step by Step" },
+      { "side": "B", "title": "Old and Wise" }
+    ]
   },
   {
     "artwork": "images/the-alan-parsons-project-i-robot.jpg",
@@ -21,7 +45,19 @@
     "title": "I Robot",
     "year": 1977,
     "rating": 4,
-    "genres": ["Progressive Rock", "Art Rock"]
+    "genres": ["Progressive Rock", "Art Rock"],
+    "tracks": [
+      { "side": "A", "title": "I Robot" },
+      { "side": "A", "title": "I Wouldn't Want to Be Like You" },
+      { "side": "A", "title": "Some Other Time" },
+      { "side": "A", "title": "Breakdown" },
+      { "side": "A", "title": "Don't Let It Show" },
+      { "side": "B", "title": "The Voice" },
+      { "side": "B", "title": "Nucleus" },
+      { "side": "B", "title": "Day After Day (The Show Must Go On)" },
+      { "side": "B", "title": "Total Eclipse" },
+      { "side": "B", "title": "Genesis Ch.1, V.32" }
+    ]
   },
   {
     "artwork": "images/the-alan-parsons-project-pyramid.jpg",
@@ -30,7 +66,18 @@
     "year": 1978,
     "rating": 3,
     "genres": ["Progressive Rock", "Art Rock"],
-    "notes": "Haven't listened to this one very much, but it's great"
+    "notes": "Haven't listened to this one very much, but it's great",
+    "tracks": [
+      { "side": "A", "title": "Voyager" },
+      { "side": "A", "title": "What Goes Up..." },
+      { "side": "A", "title": "The Eagle Will Rise Again" },
+      { "side": "A", "title": "One More River" },
+      { "side": "A", "title": "Can't Take It With You" },
+      { "side": "B", "title": "In the Lap of the Gods" },
+      { "side": "B", "title": "Pyramania" },
+      { "side": "B", "title": "Hyper-Gamma-Spaces" },
+      { "side": "B", "title": "Shadow of a Lonely Man" }
+    ]
   },
   {
     "artwork": "images/golden-records-animal-songs-20-delightful-songs-and-stories-my-first-golden-record-library-vol-4.jpg",
@@ -39,7 +86,29 @@
     "year": 1962,
     "rating": 2,
     "genres": ["Children's"],
-    "notes": "Keeping it cause it's happy and good for the kids"
+    "notes": "Keeping it cause it's happy and good for the kids",
+    "tracks": [
+      { "side": "A", "title": "Old MacDonald" },
+      { "side": "A", "title": "Me and My Teddy Bear" },
+      { "side": "A", "title": "Three Little Kittens" },
+      { "side": "A", "title": "The Owl and the Pussy Cat" },
+      { "side": "A", "title": "The Three Bears" },
+      { "side": "A", "title": "Little Joe Worm, Son of Glow Worm" },
+      { "side": "A", "title": "Fuzzy Wuzzy Wuz a Bear" },
+      { "side": "A", "title": "Three Little Puppies" },
+      { "side": "A", "title": "The Barnyard Song" },
+      { "side": "A", "title": "Saggy Baggy Elephant" },
+      { "side": "B", "title": "Smoky the Bear" },
+      { "side": "B", "title": "The Siamese Cat Song" },
+      { "side": "B", "title": "Teddy Bears' Parade" },
+      { "side": "B", "title": "Cottleston Pie" },
+      { "side": "B", "title": "Sing Ho for the Life of a Bear" },
+      { "side": "B", "title": "I Taut I Taw a Putty Tat" },
+      { "side": "B", "title": "How Much Is That Doggie in the Window" },
+      { "side": "B", "title": "Willie the Whistling Giraffe" },
+      { "side": "B", "title": "Poky Little Puppy" },
+      { "side": "B", "title": "The White Bunny and His Magic Nose" }
+    ]
   },
   {
     "artwork": "images/atlanta-rhythm-section-underdog.jpg",
@@ -48,7 +117,18 @@
     "year": 1979,
     "rating": 4,
     "genres": ["Southern Rock"],
-    "notes": "This one has songs we know and love: \"I hate the Blues\", \"Spooky\""
+    "notes": "This one has songs we know and love: \"I hate the Blues\", \"Spooky\"",
+    "tracks": [
+      { "side": "A", "title": "Do It or Die" },
+      { "side": "A", "title": "Born Ready" },
+      { "side": "A", "title": "I Hate the Blues" },
+      { "side": "A", "title": "Let's Go Get Stoned" },
+      { "side": "A", "title": "Indigo Passion" },
+      { "side": "B", "title": "While Time Is Left" },
+      { "side": "B", "title": "It's Only Music" },
+      { "side": "B", "title": "Spooky" },
+      { "side": "B", "title": "My Song" }
+    ]
   },
   {
     "artwork": "images/atlanta-rhythm-section-champagne-jam.jpg",
@@ -57,16 +137,40 @@
     "year": 1978,
     "rating": 3,
     "genres": ["Southern Rock"],
-    "notes": "Pretty good; bluesy 70s rock"
+    "notes": "Pretty good; bluesy 70s rock",
+    "tracks": [
+      { "side": "A", "title": "Large Time" },
+      { "side": "A", "title": "I'm Not Gonna Let It Bother Me Tonight" },
+      { "side": "A", "title": "Normal Love" },
+      { "side": "A", "title": "Champagne Jam" },
+      { "side": "B", "title": "Imaginary Lover" },
+      { "side": "B", "title": "The Ballad of Lois Malone" },
+      { "side": "B", "title": "The Great Escape" },
+      { "side": "B", "title": "Evileen" }
+    ]
   },
   {
-    "artwork": "images/b-b-king-greatest-hits.jpg",
+    "artwork": "images/b-b-king-the-greatest-hits-of-b-b-king-volume-i.jpg",
     "artist": "B.B. King",
-    "title": "Greatest Hits",
-    "year": 1968,
+    "title": "The Greatest Hits of B.B. King, Volume I",
+    "year": 1970,
     "rating": 4,
     "genres": ["Blues"],
-    "notes": "Great blues music"
+    "notes": "Great blues music",
+    "tracks": [
+      { "side": "A", "title": "Please Love Me" },
+      { "side": "A", "title": "Rock Me Baby" },
+      { "side": "A", "title": "Everyday I Have the Blues" },
+      { "side": "A", "title": "Woke Up This Morning" },
+      { "side": "A", "title": "My Own Fault" },
+      { "side": "A", "title": "Five Long Years" },
+      { "side": "B", "title": "You Upset Me Baby" },
+      { "side": "B", "title": "Blue Shadows" },
+      { "side": "B", "title": "The Woman I Love" },
+      { "side": "B", "title": "You Know I Love You" },
+      { "side": "B", "title": "Sweet Little Angel" },
+      { "side": "B", "title": "Treat Me Right" }
+    ]
   },
   {
     "artwork": "images/bad-company-desolation-angels.jpg",
@@ -75,7 +179,19 @@
     "year": 1979,
     "rating": 2,
     "genres": ["Hard Rock"],
-    "notes": "Not my thing, it's got \"Rock 'n' Roll Fantasy\" on it; upbeat 70's hard rock"
+    "notes": "Not my thing, it's got \"Rock 'n' Roll Fantasy\" on it; upbeat 70's hard rock",
+    "tracks": [
+      { "side": "A", "title": "Rock 'n' Roll Fantasy" },
+      { "side": "A", "title": "Crazy Circles" },
+      { "side": "A", "title": "Gone, Gone, Gone" },
+      { "side": "A", "title": "Evil Wind" },
+      { "side": "A", "title": "Early in the Morning" },
+      { "side": "B", "title": "Lonely for Your Love" },
+      { "side": "B", "title": "Oh, Atlanta" },
+      { "side": "B", "title": "Take the Time" },
+      { "side": "B", "title": "Rhythm Machine" },
+      { "side": "B", "title": "She Brings Me Love" }
+    ]
   },
   {
     "artwork": "images/the-band-the-band.jpg",
@@ -84,7 +200,21 @@
     "year": 1969,
     "rating": 5,
     "genres": ["Rock", "Americana"],
-    "notes": "Fantastic"
+    "notes": "Fantastic",
+    "tracks": [
+      { "side": "A", "title": "Across the Great Divide" },
+      { "side": "A", "title": "Rag Mama Rag" },
+      { "side": "A", "title": "The Night They Drove Old Dixie Down" },
+      { "side": "A", "title": "When You Awake" },
+      { "side": "A", "title": "Up on Cripple Creek" },
+      { "side": "A", "title": "Whispering Pines" },
+      { "side": "B", "title": "Jemima Surrender" },
+      { "side": "B", "title": "Rockin' Chair" },
+      { "side": "B", "title": "Look Out Cleveland" },
+      { "side": "B", "title": "Jawbone" },
+      { "side": "B", "title": "The Unfaithful Servant" },
+      { "side": "B", "title": "King Harvest (Has Surely Come)" }
+    ]
   },
   {
     "artwork": "images/billie-holiday-everest-records-archive-of-folk-and-jazz-music-presents-billie-holiday.jpg",
@@ -92,7 +222,19 @@
     "title": "Everest Records Archive of Folk and Jazz Music Presents Billie Holiday",
     "year": 1945,
     "rating": 4,
-    "genres": ["Vocal Jazz", "Jazz"]
+    "genres": ["Vocal Jazz", "Jazz"],
+    "tracks": [
+      { "side": "A", "title": "My Man" },
+      { "side": "A", "title": "Lover Man" },
+      { "side": "A", "title": "I Cover the Waterfront" },
+      { "side": "A", "title": "Don't Explain" },
+      { "side": "A", "title": "Them There Eyes" },
+      { "side": "B", "title": "They Can't Take That Away from Me" },
+      { "side": "B", "title": "Swing Brother Swing" },
+      { "side": "B", "title": "Do Nothing Till You Hear from Me" },
+      { "side": "B", "title": "Lover Come Back to Me" },
+      { "side": "B", "title": "The Same Old Story" }
+    ]
   },
   {
     "artwork": "images/billy-joel-the-stranger.jpg",
@@ -100,7 +242,18 @@
     "title": "The Stranger",
     "year": 1977,
     "rating": 5,
-    "genres": ["Rock", "Pop Rock"]
+    "genres": ["Rock", "Pop Rock"],
+    "tracks": [
+      { "side": "A", "title": "Movin' Out (Anthony's Song)" },
+      { "side": "A", "title": "The Stranger" },
+      { "side": "A", "title": "Just the Way You Are" },
+      { "side": "A", "title": "Scenes from an Italian Restaurant" },
+      { "side": "B", "title": "Vienna" },
+      { "side": "B", "title": "Only the Good Die Young" },
+      { "side": "B", "title": "She's Always a Woman" },
+      { "side": "B", "title": "Get It Right the First Time" },
+      { "side": "B", "title": "Everybody Has a Dream" }
+    ]
   },
   {
     "artwork": "images/bobby-blue-bland-i-feel-good-i-feel-fine.jpg",
@@ -109,7 +262,17 @@
     "year": 1979,
     "rating": 3,
     "genres": ["Soul", "R&B", "Disco"],
-    "notes": "Little more disco-ish, but good, groovy"
+    "notes": "Little more disco-ish, but good, groovy",
+    "tracks": [
+      { "side": "A", "title": "I Feel Good, I Feel Fine" },
+      { "side": "A", "title": "I Can't Take No Mo'" },
+      { "side": "A", "title": "Little Mama" },
+      { "side": "A", "title": "Tit for Tat" },
+      { "side": "B", "title": "Someone to Belong To" },
+      { "side": "B", "title": "Soon as the Weather Breaks" },
+      { "side": "B", "title": "In His Eyes" },
+      { "side": "B", "title": "Red Sails in the Sunset" }
+    ]
   },
   {
     "artwork": "images/bobby-blue-bland-his-california-album.jpg",
@@ -117,7 +280,19 @@
     "title": "His California Album",
     "year": 1973,
     "rating": 5,
-    "genres": ["Blues", "Soul"]
+    "genres": ["Blues", "Soul"],
+    "tracks": [
+      { "side": "A", "title": "This Time I'm Gone for Good" },
+      { "side": "A", "title": "Up and Down World" },
+      { "side": "A", "title": "It's Not the Spotlight" },
+      { "side": "A", "title": "(If Loving You Is Wrong) I Don't Want to Be Right" },
+      { "side": "A", "title": "Goin' Down Slow" },
+      { "side": "B", "title": "The Right Place at the Right Time" },
+      { "side": "B", "title": "Help Me Through the Day" },
+      { "side": "B", "title": "Where Baby Went" },
+      { "side": "B", "title": "Friday the 13th Child" },
+      { "side": "B", "title": "I've Got to Use My Imagination" }
+    ]
   },
   {
     "artwork": "images/boston-boston.jpg",
@@ -126,7 +301,17 @@
     "year": 1976,
     "rating": 5,
     "genres": ["Hard Rock"],
-    "notes": "Great Boston record, but sleeve is in bad shape, need to replace it"
+    "notes": "Great Boston record, but sleeve is in bad shape, need to replace it",
+    "tracks": [
+      { "side": "A", "title": "More Than a Feeling" },
+      { "side": "A", "title": "Peace of Mind" },
+      { "side": "A", "title": "Foreplay/Long Time" },
+      { "side": "B", "title": "Rock & Roll Band" },
+      { "side": "B", "title": "Smokin'" },
+      { "side": "B", "title": "Hitch a Ride" },
+      { "side": "B", "title": "Something About You" },
+      { "side": "B", "title": "Let Me Take You Home Tonight" }
+    ]
   },
   {
     "artwork": "images/brook-benton-his-greatest-hits.jpg",
@@ -135,7 +320,18 @@
     "year": 1962,
     "rating": 4,
     "genres": ["Soul", "R&B", "Pop"],
-    "notes": "Good 50's Soul/Jazz; track pick: \"God Bless the Child\""
+    "notes": "Good 50's Soul/Jazz; track pick: \"God Bless the Child\"",
+    "tracks": [
+      { "side": "A", "title": "Kiddio" },
+      { "side": "A", "title": "So Close" },
+      { "side": "A", "title": "Just a Matter of Time" },
+      { "side": "A", "title": "Endlessly" },
+      { "side": "A", "title": "Blues in the Night" },
+      { "side": "B", "title": "God Bless the Child" },
+      { "side": "B", "title": "Hurting Inside" },
+      { "side": "B", "title": "The Ties That Bind" },
+      { "side": "B", "title": "A House Is Not a Home" }
+    ]
   },
   {
     "artwork": "images/bruce-hornsby-and-the-range-the-way-it-is.jpg",
@@ -144,7 +340,18 @@
     "year": 1986,
     "rating": 4,
     "genres": ["Rock", "Pop Rock"],
-    "notes": "Sunny day music; track pick: \"The Way It Is\""
+    "notes": "Sunny day music; track pick: \"The Way It Is\"",
+    "tracks": [
+      { "side": "A", "title": "On the Western Skyline" },
+      { "side": "A", "title": "Every Little Kiss" },
+      { "side": "A", "title": "Mandolin Rain" },
+      { "side": "A", "title": "The Long Race" },
+      { "side": "B", "title": "The Way It Is" },
+      { "side": "B", "title": "Down the Road Tonight" },
+      { "side": "B", "title": "The Wild Frontier" },
+      { "side": "B", "title": "The River Runs Low" },
+      { "side": "B", "title": "The Red Plains" }
+    ]
   },
   {
     "artwork": "images/carole-king-tapestry.jpg",
@@ -153,7 +360,21 @@
     "year": 1971,
     "rating": 4,
     "genres": ["Singer-Songwriter", "Soft Rock"],
-    "notes": "Great easy listening; need to listen some more"
+    "notes": "Great easy listening; need to listen some more",
+    "tracks": [
+      { "side": "A", "title": "I Feel the Earth Move" },
+      { "side": "A", "title": "So Far Away" },
+      { "side": "A", "title": "It's Too Late" },
+      { "side": "A", "title": "Home Again" },
+      { "side": "A", "title": "Beautiful" },
+      { "side": "A", "title": "Way Over Yonder" },
+      { "side": "B", "title": "You've Got a Friend" },
+      { "side": "B", "title": "Where You Lead" },
+      { "side": "B", "title": "Will You Love Me Tomorrow?" },
+      { "side": "B", "title": "Smackwater Jack" },
+      { "side": "B", "title": "Tapestry" },
+      { "side": "B", "title": "(You Make Me Feel Like) A Natural Woman" }
+    ]
   },
   {
     "artwork": "images/carpenters-the-singles-1969-1973.jpg",
@@ -162,7 +383,21 @@
     "year": 1973,
     "rating": 3,
     "genres": ["Pop", "Soft Rock"],
-    "notes": "All the good Carpenters songs"
+    "notes": "All the good Carpenters songs",
+    "tracks": [
+      { "side": "A", "title": "We've Only Just Begun" },
+      { "side": "A", "title": "Top of the World" },
+      { "side": "A", "title": "Ticket to Ride" },
+      { "side": "A", "title": "Superstar" },
+      { "side": "A", "title": "Rainy Days and Mondays" },
+      { "side": "A", "title": "Goodbye to Love" },
+      { "side": "B", "title": "Yesterday Once More" },
+      { "side": "B", "title": "It's Going to Take Some Time" },
+      { "side": "B", "title": "Sing" },
+      { "side": "B", "title": "For All We Know" },
+      { "side": "B", "title": "Hurting Each Other" },
+      { "side": "B", "title": "(They Long to Be) Close to You" }
+    ]
   },
   {
     "artwork": "images/christopher-cross-christopher-cross.jpg",
@@ -171,7 +406,19 @@
     "year": 1979,
     "rating": 3,
     "genres": ["Soft Rock", "Yacht Rock"],
-    "notes": "Yacht Rock; chill; track pick: \"Ride Like the Wind\""
+    "notes": "Yacht Rock; chill; track pick: \"Ride Like the Wind\"",
+    "tracks": [
+      { "side": "A", "title": "Say You'll Be Mine" },
+      { "side": "A", "title": "I Really Don't Know Anymore" },
+      { "side": "A", "title": "Neverbe" },
+      { "side": "A", "title": "The Light Is On" },
+      { "side": "A", "title": "Poor Shirley" },
+      { "side": "B", "title": "Sailing" },
+      { "side": "B", "title": "Never Be the Same" },
+      { "side": "B", "title": "Minstrel Gigolo" },
+      { "side": "B", "title": "Ride Like the Wind" },
+      { "side": "B", "title": "Spinning" }
+    ]
   },
   {
     "artwork": "images/coldplay-a-rush-of-blood-to-the-head.jpg",
@@ -179,7 +426,20 @@
     "title": "A Rush of Blood to the Head",
     "year": 2002,
     "rating": 5,
-    "genres": ["Alternative Rock"]
+    "genres": ["Alternative Rock"],
+    "tracks": [
+      { "side": "A", "title": "Politik" },
+      { "side": "A", "title": "In My Place" },
+      { "side": "A", "title": "God Put a Smile upon Your Face" },
+      { "side": "A", "title": "The Scientist" },
+      { "side": "A", "title": "Clocks" },
+      { "side": "B", "title": "Daylight" },
+      { "side": "B", "title": "Green Eyes" },
+      { "side": "B", "title": "Warning Sign" },
+      { "side": "B", "title": "A Whisper" },
+      { "side": "B", "title": "A Rush of Blood to the Head" },
+      { "side": "B", "title": "Amsterdam" }
+    ]
   },
   {
     "artwork": "images/count-basie-and-benny-goodman-from-broadway-to-paris.jpg",
@@ -187,7 +447,29 @@
     "title": "From Broadway to Paris",
     "year": 1973,
     "rating": 5,
-    "genres": ["Jazz", "Big Band", "Swing"]
+    "genres": ["Jazz", "Big Band", "Swing"],
+    "tracks": [
+      { "side": "A", "title": "Hello, Young Lovers" },
+      { "side": "A", "title": "Just in Time" },
+      { "side": "A", "title": "Mame" },
+      { "side": "A", "title": "On a Clear Day (You Can See Forever)" },
+      { "side": "A", "title": "It's All Right with Me" },
+      { "side": "B", "title": "On the Street Where You Live" },
+      { "side": "B", "title": "From This Moment On" },
+      { "side": "B", "title": "Baubles, Bangles and Beads" },
+      { "side": "B", "title": "People" },
+      { "side": "B", "title": "Everything's Coming Up Roses" },
+      { "side": "C", "title": "Autumn Leaves" },
+      { "side": "C", "title": "I Love Paris" },
+      { "side": "C", "title": "April in Paris" },
+      { "side": "C", "title": "A Man and a Woman" },
+      { "side": "C", "title": "C'est Magnifique" },
+      { "side": "D", "title": "Petite Fleur (Little Flower)" },
+      { "side": "D", "title": "Mimi" },
+      { "side": "D", "title": "C'est Si Bon" },
+      { "side": "D", "title": "Under Paris Skies" },
+      { "side": "D", "title": "I Will Wait for You" }
+    ]
   },
   {
     "artwork": "images/crosby-stills-nash-crosby-stills-nash.jpg",
@@ -195,7 +477,19 @@
     "title": "Crosby, Stills & Nash",
     "year": 1969,
     "rating": 5,
-    "genres": ["Folk Rock"]
+    "genres": ["Folk Rock"],
+    "tracks": [
+      { "side": "A", "title": "Suite: Judy Blue Eyes" },
+      { "side": "A", "title": "Marrakesh Express" },
+      { "side": "A", "title": "Guinnevere" },
+      { "side": "A", "title": "You Don't Have to Cry" },
+      { "side": "A", "title": "Pre-Road Downs" },
+      { "side": "B", "title": "Wooden Ships" },
+      { "side": "B", "title": "Lady of the Island" },
+      { "side": "B", "title": "Helplessly Hoping" },
+      { "side": "B", "title": "Long Time Gone" },
+      { "side": "B", "title": "49 Bye-Byes" }
+    ]
   },
   {
     "artwork": "images/crosby-stills-nash-csn.jpg",
@@ -203,7 +497,21 @@
     "title": "CSN",
     "year": 1977,
     "rating": 5,
-    "genres": ["Folk Rock", "Soft Rock"]
+    "genres": ["Folk Rock", "Soft Rock"],
+    "tracks": [
+      { "side": "A", "title": "Shadow Captain" },
+      { "side": "A", "title": "See the Changes" },
+      { "side": "A", "title": "Carried Away" },
+      { "side": "A", "title": "Fair Game" },
+      { "side": "A", "title": "Anything at All" },
+      { "side": "A", "title": "Cathedral" },
+      { "side": "B", "title": "Dark Star" },
+      { "side": "B", "title": "Just a Song Before I Go" },
+      { "side": "B", "title": "Run from Tears" },
+      { "side": "B", "title": "Cold Rain" },
+      { "side": "B", "title": "In My Dreams" },
+      { "side": "B", "title": "I Give You Give Blind" }
+    ]
   },
   {
     "artwork": "images/crosby-stills-nash-young-deja-vu.jpg",
@@ -211,7 +519,19 @@
     "title": "Deja Vu",
     "year": 1970,
     "rating": 4,
-    "genres": ["Folk Rock"]
+    "genres": ["Folk Rock"],
+    "tracks": [
+      { "side": "A", "title": "Carry On" },
+      { "side": "A", "title": "Teach Your Children" },
+      { "side": "A", "title": "Almost Cut My Hair" },
+      { "side": "A", "title": "Helpless" },
+      { "side": "A", "title": "Woodstock" },
+      { "side": "B", "title": "Deja Vu" },
+      { "side": "B", "title": "Our House" },
+      { "side": "B", "title": "4 + 20" },
+      { "side": "B", "title": "Country Girl" },
+      { "side": "B", "title": "Everybody I Love You" }
+    ]
   },
   {
     "artwork": "images/david-gilmour-david-gilmour.jpg",
@@ -219,7 +539,18 @@
     "title": "David Gilmour",
     "year": 1978,
     "rating": 5,
-    "genres": ["Rock", "Progressive Rock"]
+    "genres": ["Rock", "Progressive Rock"],
+    "tracks": [
+      { "side": "A", "title": "Mihalis" },
+      { "side": "A", "title": "There's No Way Out of Here" },
+      { "side": "A", "title": "Cry from the Street" },
+      { "side": "A", "title": "So Far Away" },
+      { "side": "B", "title": "Short and Sweet" },
+      { "side": "B", "title": "Raise My Rent" },
+      { "side": "B", "title": "No Way" },
+      { "side": "B", "title": "Deafinitely" },
+      { "side": "B", "title": "I Can't Breathe Anymore" }
+    ]
   },
   {
     "artwork": "images/david-gilmour-rattle-that-lock.jpg",
@@ -228,7 +559,19 @@
     "year": 2015,
     "rating": 3,
     "genres": ["Rock", "Progressive Rock"],
-    "notes": "It's ok, but Caylon got it for me for my birthday; track pick: \"A Boat Lies Waiting\""
+    "notes": "It's ok, but Caylon got it for me for my birthday; track pick: \"A Boat Lies Waiting\"",
+    "tracks": [
+      { "side": "A", "title": "5 A.M." },
+      { "side": "A", "title": "Rattle That Lock" },
+      { "side": "A", "title": "Faces of Stone" },
+      { "side": "A", "title": "A Boat Lies Waiting" },
+      { "side": "A", "title": "Dancing Right in Front of Me" },
+      { "side": "B", "title": "In Any Tongue" },
+      { "side": "B", "title": "Beauty" },
+      { "side": "B", "title": "The Girl in the Yellow Dress" },
+      { "side": "B", "title": "Today" },
+      { "side": "B", "title": "And Then..." }
+    ]
   },
   {
     "artwork": "images/dire-straits-making-movies.jpg",
@@ -236,7 +579,16 @@
     "title": "Making Movies",
     "year": 1980,
     "rating": 3,
-    "genres": ["Rock"]
+    "genres": ["Rock"],
+    "tracks": [
+      { "side": "A", "title": "Tunnel of Love" },
+      { "side": "A", "title": "Romeo and Juliet" },
+      { "side": "A", "title": "Skateaway" },
+      { "side": "B", "title": "Expresso Love" },
+      { "side": "B", "title": "Hand in Hand" },
+      { "side": "B", "title": "Solid Rock" },
+      { "side": "B", "title": "Les Boys" }
+    ]
   },
   {
     "artwork": "images/the-doobie-brothers-minute-by-minute.jpg",
@@ -244,7 +596,19 @@
     "title": "Minute by Minute",
     "year": 1978,
     "rating": 5,
-    "genres": ["Yacht Rock", "Soft Rock"]
+    "genres": ["Yacht Rock", "Soft Rock"],
+    "tracks": [
+      { "side": "A", "title": "Here to Love You" },
+      { "side": "A", "title": "What a Fool Believes" },
+      { "side": "A", "title": "Minute by Minute" },
+      { "side": "A", "title": "Dependin' on You" },
+      { "side": "A", "title": "Don't Stop to Watch the Wheels" },
+      { "side": "B", "title": "Open Your Eyes" },
+      { "side": "B", "title": "Sweet Feelin'" },
+      { "side": "B", "title": "Steamer Lane Breakdown" },
+      { "side": "B", "title": "You Never Change" },
+      { "side": "B", "title": "How Do the Fools Survive?" }
+    ]
   },
   {
     "artwork": "images/doris-day-love-him.jpg",
@@ -252,7 +616,20 @@
     "title": "Love Him",
     "year": 1963,
     "rating": 3,
-    "genres": ["Pop", "Vocal Jazz"]
+    "genres": ["Pop", "Vocal Jazz"],
+    "tracks": [
+      { "side": "A", "title": "More (Theme from the Film \"Mondo Cane\")" },
+      { "side": "A", "title": "Can't Help Falling in Love" },
+      { "side": "A", "title": "Since I Fell for You" },
+      { "side": "A", "title": "Losing You" },
+      { "side": "A", "title": "(Now and Then There's) A Fool Such as I" },
+      { "side": "A", "title": "As Long as He Needs Me (From the Broadway Musical \"Oliver!\")" },
+      { "side": "B", "title": "Night Life" },
+      { "side": "B", "title": "Funny" },
+      { "side": "B", "title": "Softly, as I Leave You" },
+      { "side": "B", "title": "Lollipops and Roses" },
+      { "side": "B", "title": "Love Him" }
+    ]
   },
   {
     "artwork": "images/eagles-their-greatest-hits-1971-1975.jpg",
@@ -260,7 +637,19 @@
     "title": "Their Greatest Hits 1971-1975",
     "year": 1976,
     "rating": 5,
-    "genres": ["Country Rock", "Rock"]
+    "genres": ["Country Rock", "Rock"],
+    "tracks": [
+      { "side": "A", "title": "Take It Easy" },
+      { "side": "A", "title": "Witchy Woman" },
+      { "side": "A", "title": "Lyin' Eyes" },
+      { "side": "A", "title": "Already Gone" },
+      { "side": "A", "title": "Desperado" },
+      { "side": "B", "title": "One of These Nights" },
+      { "side": "B", "title": "Tequila Sunrise" },
+      { "side": "B", "title": "Take It to the Limit" },
+      { "side": "B", "title": "Peaceful Easy Feeling" },
+      { "side": "B", "title": "Best of My Love" }
+    ]
   },
   {
     "artwork": "images/eagles-the-long-run.jpg",
@@ -269,7 +658,19 @@
     "year": 1979,
     "rating": 3,
     "genres": ["Rock", "Country Rock"],
-    "notes": "track pick: \"I Can't Tell You Why\""
+    "notes": "track pick: \"I Can't Tell You Why\"",
+    "tracks": [
+      { "side": "A", "title": "The Long Run" },
+      { "side": "A", "title": "I Can't Tell You Why" },
+      { "side": "A", "title": "In the City" },
+      { "side": "A", "title": "The Disco Strangler" },
+      { "side": "A", "title": "King of Hollywood" },
+      { "side": "B", "title": "Heartache Tonight" },
+      { "side": "B", "title": "Those Shoes" },
+      { "side": "B", "title": "Teenage Jail" },
+      { "side": "B", "title": "The Greeks Don't Want No Freaks" },
+      { "side": "B", "title": "The Sad Cafe" }
+    ]
   },
   {
     "artwork": "images/earl-klugh-and-bob-james-two-of-a-kind.jpg",
@@ -278,7 +679,15 @@
     "year": 1982,
     "rating": 4,
     "genres": ["Smooth Jazz", "Jazz"],
-    "notes": "Good, groovy jazz"
+    "notes": "Good, groovy jazz",
+    "tracks": [
+      { "side": "A", "title": "Whiplash" },
+      { "side": "A", "title": "Where I Wander" },
+      { "side": "A", "title": "Ingenue" },
+      { "side": "B", "title": "The Falcon" },
+      { "side": "B", "title": "Sandstorm" },
+      { "side": "B", "title": "Wes" }
+    ]
   },
   {
     "artwork": "images/earth-wind-fire-the-best-of-earth-wind-fire-vol-1.jpg",
@@ -287,7 +696,19 @@
     "year": 1978,
     "rating": 5,
     "genres": ["Funk", "R&B", "Soul", "Disco"],
-    "notes": "Dance parties"
+    "notes": "Dance parties",
+    "tracks": [
+      { "side": "A", "title": "Got to Get You into My Life" },
+      { "side": "A", "title": "Fantasy" },
+      { "side": "A", "title": "Can't Hide Love" },
+      { "side": "A", "title": "Love Music" },
+      { "side": "A", "title": "Getaway" },
+      { "side": "B", "title": "That's the Way of the World" },
+      { "side": "B", "title": "September" },
+      { "side": "B", "title": "Shining Star" },
+      { "side": "B", "title": "Reasons" },
+      { "side": "B", "title": "Sing a Song" }
+    ]
   },
   {
     "artwork": "images/earth-wind-fire-i-am.jpg",
@@ -295,7 +716,18 @@
     "title": "I Am",
     "year": 1979,
     "rating": 4,
-    "genres": ["Funk", "R&B", "Disco"]
+    "genres": ["Funk", "R&B", "Disco"],
+    "tracks": [
+      { "side": "A", "title": "In the Stone" },
+      { "side": "A", "title": "Can't Let Go" },
+      { "side": "A", "title": "After the Love Has Gone" },
+      { "side": "A", "title": "Let Your Feelings Show" },
+      { "side": "B", "title": "Boogie Wonderland" },
+      { "side": "B", "title": "Star" },
+      { "side": "B", "title": "Wait" },
+      { "side": "B", "title": "Rock That!" },
+      { "side": "B", "title": "You and I" }
+    ]
   },
   {
     "artwork": "images/elton-john-honky-chateau.jpg",
@@ -303,7 +735,19 @@
     "title": "Honky Chateau",
     "year": 1972,
     "rating": 5,
-    "genres": ["Rock", "Pop Rock"]
+    "genres": ["Rock", "Pop Rock"],
+    "tracks": [
+      { "side": "A", "title": "Honky Cat" },
+      { "side": "A", "title": "Mellow" },
+      { "side": "A", "title": "I Think I'm Going to Kill Myself" },
+      { "side": "A", "title": "Susie (Dramas)" },
+      { "side": "A", "title": "Rocket Man (I Think It's Going to Be a Long, Long Time)" },
+      { "side": "B", "title": "Salvation" },
+      { "side": "B", "title": "Slave" },
+      { "side": "B", "title": "Amy" },
+      { "side": "B", "title": "Mona Lisas and Mad Hatters" },
+      { "side": "B", "title": "Hercules" }
+    ]
   },
   {
     "artwork": "images/elvis-presley-aloha-from-hawaii-via-satellite.jpg",
@@ -311,7 +755,33 @@
     "title": "Aloha from Hawaii via Satellite",
     "year": 1973,
     "rating": 5,
-    "genres": ["Rock and Roll", "Rock"]
+    "genres": ["Rock and Roll", "Rock"],
+    "tracks": [
+      { "side": "A", "title": "Introduction: Also Sprach Zarathustra (Theme from 2001: A Space Odyssey)" },
+      { "side": "A", "title": "See See Rider" },
+      { "side": "A", "title": "Burning Love" },
+      { "side": "A", "title": "Something" },
+      { "side": "A", "title": "You Gave Me a Mountain" },
+      { "side": "A", "title": "Steamroller Blues" },
+      { "side": "B", "title": "My Way" },
+      { "side": "B", "title": "Love Me" },
+      { "side": "B", "title": "Johnny B. Goode" },
+      { "side": "B", "title": "It's Over" },
+      { "side": "B", "title": "Blue Suede Shoes" },
+      { "side": "B", "title": "I'm So Lonesome I Could Cry" },
+      { "side": "B", "title": "I Can't Stop Loving You" },
+      { "side": "B", "title": "Hound Dog" },
+      { "side": "C", "title": "What Now My Love" },
+      { "side": "C", "title": "Fever" },
+      { "side": "C", "title": "Welcome to My World" },
+      { "side": "C", "title": "Suspicious Minds" },
+      { "side": "C", "title": "Introductions by Elvis" },
+      { "side": "D", "title": "I'll Remember You" },
+      { "side": "D", "title": "Medley: Long Tall Sally / Whole Lotta Shakin' Goin' On" },
+      { "side": "D", "title": "American Trilogy" },
+      { "side": "D", "title": "A Big Hunk o' Love" },
+      { "side": "D", "title": "Can't Help Falling in Love" }
+    ]
   },
   {
     "artwork": "images/emerson-lake-palmer-the-best-of-emerson-lake-palmer.jpg",
@@ -320,7 +790,18 @@
     "year": 1972,
     "rating": 3,
     "genres": ["Progressive Rock"],
-    "notes": "track pick: \"Lucky Man\""
+    "notes": "track pick: \"Lucky Man\"",
+    "tracks": [
+      { "side": "A", "title": "Hoedown" },
+      { "side": "A", "title": "Lucky Man" },
+      { "side": "A", "title": "Karn Evil 9: 1st Impression, Part 2" },
+      { "side": "A", "title": "Jerusalem" },
+      { "side": "B", "title": "Peter Gunn Theme" },
+      { "side": "B", "title": "Fanfare for the Common Man" },
+      { "side": "B", "title": "Still... You Turn Me On" },
+      { "side": "B", "title": "Tiger in a Spotlight" },
+      { "side": "B", "title": "Trilogy" }
+    ]
   },
   {
     "artwork": "images/erykah-badu-baduizm.jpg",
@@ -328,7 +809,23 @@
     "title": "Baduizm",
     "year": 1997,
     "rating": 5,
-    "genres": ["Neo-Soul", "R&B"]
+    "genres": ["Neo-Soul", "R&B"],
+    "tracks": [
+      { "side": "A", "title": "Rimshot (Intro)" },
+      { "side": "A", "title": "On & On" },
+      { "side": "A", "title": "Appletree" },
+      { "side": "A", "title": "Otherside of the Game" },
+      { "side": "B", "title": "Sometimes (Mix #9)" },
+      { "side": "B", "title": "Next Lifetime" },
+      { "side": "B", "title": "Afro (Freestyle Skit)" },
+      { "side": "B", "title": "Certainly" },
+      { "side": "C", "title": "4 Leaf Clover" },
+      { "side": "C", "title": "No Love" },
+      { "side": "C", "title": "Drama" },
+      { "side": "D", "title": "Sometimes" },
+      { "side": "D", "title": "Certainly (Flipped It)" },
+      { "side": "D", "title": "Rimshot (Outro)" }
+    ]
   },
   {
     "artwork": "images/erykah-badu-new-amerykah-part-two-return-of-the-ankh.jpg",
@@ -336,7 +833,20 @@
     "title": "New Amerykah Part Two (Return of the Ankh)",
     "year": 2010,
     "rating": 4,
-    "genres": ["Neo-Soul", "R&B"]
+    "genres": ["Neo-Soul", "R&B"],
+    "tracks": [
+      { "side": "A", "title": "20 Feet Tall" },
+      { "side": "A", "title": "Window Seat" },
+      { "side": "A", "title": "Agitation" },
+      { "side": "B", "title": "Turn Me Away (Get MuNNY)" },
+      { "side": "B", "title": "Gone Baby, Don't Be Long" },
+      { "side": "B", "title": "Umm Hmm" },
+      { "side": "C", "title": "Love" },
+      { "side": "C", "title": "You Loving Me (Session)" },
+      { "side": "C", "title": "Fall in Love (Your Funeral)" },
+      { "side": "D", "title": "Incense" },
+      { "side": "D", "title": "Out My Mind, Just in Time" }
+    ]
   },
   {
     "artwork": "images/erykah-badu-worldwide-underground.jpg",
@@ -344,6 +854,17 @@
     "title": "Worldwide Underground",
     "year": 2003,
     "rating": 3,
-    "genres": ["Neo-Soul", "R&B"]
+    "genres": ["Neo-Soul", "R&B"],
+    "tracks": [
+      { "side": "A", "title": "Intro (World Keeps Turnin')" },
+      { "side": "A", "title": "Bump It (Part 1 & 2)" },
+      { "side": "A", "title": "Back in the Day (Puff)" },
+      { "side": "A", "title": "I Want You" },
+      { "side": "B", "title": "Woo" },
+      { "side": "B", "title": "The Grind" },
+      { "side": "B", "title": "Danger" },
+      { "side": "B", "title": "Think Twice" },
+      { "side": "B", "title": "Love of My Life Worldwide" }
+    ]
   }
 ]
