@@ -194,18 +194,21 @@ function syncFilterSheet(state) {
 }
 
 function renderCard(record) {
+  const id = escapeHtml(record.id);
   const title = escapeHtml(record.title);
   const artist = escapeHtml(record.artist);
   const artwork = escapeHtml(record.artwork);
   const ratingLabel = `Rated ${record.rating} out of 5`;
   return `
-    <li class="card" data-id="${escapeHtml(record.id)}">
-      <img class="card-art" src="${artwork}" alt="${title} by ${artist}" loading="lazy" width="96" height="96" />
-      <div class="card-body">
-        <h2 class="card-title">${title}</h2>
-        <p class="card-artist">${artist}</p>
-        <p class="card-rating" aria-label="${ratingLabel}"><span aria-hidden="true">${stars(record.rating)}</span></p>
-      </div>
+    <li class="card" data-id="${id}">
+      <a href="#/record/${id}" class="card-link">
+        <img class="card-art" src="${artwork}" alt="${title} by ${artist}" loading="lazy" width="96" height="96" />
+        <div class="card-body">
+          <h2 class="card-title">${title}</h2>
+          <p class="card-artist">${artist}</p>
+          <p class="card-rating" aria-label="${ratingLabel}"><span aria-hidden="true">${stars(record.rating)}</span></p>
+        </div>
+      </a>
     </li>
   `;
 }

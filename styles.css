@@ -166,14 +166,20 @@ img {
 }
 
 .card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.card-link {
   display: flex;
   align-items: center;
   gap: var(--space-3);
   min-height: var(--tap-target);
   padding: var(--space-3);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
 }
 
 .card-art {
