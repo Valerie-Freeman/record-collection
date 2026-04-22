@@ -86,11 +86,20 @@ if (state.error) {
   const filterSheetBody = document.getElementById("filter-sheet-body");
   const filterChips = document.getElementById("filter-chips");
 
+  let filterReturnFocus = null;
+
   function setSheetOpen(open) {
     if (!filterSheet || !filterOpen) return;
     filterSheet.hidden = !open;
     filterOpen.setAttribute("aria-expanded", open ? "true" : "false");
     document.body.classList.toggle("sheet-open", open);
+    if (open) {
+      filterReturnFocus = document.activeElement;
+      filterClose?.focus();
+    } else if (filterReturnFocus instanceof HTMLElement) {
+      filterReturnFocus.focus();
+      filterReturnFocus = null;
+    }
   }
 
   function coerce(category, value) {
@@ -195,8 +204,41 @@ if (state.error) {
     }, { passive: true });
   }
 
+  let detailReturnFocusSelector = null;
+
   startRouter((route) => {
-    state.openRecordId = route.type === "record" ? route.id : null;
+    const prevId = state.openRecordId;
+    const nextId = route.type === "record" ? route.id : null;
+
+    if (!prevId && nextId) {
+      const card = document.activeElement?.closest?.(".card");
+      detailReturnFocusSelector = card?.dataset.id
+        ? `.card[data-id="${CSS.escape(card.dataset.id)}"] .card-link`
+        : null;
+    }
+
+    state.openRecordId = nextId;
     render(state);
+
+    if (!prevId && nextId) {
+      document.getElementById("detail-close")?.focus();
+    } else if (prevId && !nextId) {
+      const target = detailReturnFocusSelector
+        ? document.querySelector(detailReturnFocusSelector)
+        : null;
+      if (target instanceof HTMLElement) target.focus();
+      detailReturnFocusSelector = null;
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    if (state.openRecordId) {
+      location.hash = "#/";
+      return;
+    }
+    if (filterSheet && !filterSheet.hidden) {
+      setSheetOpen(false);
+    }
   });
 }

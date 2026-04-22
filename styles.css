@@ -4,7 +4,7 @@
   --text: #2a2420;
   --text-muted: #6b5f55;
   --border: #e3d9cc;
-  --accent: #c2673a;
+  --accent: #b3592f;
   --accent-contrast: #ffffff;
 
   --space-1: 0.25rem;
@@ -98,7 +98,7 @@ img {
   gap: var(--space-2);
 }
 
-.surprise-btn:focus {
+.surprise-btn:focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 2px;
 }
@@ -143,7 +143,7 @@ img {
   appearance: none;
 }
 
-.search-input:focus {
+.search-input:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
@@ -182,7 +182,7 @@ img {
   appearance: none;
 }
 
-.sort-select:focus {
+.sort-select:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
@@ -200,7 +200,7 @@ img {
   cursor: pointer;
 }
 
-.sort-dir:focus {
+.sort-dir:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
@@ -247,7 +247,7 @@ img {
   cursor: pointer;
 }
 
-.error-reload:focus {
+.error-reload:focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 2px;
 }
@@ -281,7 +281,7 @@ img {
   cursor: pointer;
 }
 
-.empty-clear:focus {
+.empty-clear:focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 2px;
 }
@@ -375,7 +375,7 @@ img {
   cursor: pointer;
 }
 
-.filter-open:focus {
+.filter-open:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
@@ -407,7 +407,7 @@ img {
   cursor: pointer;
 }
 
-.chip:focus {
+.chip:focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 1px;
 }
@@ -429,7 +429,7 @@ img {
   cursor: pointer;
 }
 
-.chip-clear:focus {
+.chip-clear:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
@@ -520,7 +520,7 @@ body.sheet-open::before {
   text-align: left;
 }
 
-.filter-group-header:focus {
+.filter-group-header:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
@@ -601,7 +601,7 @@ body.sheet-open::before {
   border-color: var(--accent);
 }
 
-.pill:focus {
+.pill:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
@@ -625,9 +625,9 @@ body.sheet-open::before {
   border-color: var(--accent);
 }
 
-.filter-close:focus,
-.filter-clear:focus,
-.filter-done:focus {
+.filter-close:focus-visible,
+.filter-clear:focus-visible,
+.filter-done:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
@@ -687,7 +687,7 @@ body.detail-open::before {
   cursor: pointer;
 }
 
-.detail-close:focus {
+.detail-close:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
