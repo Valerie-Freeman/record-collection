@@ -133,6 +133,22 @@ function renderChips(state) {
   `;
 }
 
+export function installArtworkFallback() {
+  document.addEventListener(
+    "error",
+    (e) => {
+      const img = e.target;
+      if (!(img instanceof HTMLImageElement)) return;
+      if (!img.matches(".card-art, .detail-art")) return;
+      const fallback = document.createElement("div");
+      fallback.className = `${img.className} artwork-fallback`;
+      fallback.textContent = img.dataset.fallbackTitle || "";
+      img.replaceWith(fallback);
+    },
+    true
+  );
+}
+
 export function buildFilterSheet(state) {
   const body = document.getElementById("filter-sheet-body");
   if (!body) return;
@@ -202,7 +218,7 @@ function renderCard(record) {
   return `
     <li class="card" data-id="${id}">
       <a href="#/record/${id}" class="card-link">
-        <img class="card-art" src="${artwork}" alt="${title} by ${artist}" loading="lazy" width="96" height="96" />
+        <img class="card-art" src="${artwork}" alt="${title} by ${artist}" loading="lazy" width="96" height="96" data-fallback-title="${title}" />
         <div class="card-body">
           <h2 class="card-title">${title}</h2>
           <p class="card-artist">${artist}</p>
@@ -280,6 +296,7 @@ function renderDetailSheet(state) {
           alt="${escapeHtml(record.title)} by ${escapeHtml(record.artist)}"
           width="300"
           height="300"
+          data-fallback-title="${escapeHtml(record.title)}"
         />
         <div class="detail-info">
           <h2 id="detail-title" class="detail-title">${escapeHtml(record.title)}</h2>
@@ -309,9 +326,13 @@ export function render(state) {
     if (main) {
       main.innerHTML = `
         <div class="error-state" role="alert">
-          <p>Couldn't load the collection. Try refreshing.</p>
+          <p class="error-state-message">Couldn't load the collection.</p>
+          <p class="error-state-hint">Check your connection and try again.</p>
+          <button id="error-reload" type="button" class="error-reload">Reload</button>
         </div>
       `;
+      const reload = document.getElementById("error-reload");
+      reload?.addEventListener("click", () => location.reload());
     }
     return;
   }
@@ -323,16 +344,21 @@ export function render(state) {
     countEl.textContent = String(visible.length);
   }
 
+  const empty = visible.length === 0;
+
   const list = document.getElementById("record-list");
   if (list) {
-    list.innerHTML = visible.map(renderCard).join("");
+    list.hidden = empty;
+    list.innerHTML = empty ? "" : visible.map(renderCard).join("");
   }
+
+  const emptyState = document.getElementById("empty-state");
+  if (emptyState) emptyState.hidden = !empty;
 
   const surpriseBtn = document.getElementById("surprise-me");
   const surpriseHint = document.getElementById("surprise-hint");
-  const empty = visible.length === 0;
   if (surpriseBtn) surpriseBtn.disabled = empty;
-  if (surpriseHint) surpriseHint.hidden = !empty;
+  if (surpriseHint) surpriseHint.hidden = true;
 
   renderChips(state);
   syncFilterSheet(state);

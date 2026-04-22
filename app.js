@@ -1,5 +1,5 @@
 import { loadCollection } from "./data.js";
-import { render, buildFilterSheet } from "./render.js";
+import { render, buildFilterSheet, installArtworkFallback } from "./render.js";
 import { startRouter } from "./router.js";
 import { visibleRecords } from "./filter.js";
 
@@ -32,6 +32,7 @@ try {
 if (state.error) {
   render(state);
 } else {
+  installArtworkFallback();
   buildFilterSheet(state);
 
   const searchInput = document.getElementById("search-input");
@@ -102,6 +103,19 @@ if (state.error) {
     state.filters.genres.clear();
     state.filters.ratings.clear();
   }
+
+  function resetSearchAndFilters() {
+    clearAllFilters();
+    state.search = "";
+    const input = document.getElementById("search-input");
+    if (input) input.value = "";
+  }
+
+  const emptyClear = document.getElementById("empty-clear");
+  emptyClear?.addEventListener("click", () => {
+    resetSearchAndFilters();
+    render(state);
+  });
 
   if (filterOpen && filterSheet) {
     filterOpen.addEventListener("click", () => setSheetOpen(true));
