@@ -4,6 +4,10 @@ This project is a static, no-backend record collection browser. I (the owner) wi
 
 When I ask you to make app changes rather than data changes, read [dev-docs/PRD.md](dev-docs/PRD.md), [dev-docs/ARCHITECTURE.md](dev-docs/ARCHITECTURE.md), and any ADRs in [dev-docs/adrs/](dev-docs/adrs/) first. Those docs are the source of truth for what to build and how. This file is scoped specifically to data work.
 
+## UI testing
+
+Any UI change must be verified with Playwright before being reported as complete. Always set the viewport to **390x844** (iPhone 14 size) before taking screenshots or checking layout -- this is a mobile-first site and desktop rendering is not a reliable signal for whether the UI is correct.
+
 ## The canonical-list invariant (read this first)
 
 Three data files live at the repo root and move together:

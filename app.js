@@ -153,6 +153,25 @@ if (state.error) {
     });
   }
 
+  const detailClose = document.getElementById("detail-close");
+  detailClose?.addEventListener("click", () => {
+    location.hash = "#/";
+  });
+
+  const detailSheet = document.getElementById("detail-sheet");
+  if (detailSheet) {
+    let touchStartY = 0;
+    detailSheet.addEventListener("touchstart", (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    detailSheet.addEventListener("touchend", (e) => {
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (dy > 80 && detailSheet.scrollTop === 0) {
+        location.hash = "#/";
+      }
+    }, { passive: true });
+  }
+
   startRouter((route) => {
     state.openRecordId = route.type === "record" ? route.id : null;
     render(state);
