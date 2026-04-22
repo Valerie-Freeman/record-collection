@@ -1,0 +1,114 @@
+:root {
+  --pastel-lavender: #d4b5e4;
+  --pastel-rose: #e5bdbe;
+  --pastel-gray: #ebebeb;
+  --paper: #fffffc;
+
+  --bg: var(--pastel-gray);
+  --surface: rgba(255, 255, 252, 0.55);
+  --surface-strong: rgba(255, 255, 252, 0.78);
+  --surface-solid: #fffffc;
+  --text: #2d2535;
+  --text-muted: #6b5e78;
+  --border: rgba(255, 255, 255, 0.55);
+  --border-soft: rgba(45, 37, 53, 0.08);
+  --accent: #7a5a8e;
+  --accent-soft: rgba(122, 90, 142, 0.18);
+  --accent-contrast: #ffffff;
+
+  --glass-blur: saturate(140%) blur(18px);
+  --glass-shadow: 0 1px 2px rgba(45, 37, 53, 0.04),
+    0 8px 24px rgba(122, 90, 142, 0.1);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+
+  --radius: 0.85rem;
+  --tap-target: 44px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--text);
+  background: var(--pastel-gray);
+  background-image:
+    radial-gradient(at 12% 0%, var(--pastel-lavender) 0%, transparent 55%),
+    radial-gradient(at 90% 18%, var(--pastel-rose) 0%, transparent 50%),
+    radial-gradient(at 50% 100%, var(--pastel-lavender) 0%, transparent 60%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.record-count {
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+body.sheet-open,
+body.detail-open {
+  overflow: hidden;
+}
+
+body.sheet-open::before,
+body.detail-open::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(45, 37, 53, 0.35);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 10;
+}
