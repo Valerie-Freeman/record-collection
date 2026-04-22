@@ -159,8 +159,8 @@
 }
 
 .pill[aria-pressed="true"] {
-  color: var(--accent-contrast);
-  background: var(--accent);
+  color: var(--text);
+  background: var(--accent-soft);
   border-color: var(--accent);
 }
 
@@ -185,8 +185,8 @@
 }
 
 .filter-done {
-  color: var(--accent-contrast);
-  background: var(--accent);
+  color: var(--text);
+  background: var(--accent-soft);
   border-color: var(--accent);
 }
 

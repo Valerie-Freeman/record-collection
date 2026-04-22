@@ -1,24 +1,26 @@
 :root {
   --pastel-lavender: #d4b5e4;
   --pastel-rose: #e5bdbe;
-  --pastel-gray: #ebebeb;
+  --pastel-gray: #ebe8e4;
   --paper: #fffffc;
 
   --bg: var(--pastel-gray);
-  --surface: rgba(255, 255, 252, 0.55);
-  --surface-strong: rgba(255, 255, 252, 0.78);
+  --surface: rgba(255, 255, 252, 0.3);
+  --surface-control: rgba(255, 255, 252, 0.5);
+  --surface-strong: rgba(255, 255, 252, 0.85);
   --surface-solid: #fffffc;
   --text: #2d2535;
   --text-muted: #6b5e78;
-  --border: rgba(255, 255, 255, 0.55);
+  --border: rgba(255, 255, 255, 0.6);
   --border-soft: rgba(45, 37, 53, 0.08);
   --accent: #7a5a8e;
-  --accent-soft: rgba(122, 90, 142, 0.18);
+  --accent-soft: rgba(122, 90, 142, 0.16);
   --accent-contrast: #ffffff;
+  --hero-gradient: linear-gradient(135deg, var(--pastel-lavender), var(--pastel-rose));
 
   --glass-blur: saturate(140%) blur(18px);
   --glass-shadow: 0 1px 2px rgba(45, 37, 53, 0.04),
-    0 8px 24px rgba(122, 90, 142, 0.1);
+    0 8px 24px rgba(122, 90, 142, 0.08);
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -27,6 +29,7 @@
   --space-5: 1.5rem;
 
   --radius: 0.85rem;
+  --radius-control: 1.2rem;
   --tap-target: 44px;
 }
 
@@ -50,9 +53,9 @@ body {
   color: var(--text);
   background: var(--pastel-gray);
   background-image:
-    radial-gradient(at 12% 0%, var(--pastel-lavender) 0%, transparent 55%),
-    radial-gradient(at 90% 18%, var(--pastel-rose) 0%, transparent 50%),
-    radial-gradient(at 50% 100%, var(--pastel-lavender) 0%, transparent 60%);
+    radial-gradient(900px circle at -10% -15%, rgba(212, 181, 228, 0.5), transparent 60%),
+    radial-gradient(700px circle at 115% -5%, rgba(229, 189, 190, 0.42), transparent 60%),
+    radial-gradient(1100px circle at 55% 115%, rgba(212, 181, 228, 0.3), transparent 65%);
   background-attachment: fixed;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;

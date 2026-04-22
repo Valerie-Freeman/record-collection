@@ -18,29 +18,28 @@
       >
     </header>
     <main>
-      <div class="surprise-bar">
+      <div class="top-bar">
+        <input
+          id="search-input"
+          class="search-input"
+          type="search"
+          placeholder="Search..."
+          aria-label="Search artist or title"
+          autocomplete="off"
+        />
         <button
           id="surprise-me"
           class="surprise-btn"
           type="button"
           aria-describedby="surprise-hint"
         >
-          <span>Surprise me</span>
+          <span>Random</span>
+          <span class="surprise-play" aria-hidden="true">▶</span>
         </button>
-        <p id="surprise-hint" class="surprise-hint" hidden>
-          Adjust filters to get a pick.
-        </p>
       </div>
-      <div class="search-bar">
-        <input
-          id="search-input"
-          class="search-input"
-          type="search"
-          placeholder="Search artist or title"
-          aria-label="Search artist or title"
-          autocomplete="off"
-        />
-      </div>
+      <p id="surprise-hint" class="surprise-hint" hidden>
+        Adjust filters to get a pick.
+      </p>
       <div class="sort-bar">
         <label class="sort-field">
           <span class="sort-label">Sort</span>
