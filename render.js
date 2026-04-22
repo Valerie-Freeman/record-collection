@@ -328,6 +328,12 @@ export function render(state) {
     list.innerHTML = visible.map(renderCard).join("");
   }
 
+  const surpriseBtn = document.getElementById("surprise-me");
+  const surpriseHint = document.getElementById("surprise-hint");
+  const empty = visible.length === 0;
+  if (surpriseBtn) surpriseBtn.disabled = empty;
+  if (surpriseHint) surpriseHint.hidden = !empty;
+
   renderChips(state);
   syncFilterSheet(state);
   renderDetailSheet(state);

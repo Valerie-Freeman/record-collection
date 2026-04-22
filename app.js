@@ -1,6 +1,7 @@
 import { loadCollection } from "./data.js";
 import { render, buildFilterSheet } from "./render.js";
 import { startRouter } from "./router.js";
+import { visibleRecords } from "./filter.js";
 
 const state = {
   records: [],
@@ -152,6 +153,14 @@ if (state.error) {
       render(state);
     });
   }
+
+  const surpriseBtn = document.getElementById("surprise-me");
+  surpriseBtn?.addEventListener("click", () => {
+    const visible = visibleRecords(state.records, state);
+    if (visible.length === 0) return;
+    const pick = visible[Math.floor(Math.random() * visible.length)];
+    location.hash = `#/record/${pick.id}`;
+  });
 
   const detailClose = document.getElementById("detail-close");
   detailClose?.addEventListener("click", () => {
