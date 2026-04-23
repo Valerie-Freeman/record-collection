@@ -22,8 +22,8 @@
   font-size: 0.9rem;
   font-weight: 600;
   white-space: nowrap;
-  color: var(--text);
-  background: var(--surface-control);
+  color: var(--accent);
+  background: var(--hero-gradient);
   border: 1px solid var(--border);
   border-radius: var(--radius-control);
   backdrop-filter: var(--glass-blur);
@@ -31,7 +31,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: var(--space-2);
   box-shadow: var(--glass-shadow);
 }
@@ -63,8 +63,8 @@
   height: 1.75rem;
   padding-left: 0.1rem;
   border-radius: 999px;
-  background: var(--hero-gradient);
-  color: var(--text);
+  background: var(--surface-control);
+  color: var(--accent);
   font-size: 0.7rem;
   line-height: 1;
 }
