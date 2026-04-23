@@ -1,4 +1,4 @@
-import { escapeHtml, stars } from "./render-helpers.js";
+import { escapeHtml, stars, formatYear } from "./render-helpers.js";
 
 let detailCloseTimer = null;
 
@@ -91,7 +91,7 @@ export function renderDetailSheet(state) {
         <div class="detail-info">
           <h2 id="detail-title" class="detail-title">${escapeHtml(record.title)}</h2>
           <p class="detail-artist">${escapeHtml(record.artist)}</p>
-          <p class="detail-meta">${record.year}</p>
+          <p class="detail-meta">${formatYear(record.year)}</p>
           <p class="detail-rating" aria-label="Rated ${record.rating} out of 5">
             <span aria-hidden="true">${stars(record.rating)}</span>
           </p>

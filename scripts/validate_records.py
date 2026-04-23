@@ -74,12 +74,24 @@ def validate_record(record, index, errors, current_year):
 
     if "year" in record:
         year = record["year"]
-        if not is_int(year):
-            errors.append(f"{label}: 'year' must be an integer")
-        elif not (1900 <= year <= current_year + 1):
-            errors.append(
-                f"{label}: 'year' must be between 1900 and {current_year + 1}, got {year}"
-            )
+        if not isinstance(year, list) or len(year) != 2:
+            errors.append(f"{label}: 'year' must be a [start, end] array of two integers")
+        elif not all(is_int(y) for y in year):
+            errors.append(f"{label}: 'year' entries must be integers")
+        else:
+            start, end = year
+            if start < 1900 or start > current_year + 1:
+                errors.append(
+                    f"{label}: year[0] must be between 1900 and {current_year + 1}, got {start}"
+                )
+            if end < 1900 or end > current_year + 1:
+                errors.append(
+                    f"{label}: year[1] must be between 1900 and {current_year + 1}, got {end}"
+                )
+            if start > end:
+                errors.append(
+                    f"{label}: year start ({start}) must be <= year end ({end})"
+                )
 
     if "rating" in record:
         rating = record["rating"]
@@ -133,9 +145,11 @@ def check_duplicates(records, errors):
         artist = record.get("artist")
         title = record.get("title")
         year = record.get("year")
-        if not (isinstance(artist, str) and isinstance(title, str) and is_int(year)):
+        if not isinstance(artist, str) or not isinstance(title, str):
             continue
-        key = (artist, title, year)
+        if not isinstance(year, list) or len(year) != 2 or not all(is_int(y) for y in year):
+            continue
+        key = (artist, title, year[0], year[1])
         if key in seen:
             first = seen[key] + 1
             errors.append(

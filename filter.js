@@ -12,11 +12,20 @@ export function applySearch(records, query) {
   return records.filter((r) => matchesSearch(r, q));
 }
 
+export function recordDecades(record) {
+  const [start, end] = record.year;
+  const startDecade = Math.floor(start / 10) * 10;
+  const endDecade = Math.floor(end / 10) * 10;
+  const decades = [];
+  for (let d = startDecade; d <= endDecade; d += 10) decades.push(d);
+  return decades;
+}
+
 export function matchesFilters(record, filters) {
   if (filters.artists.size > 0 && !filters.artists.has(record.artist)) return false;
   if (filters.decades.size > 0) {
-    const decade = Math.floor(record.year / 10) * 10;
-    if (!filters.decades.has(decade)) return false;
+    const decades = recordDecades(record);
+    if (!decades.some((d) => filters.decades.has(d))) return false;
   }
   if (filters.genres.size > 0 && !record.genres.some((g) => filters.genres.has(g))) return false;
   if (filters.ratings.size > 0 && !filters.ratings.has(record.rating)) return false;
@@ -34,7 +43,7 @@ export function sortKey(record, field) {
     case "title":
       return record.title.toLowerCase();
     case "year":
-      return record.year;
+      return record.year[0];
     case "rating":
       return record.rating;
     default:

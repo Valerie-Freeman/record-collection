@@ -28,8 +28,18 @@ export function sortedGenres(genres) {
   });
 }
 
+export function formatYear(year) {
+  const [start, end] = year;
+  return start === end ? String(start) : `${start}\u2013${end}`;
+}
+
 export function derivedDecades(records) {
   const set = new Set();
-  for (const r of records) set.add(Math.floor(r.year / 10) * 10);
+  for (const r of records) {
+    const [start, end] = r.year;
+    const startDecade = Math.floor(start / 10) * 10;
+    const endDecade = Math.floor(end / 10) * 10;
+    for (let d = startDecade; d <= endDecade; d += 10) set.add(d);
+  }
   return Array.from(set).sort((a, b) => a - b);
 }

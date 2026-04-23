@@ -27,7 +27,7 @@ Every record's `artist` value must exist in `artists.json` exactly. Every string
   "artwork": "images/the-band.jpg",
   "artist": "The Band",
   "title": "The Band",
-  "year": 1969,
+  "year": [1969, 1969],
   "rating": 5,
   "genres": ["Rock", "Americana"],
   "notes": "Brown album. Winchester pressing.",
@@ -44,7 +44,7 @@ Every record's `artist` value must exist in `artists.json` exactly. Every string
 | artwork  | string   | yes      | Repo-relative path under `images/`, must exist       |
 | artist   | string   | yes      | Must match an `artists.json` entry exactly           |
 | title    | string   | yes      | Album title                                          |
-| year     | integer  | yes      | Year of the music, not the pressing year; 1900 to current year + 1 |
+| year     | [int, int] | yes    | `[start, end]` range of the music, not the pressing year. Both integers 1900 to current year + 1, `start <= end`. Studio albums use `[y, y]`; compilations span earliest to latest source track. See [ADR-002](dev-docs/adrs/002-year-as-range.md). |
 | rating   | integer  | yes      | 1 to 5 inclusive                                     |
 | genres   | string[] | yes      | Non-empty; each must match a `genres.json` entry     |
 | notes    | string   | no       | Free text                                            |
@@ -52,16 +52,16 @@ Every record's `artist` value must exist in `artists.json` exactly. Every string
 
 Do not invent fields like `format`, `label`, `pressing`. Those are explicitly out of scope for v1 (PRD §11).
 
-**Year convention.** Record the year of the music, not the year the physical record was pressed or the compilation assembled. The goal is to capture when the music itself was made; the physical object doesn't matter here.
+**Year convention.** Record the year of the music, not the year the physical record was pressed or the compilation assembled. The goal is to capture when the music itself was made; the physical object doesn't matter here. The field is always a two-element `[start, end]` array, even for single-year records.
 
-- **Studio albums:** use the master (original) release year. If the owner's copy is a later reissue, keep the master year, not the reissue year.
-- **Compilations (greatest hits, best-of records):** use the average year of the source recordings' master releases, or the earliest master if that better reflects when the music was made. Do not use the compilation's own release year. If the tracks span a long period and neither average nor earliest feels right, ask the owner.
+- **Studio albums:** use `[y, y]` where `y` is the master (original) release year. If the owner's copy is a later reissue, keep the master year, not the reissue year.
+- **Compilations (greatest hits, best-of records):** use `[earliest, latest]` spanning the master release years of the source recordings. Do not use the compilation's own release year. If the album cover prints a date range (e.g. "Their Greatest Hits 1971-1975"), trust it. If you can't determine the range from the tracklist, ask the owner.
 
 ## Adding a record
 
 When I say something like "add Revolver by The Beatles, 1966, 5 stars, Rock and Psychedelic":
 
-1. **Check for duplicates.** The `(artist, title, year)` tuple must be unique across the whole collection. If a record with the same tuple already exists, stop and ask me what I want to do.
+1. **Check for duplicates.** The `(artist, title, year[0], year[1])` tuple must be unique across the whole collection. If a record with the same tuple already exists, stop and ask me what I want to do.
 2. **Confirm artwork.** Look for an image I've dropped under `images/`. If you cannot find one, ask me to add it before you edit `records.json`. Do not commit a record pointing at a nonexistent file. Naming convention: `images/<slugified-artist>-<slugified-title>.jpg` (lowercase, non-alphanumeric to `-`, collapse repeats). Spec: 600×600 JPEG, under 100 KB (see PRD §6.1.1).
 3. **Canonical lists.** For the artist and each genre, check if it's already in `artists.json` / `genres.json` exactly. If not, append the new entry. Case-sensitive match. Preserve the user's exact form including a leading "The " where applicable.
 4. **Append the record** to `records.json`. Order does not matter; appending is fine.
@@ -107,7 +107,7 @@ Never include Co-Authored-By trailers. The body is optional for data changes; in
 `scripts/validate_records.py` runs on every push. It will fail the build if:
 
 - `records.json` is malformed, missing fields, has out-of-range rating or year, has an empty `genres` array, or points to a nonexistent artwork file.
-- Two records share an `(artist, title, year)` tuple.
+- Two records share an `(artist, title, year[0], year[1])` tuple.
 - A record's `artist` or `genres[]` value is not in the corresponding canonical list.
 - A canonical list has duplicates or empty strings.
 - A canonical list contains an entry unused by any record.
