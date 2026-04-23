@@ -1,5 +1,7 @@
-.claude/
+.claude/*
+!.claude/skills/
 .tandem/
 .playwright-mcp/
 dev-docs/
 tandem.json
+.data-staging/
