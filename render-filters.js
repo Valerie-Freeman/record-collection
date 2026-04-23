@@ -19,17 +19,19 @@ function renderPill(category, rawValue, label) {
   `;
 }
 
-function renderFilterGroup(title, category, options) {
+function renderFilterGroup(title, category, options, defaultExpanded = false) {
   const pills = options
     .map(({ value, label }) => renderPill(category, value, label))
     .join("");
   const optionsId = `filter-options-${category}`;
+  const collapsedAttr = defaultExpanded ? "" : "data-collapsed";
+  const expandedAttr = defaultExpanded ? "true" : "false";
   return `
-    <section class="filter-group" data-category="${category}" data-collapsed>
+    <section class="filter-group" data-category="${category}" ${collapsedAttr}>
       <button
         type="button"
         class="filter-group-header"
-        aria-expanded="false"
+        aria-expanded="${expandedAttr}"
         aria-controls="${optionsId}"
       >
         <span class="filter-group-title">${escapeHtml(title)}</span>
@@ -69,9 +71,9 @@ export function buildFilterSheet(state) {
 
   body.innerHTML = [
     renderFilterGroup("Artist", "artists", artistOptions),
-    renderFilterGroup("Decade", "decades", decadeOptions),
     renderFilterGroup("Genre", "genres", genreOptions),
-    renderFilterGroup("Rating", "ratings", ratingOptions),
+    renderFilterGroup("Decade", "decades", decadeOptions, true),
+    renderFilterGroup("Rating", "ratings", ratingOptions, true),
   ].join("");
 }
 

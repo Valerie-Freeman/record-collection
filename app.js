@@ -80,25 +80,46 @@ if (state.error) {
 
   const filterOpen = document.getElementById("filter-open");
   const filterClose = document.getElementById("filter-close");
-  const filterDone = document.getElementById("filter-done");
   const filterClear = document.getElementById("filter-clear");
   const filterSheet = document.getElementById("filter-sheet");
   const filterSheetBody = document.getElementById("filter-sheet-body");
   const filterChips = document.getElementById("filter-chips");
 
   let filterReturnFocus = null;
+  let filterSheetCloseTimer = null;
+
+  function sheetCloseDelay() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 260;
+  }
 
   function setSheetOpen(open) {
     if (!filterSheet || !filterOpen) return;
-    filterSheet.hidden = !open;
+
+    if (filterSheetCloseTimer) {
+      clearTimeout(filterSheetCloseTimer);
+      filterSheetCloseTimer = null;
+    }
+
     filterOpen.setAttribute("aria-expanded", open ? "true" : "false");
-    document.body.classList.toggle("sheet-open", open);
+
     if (open) {
+      document.body.classList.add("sheet-open");
+      filterSheet.classList.remove("sheet-out");
+      filterSheet.hidden = false;
       filterReturnFocus = document.activeElement;
       filterClose?.focus();
-    } else if (filterReturnFocus instanceof HTMLElement) {
-      filterReturnFocus.focus();
-      filterReturnFocus = null;
+    } else {
+      filterSheet.classList.add("sheet-out");
+      if (filterReturnFocus instanceof HTMLElement) {
+        filterReturnFocus.focus();
+        filterReturnFocus = null;
+      }
+      filterSheetCloseTimer = setTimeout(() => {
+        filterSheet.hidden = true;
+        filterSheet.classList.remove("sheet-out");
+        document.body.classList.remove("sheet-open");
+        filterSheetCloseTimer = null;
+      }, sheetCloseDelay());
     }
   }
 
@@ -129,7 +150,6 @@ if (state.error) {
   if (filterOpen && filterSheet) {
     filterOpen.addEventListener("click", () => setSheetOpen(true));
     filterClose?.addEventListener("click", () => setSheetOpen(false));
-    filterDone?.addEventListener("click", () => setSheetOpen(false));
 
     filterClear?.addEventListener("click", () => {
       clearAllFilters();

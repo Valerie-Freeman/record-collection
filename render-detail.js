@@ -1,5 +1,11 @@
 import { escapeHtml, stars } from "./render-helpers.js";
 
+let detailCloseTimer = null;
+
+function detailCloseDelay() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 260;
+}
+
 function renderTracks(tracks) {
   if (!Array.isArray(tracks) || tracks.length === 0) return "";
 
@@ -28,7 +34,6 @@ function renderTracks(tracks) {
 
   return `
     <section class="detail-tracks" aria-label="Track listing">
-      <h3 class="detail-tracks-heading">Tracks</h3>
       ${groupsHtml}
     </section>
   `;
@@ -39,8 +44,16 @@ export function renderDetailSheet(state) {
   if (!sheet) return;
 
   if (!state.openRecordId) {
-    sheet.hidden = true;
-    document.body.classList.remove("detail-open");
+    if (!sheet.hidden && !sheet.classList.contains("sheet-out")) {
+      sheet.classList.add("sheet-out");
+      if (detailCloseTimer) clearTimeout(detailCloseTimer);
+      detailCloseTimer = setTimeout(() => {
+        sheet.hidden = true;
+        sheet.classList.remove("sheet-out");
+        document.body.classList.remove("detail-open");
+        detailCloseTimer = null;
+      }, detailCloseDelay());
+    }
     return;
   }
 
@@ -50,6 +63,12 @@ export function renderDetailSheet(state) {
     document.body.classList.remove("detail-open");
     return;
   }
+
+  if (detailCloseTimer) {
+    clearTimeout(detailCloseTimer);
+    detailCloseTimer = null;
+  }
+  sheet.classList.remove("sheet-out");
 
   const body = document.getElementById("detail-body");
   if (body) {
@@ -76,10 +95,10 @@ export function renderDetailSheet(state) {
           <p class="detail-rating" aria-label="Rated ${record.rating} out of 5">
             <span aria-hidden="true">${stars(record.rating)}</span>
           </p>
-          <div class="detail-genres">${genreChips}</div>
-          ${notesHtml}
         </div>
       </div>
+      <div class="detail-genres">${genreChips}</div>
+      ${notesHtml}
       ${renderTracks(record.tracks)}
     `;
   }
