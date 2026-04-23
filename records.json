@@ -866,5 +866,220 @@
       { "side": "B", "title": "Think Twice" },
       { "side": "B", "title": "Love of My Life Worldwide" }
     ]
+  },
+  {
+    "artwork": "images/atlanta-rhythm-section-a-rock-and-roll-alternative.jpg",
+    "artist": "Atlanta Rhythm Section",
+    "title": "A Rock and Roll Alternative",
+    "year": 1976,
+    "rating": 3,
+    "genres": ["Rock", "Soft Rock"],
+    "notes": "Track pick: So In To You",
+    "tracks": [
+      { "side": "A", "title": "Sky High" },
+      { "side": "A", "title": "Hitch Hikers' Hero" },
+      { "side": "A", "title": "Don't Miss The Message" },
+      { "side": "A", "title": "Georgia Rhythm" },
+      { "side": "B", "title": "So In To You" },
+      { "side": "B", "title": "Outside Woman Blues" },
+      { "side": "B", "title": "Everybody Gotta Go" },
+      { "side": "B", "title": "Neon Nites" }
+    ]
+  },
+  {
+    "artwork": "images/ferrante-teicher-midnight-cowboy.jpg",
+    "artist": "Ferrante & Teicher",
+    "title": "Midnight Cowboy",
+    "year": 1969,
+    "rating": 3,
+    "genres": ["Pop", "Easy Listening"],
+    "tracks": [
+      { "side": "A", "title": "Midnight Cowboy" },
+      { "side": "A", "title": "Little Green Apples" },
+      { "side": "A", "title": "Aquarius" },
+      { "side": "A", "title": "Scarborough Fair" },
+      { "side": "A", "title": "Popi" },
+      { "side": "A", "title": "Love's Old Sweet Song" },
+      { "side": "B", "title": "Gentle On My Mind" },
+      { "side": "B", "title": "The Windmills of Your Mind (Theme from \"The Thomas Crown Affair\")" },
+      { "side": "B", "title": "Those Were The Days" },
+      { "side": "B", "title": "The Sound of Silence" },
+      { "side": "B", "title": "My Way" },
+      { "side": "B", "title": "Rock-A-Bye-Baby" }
+    ]
+  },
+  {
+    "artwork": "images/ferrante-teicher-the-peoples-choice.jpg",
+    "artist": "Ferrante & Teicher",
+    "title": "The People's Choice",
+    "year": 1964,
+    "rating": 2,
+    "genres": ["Jazz", "Pop", "Easy Listening"],
+    "notes": "Great easy listening",
+    "tracks": [
+      { "side": "A", "title": "Hello, Dolly!" },
+      { "side": "A", "title": "Call Me Irresponsible" },
+      { "side": "A", "title": "And I Love Her" },
+      { "side": "A", "title": "Charade" },
+      { "side": "A", "title": "Girl from Ipanema" },
+      { "side": "A", "title": "People" },
+      { "side": "B", "title": "The Seventh Dawn" },
+      { "side": "B", "title": "Everybody Loves Somebody" },
+      { "side": "B", "title": "Georgia on My Mind" },
+      { "side": "B", "title": "Wives and Lovers" },
+      { "side": "B", "title": "Love Me With All Your Heart" },
+      { "side": "B", "title": "The James Bond Theme" }
+    ]
+  },
+  {
+    "artwork": "images/ferrante-teicher-by-popular-demand.jpg",
+    "artist": "Ferrante & Teicher",
+    "title": "By Popular Demand",
+    "year": 1965,
+    "rating": 2,
+    "genres": ["Jazz", "Pop", "Easy Listening"],
+    "notes": "Feels like being in an old black and white movie",
+    "tracks": [
+      { "side": "A", "title": "The Greatest Story Ever Told" },
+      { "side": "A", "title": "Who Can I Turn To (When Nobody Needs Me)" },
+      { "side": "A", "title": "Dear Heart" },
+      { "side": "A", "title": "I Will Wait for You" },
+      { "side": "A", "title": "The Sound of Music" },
+      { "side": "A", "title": "Jessica" },
+      { "side": "B", "title": "Goldfinger" },
+      { "side": "B", "title": "As Long As He Needs Me" },
+      { "side": "B", "title": "Matchmaker" },
+      { "side": "B", "title": "Reverie" },
+      { "side": "B", "title": "My Love, Forgive Me" },
+      { "side": "B", "title": "The Debutante Waltz" }
+    ]
+  },
+  {
+    "artwork": "images/foo-fighters-sonic-highways.jpg",
+    "artist": "Foo Fighters",
+    "title": "Sonic Highways",
+    "year": 2014,
+    "rating": 2,
+    "genres": ["Rock", "Alternative Rock"],
+    "notes": "Giving this two stars because I don't remember if I like it or not. Need to listen some more.",
+    "tracks": [
+      { "side": "A", "title": "Something from Nothing" },
+      { "side": "A", "title": "The Feast and the Famine" },
+      { "side": "A", "title": "Congregation" },
+      { "side": "A", "title": "What Did I Do?/God as My Witness" },
+      { "side": "B", "title": "Outside" },
+      { "side": "B", "title": "In the Clear" },
+      { "side": "B", "title": "Subterranean" },
+      { "side": "B", "title": "I Am a River" }
+    ]
+  },
+  {
+    "artwork": "images/foreigner-4.jpg",
+    "artist": "Foreigner",
+    "title": "4",
+    "year": 1981,
+    "rating": 3,
+    "genres": ["Rock", "Pop Rock"],
+    "notes": "Track pick: Urgent",
+    "tracks": [
+      { "side": "A", "title": "Night Life" },
+      { "side": "A", "title": "Juke Box Hero" },
+      { "side": "A", "title": "Break It Up" },
+      { "side": "A", "title": "Waiting for a Girl Like You" },
+      { "side": "A", "title": "Luanne" },
+      { "side": "B", "title": "Urgent" },
+      { "side": "B", "title": "I'm Gonna Win" },
+      { "side": "B", "title": "Woman in Black" },
+      { "side": "B", "title": "Girl on the Moon" },
+      { "side": "B", "title": "Don't Let Go" }
+    ]
+  },
+  {
+    "artwork": "images/fleetwood-mac-tango-in-the-night.jpg",
+    "artist": "Fleetwood Mac",
+    "title": "Tango in the Night",
+    "year": 1987,
+    "rating": 5,
+    "genres": ["Rock", "Pop", "Pop Rock", "Soft Rock"],
+    "notes": "Probably my favorite Fleetwood Mac record",
+    "tracks": [
+      { "side": "A", "title": "Big Love" },
+      { "side": "A", "title": "Seven Wonders" },
+      { "side": "A", "title": "Everywhere" },
+      { "side": "A", "title": "Caroline" },
+      { "side": "A", "title": "Tango in the Night" },
+      { "side": "A", "title": "Mystified" },
+      { "side": "B", "title": "Little Lies" },
+      { "side": "B", "title": "Family Man" },
+      { "side": "B", "title": "Welcome to the Room... Sara" },
+      { "side": "B", "title": "Isn't It Midnight" },
+      { "side": "B", "title": "When I See You Again" },
+      { "side": "B", "title": "You and I, Part II" }
+    ]
+  },
+  {
+    "artwork": "images/fleetwood-mac-rumours.jpg",
+    "artist": "Fleetwood Mac",
+    "title": "Rumours",
+    "year": 1977,
+    "rating": 5,
+    "genres": ["Rock", "Pop Rock", "Soft Rock"],
+    "tracks": [
+      { "side": "A", "title": "Second Hand News" },
+      { "side": "A", "title": "Dreams" },
+      { "side": "A", "title": "Never Going Back Again" },
+      { "side": "A", "title": "Don't Stop" },
+      { "side": "A", "title": "Go Your Own Way" },
+      { "side": "A", "title": "Songbird" },
+      { "side": "B", "title": "The Chain" },
+      { "side": "B", "title": "You Make Loving Fun" },
+      { "side": "B", "title": "I Don't Want to Know" },
+      { "side": "B", "title": "Oh Daddy" },
+      { "side": "B", "title": "Gold Dust Woman" }
+    ]
+  },
+  {
+    "artwork": "images/genesis-genesis.jpg",
+    "artist": "Genesis",
+    "title": "Genesis",
+    "year": 1983,
+    "rating": 4,
+    "genres": ["Rock", "Pop Rock", "Art Rock"],
+    "tracks": [
+      { "side": "A", "title": "Mama" },
+      { "side": "A", "title": "That's All" },
+      { "side": "A", "title": "Home by the Sea" },
+      { "side": "A", "title": "Second Home by the Sea" },
+      { "side": "B", "title": "Illegal Alien" },
+      { "side": "B", "title": "Taking It All Too Hard" },
+      { "side": "B", "title": "Just a Job to Do" },
+      { "side": "B", "title": "Silver Rainbow" },
+      { "side": "B", "title": "It's Gonna Get Better" }
+    ]
+  },
+  {
+    "artwork": "images/genesis-three-sides-live.jpg",
+    "artist": "Genesis",
+    "title": "Three Sides Live",
+    "year": 1982,
+    "rating": 3,
+    "genres": ["Rock", "Pop Rock", "Progressive Rock"],
+    "tracks": [
+      { "side": "A", "title": "Turn It On Again" },
+      { "side": "A", "title": "Dodo" },
+      { "side": "A", "title": "Abacab" },
+      { "side": "B", "title": "Behind the Lines" },
+      { "side": "B", "title": "Duchess" },
+      { "side": "B", "title": "Me & Sarah Jane" },
+      { "side": "B", "title": "Follow You, Follow Me" },
+      { "side": "C", "title": "Misunderstanding" },
+      { "side": "C", "title": "In the Cage (Medley-Cinema Show-Slippermen)" },
+      { "side": "C", "title": "Afterglow" },
+      { "side": "D", "title": "Paperlate" },
+      { "side": "D", "title": "You Might Recall" },
+      { "side": "D", "title": "Me and Virgil" },
+      { "side": "D", "title": "Evidence of Autumn" },
+      { "side": "D", "title": "Open Door" }
+    ]
   }
 ]
