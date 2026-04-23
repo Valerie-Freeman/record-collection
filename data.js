@@ -19,7 +19,14 @@ function checkRecords(data) {
     if (typeof r.artwork !== "string" || !r.artwork) throw new Error(`records[${i}].artwork must be a non-empty string`);
     if (typeof r.artist !== "string" || !r.artist) throw new Error(`records[${i}].artist must be a non-empty string`);
     if (typeof r.title !== "string" || !r.title) throw new Error(`records[${i}].title must be a non-empty string`);
-    if (!Number.isInteger(r.year)) throw new Error(`records[${i}].year must be an integer`);
+    if (
+      !Array.isArray(r.year) ||
+      r.year.length !== 2 ||
+      !r.year.every(Number.isInteger) ||
+      r.year[0] > r.year[1]
+    ) {
+      throw new Error(`records[${i}].year must be a [start, end] array of two integers with start <= end`);
+    }
     if (!Number.isInteger(r.rating) || r.rating < 1 || r.rating > 5) {
       throw new Error(`records[${i}].rating must be an integer 1..5`);
     }
@@ -62,10 +69,14 @@ export async function loadCollection() {
   checkStringList(artists, "artists.json");
   checkStringList(genres, "genres.json");
 
-  const withIds = records.map((r) => ({
-    ...r,
-    id: slugify(`${r.artist} ${r.title} ${r.year}`),
-  }));
+  const withIds = records.map((r) => {
+    const [start, end] = r.year;
+    const yearPart = start === end ? `${start}` : `${start}-${end}`;
+    return {
+      ...r,
+      id: slugify(`${r.artist} ${r.title} ${yearPart}`),
+    };
+  });
 
   return { records: withIds, artists, genres };
 }
