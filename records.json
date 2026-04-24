@@ -3955,5 +3955,624 @@
         "title": "Zorba The Greek"
       }
     ]
+  },
+  {
+    "artwork": "images/jo-stafford-jo-stafford-s-greatest-hits.jpg",
+    "artist": "Jo Stafford",
+    "title": "Jo Stafford's Greatest Hits",
+    "year": [
+      1943,
+      1953
+    ],
+    "rating": 3,
+    "genres": [
+      "Pop",
+      "Easy Listening",
+      "Vocal Jazz"
+    ],
+    "notes": "Great antique store vibes",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Shrimp Boats "
+      },
+      {
+        "side": "A",
+        "title": "I'll Be Seeing You"
+      },
+      {
+        "side": "A",
+        "title": "St. Louis Blues "
+      },
+      {
+        "side": "A",
+        "title": "You'll Never Know"
+      },
+      {
+        "side": "A",
+        "title": "Little Man With A Candy Cigar"
+      },
+      {
+        "side": "A",
+        "title": "Make Love To Me"
+      },
+      {
+        "side": "B",
+        "title": "You Belong To Me"
+      },
+      {
+        "side": "B",
+        "title": "Jambalaya"
+      },
+      {
+        "side": "B",
+        "title": "Come Rain Or Come Shine"
+      },
+      {
+        "side": "B",
+        "title": "Keep It A Secret"
+      },
+      {
+        "side": "B",
+        "title": "A-Round The Corner"
+      }
+    ]
+  },
+  {
+    "artwork": "images/joe-walsh-the-smoker-you-drink-the-player-you-get.jpg",
+    "artist": "Joe Walsh",
+    "title": "The Smoker You Drink, The Player You Get",
+    "year": [
+      1973,
+      1973
+    ],
+    "rating": 3,
+    "genres": [
+      "Hard Rock",
+      "Blues Rock"
+    ],
+    "notes": "Track pick: Rocky Mountain Way",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Rocky Mountain Way"
+      },
+      {
+        "side": "A",
+        "title": "Bookends"
+      },
+      {
+        "side": "A",
+        "title": "Wolf"
+      },
+      {
+        "side": "A",
+        "title": "Midnight Moodies"
+      },
+      {
+        "side": "A",
+        "title": "Happy Ways"
+      },
+      {
+        "side": "B",
+        "title": "Meadows"
+      },
+      {
+        "side": "B",
+        "title": "Dreams"
+      },
+      {
+        "side": "B",
+        "title": "Days Gone By"
+      },
+      {
+        "side": "B",
+        "title": "Daydream (Prayer)"
+      }
+    ]
+  },
+  {
+    "artwork": "images/john-mayer-continuum.jpg",
+    "artist": "John Mayer",
+    "title": "Continuum",
+    "year": [
+      2006,
+      2006
+    ],
+    "rating": 4,
+    "genres": [
+      "Blues Rock",
+      "Pop Rock"
+    ],
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Waiting On The World To Change"
+      },
+      {
+        "side": "A",
+        "title": "I Don't Trust Myself (With Loving You)"
+      },
+      {
+        "side": "A",
+        "title": "Belief"
+      },
+      {
+        "side": "B",
+        "title": "Gravity"
+      },
+      {
+        "side": "B",
+        "title": "The Heart Of Life"
+      },
+      {
+        "side": "B",
+        "title": "Vultures"
+      },
+      {
+        "side": "C",
+        "title": "Stop This Train"
+      },
+      {
+        "side": "C",
+        "title": "Slow Dancing In A Burning Room"
+      },
+      {
+        "side": "C",
+        "title": "Bold As Love"
+      },
+      {
+        "side": "D",
+        "title": "Dreaming With A Broken Heart"
+      },
+      {
+        "side": "D",
+        "title": "In Repair"
+      },
+      {
+        "side": "D",
+        "title": "I'm Gonna Find Another You"
+      },
+      {
+        "side": "D",
+        "title": "Say"
+      }
+    ]
+  },
+  {
+    "artwork": "images/johnny-rivers-meanwhile-back-at-the-whisky-go-go.jpg",
+    "artist": "Johnny Rivers",
+    "title": "Meanwhile Back At The Whisky À Go Go",
+    "year": [
+      1965,
+      1965
+    ],
+    "rating": 3,
+    "genres": [
+      "Rock"
+    ],
+    "notes": "This was PopPop's and Janet's. It has nametag stickers with their handwritten names on it. Very special. It's dirty and scratchy though.",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Seventh Son"
+      },
+      {
+        "side": "A",
+        "title": "Greenback Dollar"
+      },
+      {
+        "side": "A",
+        "title": "Stop! In The Name Of Love"
+      },
+      {
+        "side": "A",
+        "title": "Un-Square Dance"
+      },
+      {
+        "side": "A",
+        "title": "Silver Threads And Golden Needles"
+      },
+      {
+        "side": "A",
+        "title": "Land Of 1000 Dances"
+      },
+      {
+        "side": "B",
+        "title": "Parchman Farm"
+      },
+      {
+        "side": "B",
+        "title": "I'll Cry Instead"
+      },
+      {
+        "side": "B",
+        "title": "Break Up"
+      },
+      {
+        "side": "B",
+        "title": "Work Song"
+      },
+      {
+        "side": "B",
+        "title": "Stagger Lee"
+      },
+      {
+        "side": "B",
+        "title": "Susie Q"
+      }
+    ]
+  },
+  {
+    "artwork": "images/koinonia-more-than-a-feelin.jpg",
+    "artist": "Koinonia",
+    "title": "More Than A Feelin'",
+    "year": [
+      1983,
+      1983
+    ],
+    "rating": 3,
+    "genres": [
+      "Jazz",
+      "Fusion"
+    ],
+    "notes": "Bobby Ghanoush material. Giving it a three for now until I listen some more.",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "More Than A Feelin'"
+      },
+      {
+        "side": "A",
+        "title": "Rescue"
+      },
+      {
+        "side": "A",
+        "title": "Graceful"
+      },
+      {
+        "side": "A",
+        "title": "Cuando"
+      },
+      {
+        "side": "A",
+        "title": "Divina"
+      },
+      {
+        "side": "B",
+        "title": "Give Your Love"
+      },
+      {
+        "side": "B",
+        "title": "Valentine"
+      },
+      {
+        "side": "B",
+        "title": "Funky Bumpkins"
+      },
+      {
+        "side": "B",
+        "title": "On My Way Home"
+      }
+    ]
+  },
+  {
+    "artwork": "images/kool-the-gang-ladies-night.jpg",
+    "artist": "Kool & The Gang",
+    "title": "Ladies' Night",
+    "year": [
+      1979,
+      1979
+    ],
+    "rating": 3,
+    "genres": [
+      "Funk",
+      "Disco"
+    ],
+    "notes": "Great for evening dance parties with the kids",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Ladies' Night"
+      },
+      {
+        "side": "A",
+        "title": "Got You Into My Life"
+      },
+      {
+        "side": "A",
+        "title": "If You Feel Like Dancin'"
+      },
+      {
+        "side": "B",
+        "title": "Hangin' Out"
+      },
+      {
+        "side": "B",
+        "title": "Tonight's The Night"
+      },
+      {
+        "side": "B",
+        "title": "Too Hot"
+      }
+    ]
+  },
+  {
+    "artwork": "images/led-zeppelin-houses-of-the-holy.jpg",
+    "artist": "Led Zeppelin",
+    "title": "Houses Of The Holy",
+    "year": [
+      1973,
+      1973
+    ],
+    "rating": 5,
+    "genres": [
+      "Hard Rock",
+      "Blues Rock"
+    ],
+    "tracks": [
+      {
+        "side": "A",
+        "title": "The Song Remains The Same"
+      },
+      {
+        "side": "A",
+        "title": "The Rain Song"
+      },
+      {
+        "side": "A",
+        "title": "Over The Hills And Far Away"
+      },
+      {
+        "side": "A",
+        "title": "The Crunge"
+      },
+      {
+        "side": "B",
+        "title": "Dancing Days"
+      },
+      {
+        "side": "B",
+        "title": "D'yer Mak'er"
+      },
+      {
+        "side": "B",
+        "title": "No Quarter"
+      },
+      {
+        "side": "B",
+        "title": "The Ocean"
+      }
+    ]
+  },
+  {
+    "artwork": "images/led-zeppelin-led-zeppelin-iv.jpg",
+    "artist": "Led Zeppelin",
+    "title": "Led Zeppelin IV",
+    "year": [
+      1971,
+      1971
+    ],
+    "rating": 5,
+    "genres": [
+      "Hard Rock",
+      "Blues Rock"
+    ],
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Black Dog"
+      },
+      {
+        "side": "A",
+        "title": "Rock And Roll"
+      },
+      {
+        "side": "A",
+        "title": "The Battle Of Evermore"
+      },
+      {
+        "side": "A",
+        "title": "Stairway To Heaven"
+      },
+      {
+        "side": "B",
+        "title": "Misty Mountain Hop"
+      },
+      {
+        "side": "B",
+        "title": "Four Sticks"
+      },
+      {
+        "side": "B",
+        "title": "Going To California"
+      },
+      {
+        "side": "B",
+        "title": "When The Levee Breaks"
+      }
+    ]
+  },
+  {
+    "artwork": "images/little-dragon-nabuma-rubberband.jpg",
+    "artist": "Little Dragon",
+    "title": "Nabuma Rubberband",
+    "year": [
+      2014,
+      2014
+    ],
+    "rating": 5,
+    "genres": [
+      "Pop",
+      "Neo-Soul"
+    ],
+    "notes": "Bring this one out as soon as autumn blows in.",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Mirror"
+      },
+      {
+        "side": "A",
+        "title": "Klapp Klapp"
+      },
+      {
+        "side": "A",
+        "title": "Pretty Girls"
+      },
+      {
+        "side": "A",
+        "title": "Underbart"
+      },
+      {
+        "side": "A",
+        "title": "Cat Rider"
+      },
+      {
+        "side": "B",
+        "title": "Paris"
+      },
+      {
+        "side": "B",
+        "title": "Lurad"
+      },
+      {
+        "side": "B",
+        "title": "Nabuma Rubberband"
+      },
+      {
+        "side": "B",
+        "title": "Only One"
+      },
+      {
+        "side": "B",
+        "title": "Killing Me"
+      },
+      {
+        "side": "B",
+        "title": "Pink Cloud"
+      },
+      {
+        "side": "B",
+        "title": "Let Go"
+      }
+    ]
+  },
+  {
+    "artwork": "images/little-dragon-season-high.jpg",
+    "artist": "Little Dragon",
+    "title": "Season High",
+    "year": [
+      2017,
+      2017
+    ],
+    "rating": 4,
+    "genres": [
+      "Pop",
+      "Neo-Soul"
+    ],
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Celebrate"
+      },
+      {
+        "side": "A",
+        "title": "High"
+      },
+      {
+        "side": "A",
+        "title": "The Pop Life"
+      },
+      {
+        "side": "A",
+        "title": "Sweet"
+      },
+      {
+        "side": "A",
+        "title": "Butterflies"
+      },
+      {
+        "side": "B",
+        "title": "Should I"
+      },
+      {
+        "side": "B",
+        "title": "Don't Cry"
+      },
+      {
+        "side": "B",
+        "title": "Strobe Light"
+      },
+      {
+        "side": "B",
+        "title": "Push"
+      },
+      {
+        "side": "B",
+        "title": "Gravity"
+      }
+    ]
+  },
+  {
+    "artwork": "images/little-river-band-time-exposure.jpg",
+    "artist": "Little River Band",
+    "title": "Time Exposure",
+    "year": [
+      1981,
+      1981
+    ],
+    "rating": 3,
+    "genres": [
+      "Pop Rock",
+      "Soft Rock",
+      "Yacht Rock"
+    ],
+    "tracks": [
+      {
+        "side": "A",
+        "title": "The Night Owls"
+      },
+      {
+        "side": "A",
+        "title": "Man On Your Mind"
+      },
+      {
+        "side": "A",
+        "title": "Take It Easy On Me"
+      },
+      {
+        "side": "A",
+        "title": "Ballerina"
+      },
+      {
+        "side": "A",
+        "title": "Love Will Survive"
+      },
+      {
+        "side": "B",
+        "title": "Full Circle"
+      },
+      {
+        "side": "B",
+        "title": "Just Say That You Love Me"
+      },
+      {
+        "side": "B",
+        "title": "Suicide Boulevard"
+      },
+      {
+        "side": "B",
+        "title": "Orbit Zero"
+      },
+      {
+        "side": "B",
+        "title": "Don't Let The Needle Win"
+      },
+      {
+        "side": "B",
+        "title": "Guiding Light"
+      }
+    ]
   }
 ]
