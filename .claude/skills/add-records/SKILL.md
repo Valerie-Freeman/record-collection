@@ -69,26 +69,26 @@ The staging script emits every Discogs `genre` and `style` concatenated and dedu
 **Hard rules:**
 
 - **Max 3 genres per record.** If the proposal has more, trim.
-- **Only use entries already in `genres.json`.** That file is the canonical vocabulary. If a record genuinely needs a genre that does not exist there, flag it to the user and add it to `genres.json` in the same commit; do not silently introduce a new canonical entry.
+- **Prioritize using entries already in `genres.json`.** That file is the canonical vocabulary. Try to match a genre to what's already in the list if possible. If a record genuinely needs a genre that does not exist there, flag it to the user and add it to `genres.json` in the same commit; do not silently introduce a new canonical entry.
 - **Prefer short forms** when both exist: `Prog Rock` (not "Progressive Rock"), `Rock & Roll` (not "Rock and Roll"), `Neo-Soul` (not "Neo Soul").
 
 **Map common Discogs terms to their canonical equivalent:**
 
-| Discogs term | Use canonical |
-|---|---|
-| Classic Rock | Rock |
-| Electric Blues | Blues |
-| Arena Rock | Hard Rock |
-| AOR | Soft Rock |
-| Rock & Roll (as a style) | Rock & Roll |
-| Symphonic Rock | Prog Rock |
-| Contemporary R&B | R&B |
-| Neo Soul | Neo-Soul |
-| Stage & Screen | Soundtrack |
-| Musical | Soundtrack |
-| Folk, World, & Country | Folk (or Folk Rock / Country Rock / Americana, depending on which style Discogs also lists) |
+| Discogs term             | Use canonical                                                                               |
+| ------------------------ | ------------------------------------------------------------------------------------------- |
+| Classic Rock             | Rock                                                                                        |
+| Electric Blues           | Blues                                                                                       |
+| Arena Rock               | Hard Rock                                                                                   |
+| AOR                      | Soft Rock                                                                                   |
+| Rock & Roll (as a style) | Rock & Roll                                                                                 |
+| Symphonic Rock           | Prog Rock                                                                                   |
+| Contemporary R&B         | R&B                                                                                         |
+| Neo Soul                 | Neo-Soul                                                                                    |
+| Stage & Screen           | Soundtrack                                                                                  |
+| Musical                  | Soundtrack                                                                                  |
+| Folk, World, & Country   | Folk (or Folk Rock / Country Rock / Americana, depending on which style Discogs also lists) |
 
-**Drop these Discogs terms** (no canonical equivalent and no good fallback): `Electronic`, `Hip Hop`, `Vocal`, `Theme`, `Bossa Nova`, `Psychedelic Rock`, `Synth-pop`, `Funk / Soul` (pick `Funk` or `Soul` based on what the styles suggest).
+**Drop these Discogs terms** (no canonical equivalent and no good fallback): `Electronic`, `Hip Hop`, `Vocal`, `Theme`, `Bossa Nova`, `Psychedelic Rock`, `Synth-pop`, `Funk / Soul` (pick `Funk` or `Soul` or both based on what the styles suggest).
 
 **Redundancy rule.** When both a broad and a narrow genre apply, drop the broad one:
 

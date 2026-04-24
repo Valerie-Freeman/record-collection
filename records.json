@@ -3435,5 +3435,525 @@
         "title": "Cameo For Flute \"...for James.\""
       }
     ]
+  },
+  {
+    "artwork": "images/henry-mancini-mancini-s-angels.jpg",
+    "artist": "Henry Mancini",
+    "title": "Mancini's Angels",
+    "year": [
+      1977,
+      1977
+    ],
+    "rating": 2,
+    "genres": [
+      "Jazz",
+      "Soundtrack",
+      "Easy Listening"
+    ],
+    "notes": "Haven't listened in a while. Need another listen for an acurate rating.",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Theme From Charlie's Angels"
+      },
+      {
+        "side": "A",
+        "title": "Evergreen"
+      },
+      {
+        "side": "A",
+        "title": "Car Wash"
+      },
+      {
+        "side": "A",
+        "title": "The Inspector Clouseau Theme"
+      },
+      {
+        "side": "A",
+        "title": "Silver Streak"
+      },
+      {
+        "side": "B",
+        "title": "What's Happening!! Theme"
+      },
+      {
+        "side": "B",
+        "title": "The Moneychangers"
+      },
+      {
+        "side": "B",
+        "title": "Gonna Fly Now (With Chorus)"
+      },
+      {
+        "side": "B",
+        "title": "Music From Roots"
+      },
+      {
+        "side": "B",
+        "title": "Many Rains Ago (Oluwa)"
+      },
+      {
+        "side": "B",
+        "title": "Theme From Roots"
+      }
+    ]
+  },
+  {
+    "artwork": "images/herbie-hancock-future-shock.jpg",
+    "artist": "Herbie Hancock",
+    "title": "Future Shock",
+    "year": [
+      1983,
+      1983
+    ],
+    "rating": 3,
+    "genres": [
+      "Jazz",
+      "Funk"
+    ],
+    "notes": "Good house cleaning",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Rockit"
+      },
+      {
+        "side": "A",
+        "title": "Future Shock"
+      },
+      {
+        "side": "A",
+        "title": "TFS"
+      },
+      {
+        "side": "B",
+        "title": "Earth Beat"
+      },
+      {
+        "side": "B",
+        "title": "Autodrive"
+      },
+      {
+        "side": "B",
+        "title": "Rough"
+      }
+    ]
+  },
+  {
+    "artwork": "images/the-ink-spots-if-i-didn-t-care.jpg",
+    "artist": "The Ink Spots",
+    "title": "If I Didn't Care",
+    "year": [
+      1979,
+      1979
+    ],
+    "rating": 3,
+    "genres": [
+      "Vocal Jazz"
+    ],
+    "notes": "\"If I Didn't Care\" is so cozy. \"I Don't Want To Set The World On Fire\" is not the recording version that I love. These versions sound newer than the versions I love, that's why this gets a 3.",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Whispering Grass (Don't Tell The Trees)"
+      },
+      {
+        "side": "A",
+        "title": "Maybe"
+      },
+      {
+        "side": "A",
+        "title": "The Gypsy"
+      },
+      {
+        "side": "A",
+        "title": "To Each His Own"
+      },
+      {
+        "side": "A",
+        "title": "I Don't Want To Set The World On Fire"
+      },
+      {
+        "side": "B",
+        "title": "I'll Get By"
+      },
+      {
+        "side": "B",
+        "title": "If I Didn't Care"
+      },
+      {
+        "side": "B",
+        "title": "It's A Sin To Tell A Lie"
+      },
+      {
+        "side": "B",
+        "title": "We Three (My Echo, My Shadow, And Me)"
+      },
+      {
+        "side": "B",
+        "title": "When The Swallows Come Back To Capistrano"
+      }
+    ]
+  },
+  {
+    "artwork": "images/al-jarreau-jarreau.jpg",
+    "artist": "Al Jarreau",
+    "title": "Jarreau",
+    "year": [
+      1983,
+      1983
+    ],
+    "rating": 4,
+    "genres": [
+      "Smooth Jazz",
+      "R&B",
+      "Funk"
+    ],
+    "notes": "Very good. Sounds like a recod Bobby Ghanoush would play, for sure.",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Mornin'"
+      },
+      {
+        "side": "A",
+        "title": "Boogie Down"
+      },
+      {
+        "side": "A",
+        "title": "I Will Be Here For You"
+      },
+      {
+        "side": "A",
+        "title": "Save Me"
+      },
+      {
+        "side": "B",
+        "title": "Step By Step"
+      },
+      {
+        "side": "B",
+        "title": "Black And Blues"
+      },
+      {
+        "side": "B",
+        "title": "Trouble In Paradise"
+      },
+      {
+        "side": "B",
+        "title": "Not Like This"
+      },
+      {
+        "side": "B",
+        "title": "Love Is Waiting"
+      }
+    ]
+  },
+  {
+    "artwork": "images/herb-alpert-rise.jpg",
+    "artist": "Herb Alpert",
+    "title": "Rise",
+    "year": [
+      1979,
+      1979
+    ],
+    "rating": 4,
+    "genres": [
+      "Smooth Jazz",
+      "Funk",
+      "Disco"
+    ],
+    "notes": "Track pick: \"Rise\"",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "1980"
+      },
+      {
+        "side": "A",
+        "title": "Rise"
+      },
+      {
+        "side": "A",
+        "title": "Behind The Rain"
+      },
+      {
+        "side": "A",
+        "title": "Rotation"
+      },
+      {
+        "side": "B",
+        "title": "Street Life"
+      },
+      {
+        "side": "B",
+        "title": "Love Is"
+      },
+      {
+        "side": "B",
+        "title": "Angelina"
+      },
+      {
+        "side": "B",
+        "title": "Aranjuez (Mon Amour) (A-Ron-Ways)"
+      }
+    ]
+  },
+  {
+    "artwork": "images/herb-alpert-the-tijuana-brass-whipped-cream-other-delights.jpg",
+    "artist": "Herb Alpert & The Tijuana Brass",
+    "title": "Whipped Cream & Other Delights",
+    "year": [
+      1965,
+      1965
+    ],
+    "rating": 5,
+    "genres": [
+      "Latin Jazz",
+      "Easy Listening"
+    ],
+    "tracks": [
+      {
+        "side": "A",
+        "title": "A Taste Of Honey"
+      },
+      {
+        "side": "A",
+        "title": "Green Peppers"
+      },
+      {
+        "side": "A",
+        "title": "Tangerine"
+      },
+      {
+        "side": "A",
+        "title": "Bittersweet Samba"
+      },
+      {
+        "side": "A",
+        "title": "Lemon Tree"
+      },
+      {
+        "side": "A",
+        "title": "Whipped Cream"
+      },
+      {
+        "side": "B",
+        "title": "Love Potion No. 9"
+      },
+      {
+        "side": "B",
+        "title": "El Garbanzo"
+      },
+      {
+        "side": "B",
+        "title": "Ladyfingers"
+      },
+      {
+        "side": "B",
+        "title": "Butterball"
+      },
+      {
+        "side": "B",
+        "title": "Peanuts"
+      },
+      {
+        "side": "B",
+        "title": "Lollipops And Roses"
+      }
+    ]
+  },
+  {
+    "artwork": "images/herb-alpert-the-tijuana-brass-what-now-my-love.jpg",
+    "artist": "Herb Alpert & The Tijuana Brass",
+    "title": "What Now My Love",
+    "year": [
+      1966,
+      1966
+    ],
+    "rating": 4,
+    "genres": [
+      "Latin Jazz",
+      "Easy Listening"
+    ],
+    "tracks": [
+      {
+        "side": "A",
+        "title": "What Now My Love"
+      },
+      {
+        "side": "A",
+        "title": "Freckles"
+      },
+      {
+        "side": "A",
+        "title": "Memories Of Madrid"
+      },
+      {
+        "side": "A",
+        "title": "It Was A Very Good Year"
+      },
+      {
+        "side": "A",
+        "title": "So What's New?"
+      },
+      {
+        "side": "A",
+        "title": "Plucky"
+      },
+      {
+        "side": "B",
+        "title": "Magic Trumpet"
+      },
+      {
+        "side": "B",
+        "title": "Cantina Blue"
+      },
+      {
+        "side": "B",
+        "title": "Brasilia"
+      },
+      {
+        "side": "B",
+        "title": "If I Were A Rich Man"
+      },
+      {
+        "side": "B",
+        "title": "Five Minutes More"
+      },
+      {
+        "side": "B",
+        "title": "The Shadow Of Your Smile"
+      }
+    ]
+  },
+  {
+    "artwork": "images/herb-alpert-the-tijuana-brass-the-lonely-bull.jpg",
+    "artist": "Herb Alpert & The Tijuana Brass",
+    "title": "The Lonely Bull",
+    "year": [
+      1962,
+      1962
+    ],
+    "rating": 4,
+    "genres": [
+      "Latin Jazz",
+      "Easy Listening"
+    ],
+    "tracks": [
+      {
+        "side": "A",
+        "title": "The Lonely Bull (El Solo Toro)"
+      },
+      {
+        "side": "A",
+        "title": "El Lobo (The Wolf)"
+      },
+      {
+        "side": "A",
+        "title": "Tijuana Sauerkraut"
+      },
+      {
+        "side": "A",
+        "title": "Deasfinado"
+      },
+      {
+        "side": "A",
+        "title": "Mexico"
+      },
+      {
+        "side": "A",
+        "title": "Never On Sunday"
+      },
+      {
+        "side": "B",
+        "title": "Struttin' With Maria"
+      },
+      {
+        "side": "B",
+        "title": "Let It Be Me"
+      },
+      {
+        "side": "B",
+        "title": "Acapulco 1922"
+      },
+      {
+        "side": "B",
+        "title": "Limbo Rock"
+      },
+      {
+        "side": "B",
+        "title": "Crawfish"
+      },
+      {
+        "side": "B",
+        "title": "A Quiet Tear (Lágrima Quieta)"
+      }
+    ]
+  },
+  {
+    "artwork": "images/herb-alpert-the-tijuana-brass-greatest-hits.jpg",
+    "artist": "Herb Alpert & The Tijuana Brass",
+    "title": "Greatest Hits",
+    "year": [
+      1962,
+      1965
+    ],
+    "rating": 3,
+    "genres": [
+      "Latin Jazz",
+      "Easy Listening"
+    ],
+    "notes": "Giving it a 3 because it's a comp, even though all the songs are great. Keeping it for now becuase it has songs from records I don't have",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Lonely Bull"
+      },
+      {
+        "side": "A",
+        "title": "Spanish Flea"
+      },
+      {
+        "side": "A",
+        "title": "Getting Sentimental Over You"
+      },
+      {
+        "side": "A",
+        "title": "Love Potion #9"
+      },
+      {
+        "side": "A",
+        "title": "Never On Sunday"
+      },
+      {
+        "side": "A",
+        "title": "Mexican Shuffle"
+      },
+      {
+        "side": "B",
+        "title": "Taste Of Honey"
+      },
+      {
+        "side": "B",
+        "title": "Tijuana Taxi"
+      },
+      {
+        "side": "B",
+        "title": "South Of The Border"
+      },
+      {
+        "side": "B",
+        "title": "America"
+      },
+      {
+        "side": "B",
+        "title": "Whipped Cream"
+      },
+      {
+        "side": "B",
+        "title": "Zorba The Greek"
+      }
+    ]
   }
 ]
