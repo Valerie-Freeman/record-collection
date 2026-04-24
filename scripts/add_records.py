@@ -254,17 +254,30 @@ def build_proposal(master_url, vinyl_url, rating, notes):
     if not genres_list and not styles_list:
         flags.append("no Discogs genres or styles found")
 
+    is_compilation = False
+    for fmt in release.get("formats", []) or []:
+        for desc in fmt.get("descriptions", []) or []:
+            if desc.lower() == "compilation":
+                is_compilation = True
+    if is_compilation:
+        flags.append(
+            f"compilation detected; year set to [{year}, {year}]. Edit "
+            f".data-staging/staging.json to set the real [earliest, latest] "
+            f"range from the tracklist (see ADR-002)"
+        )
+
     # Default proposed genres: Discogs genres + styles, deduped, preserving order.
     proposed_genres = []
     for g in genres_list + styles_list:
         if g and g not in proposed_genres:
             proposed_genres.append(g)
 
+    year_range = [year, year] if year is not None else None
     record = {
         "artwork": artwork_path(artist, title),
         "artist": artist,
         "title": title,
-        "year": year,
+        "year": year_range,
         "rating": rating,
         "genres": proposed_genres,
     }
@@ -289,28 +302,16 @@ def artist_sort_key(name):
 
 
 def format_record(r, is_last):
-    lines = ["  {"]
-    lines.append(f'    "artwork": {json.dumps(r["artwork"])},')
-    lines.append(f'    "artist": {json.dumps(r["artist"])},')
-    lines.append(f'    "title": {json.dumps(r["title"])},')
-    lines.append(f'    "year": {r["year"]},')
-    lines.append(f'    "rating": {r["rating"]},')
-    genres_str = "[" + ", ".join(json.dumps(g) for g in r["genres"]) + "]"
-    tail_comma = "," if (r.get("notes") or r.get("tracks")) else ""
-    lines.append(f'    "genres": {genres_str}{tail_comma}')
+    ordered = {}
+    for key in ("artwork", "artist", "title", "year", "rating", "genres"):
+        ordered[key] = r[key]
     if r.get("notes"):
-        tail_comma = "," if r.get("tracks") else ""
-        lines.append(f'    "notes": {json.dumps(r["notes"])}{tail_comma}')
+        ordered["notes"] = r["notes"]
     if r.get("tracks"):
-        lines.append('    "tracks": [')
-        track_lines = [
-            f'      {{ "side": {json.dumps(t["side"])}, "title": {json.dumps(t["title"])} }}'
-            for t in r["tracks"]
-        ]
-        lines.append(",\n".join(track_lines))
-        lines.append('    ]')
-    lines.append("  }" + ("" if is_last else ","))
-    return "\n".join(lines)
+        ordered["tracks"] = [{"side": t["side"], "title": t["title"]} for t in r["tracks"]]
+    dumped = json.dumps(ordered, indent=2, ensure_ascii=False)
+    indented = "\n".join("  " + line for line in dumped.splitlines())
+    return indented + ("" if is_last else ",")
 
 
 def append_records_to_file(new_records):
@@ -351,9 +352,9 @@ def cmd_stage(args):
     inputs = parse_input(input_text)
 
     existing_records, existing_artists, existing_genres = load_existing()
-    existing_tuples = {(r["artist"], r["title"], r["year"]) for r in existing_records}
+    existing_tuples = {(r["artist"], r["title"], tuple(r["year"])) for r in existing_records}
     existing_tuples_ci = {
-        (r["artist"].lower(), r["title"].lower(), r["year"]): (r["artist"], r["title"])
+        (r["artist"].lower(), r["title"].lower(), tuple(r["year"])): (r["artist"], r["title"])
         for r in existing_records
     }
     artists_set = set(existing_artists)
@@ -373,8 +374,9 @@ def cmd_stage(args):
             failures.append(f"Record {i}: {e}")
             continue
 
-        key = (record["artist"], record["title"], record["year"])
-        key_ci = (record["artist"].lower(), record["title"].lower(), record["year"])
+        year_tuple = tuple(record["year"]) if record["year"] else None
+        key = (record["artist"], record["title"], year_tuple)
+        key_ci = (record["artist"].lower(), record["title"].lower(), year_tuple)
         if key in existing_tuples:
             failures.append(
                 f"Record {i}: duplicate of existing {record['artist']!r} / "

@@ -53,10 +53,12 @@ The script will print a numbered summary per record: artist/title/year/rating, g
 
 For each record, surface to the user:
 
-- The proposed year, genres, and anything flagged.
+- The proposed year (a `[start, end]` range; see below), genres, and anything flagged.
 - Any new artists being added to `artists.json` (spelling, leading "The", ampersand vs. "and").
 - Any new genres being added to `genres.json`.
-- Compilation records: year should reflect when the music was made, not the compilation release year (see CLAUDE.md). Ask if unsure.
+- Compilation records: `year` must span the source recordings' master release years, not the compilation's own release year. The staging script detects compilations via the Discogs format descriptor and flags them with `year: [y, y]` as a placeholder. Before applying, resolve the real `[earliest, latest]` range (look at the tracklist, use Discogs to date tracks if needed) and edit `.data-staging/staging.json`. See [ADR-002](../../../dev-docs/adrs/002-year-as-range.md) for the rationale.
+
+`year` is always a two-element `[start, end]` integer array. Studio albums use `[y, y]`; compilations use `[earliest, latest]` spanning the source recordings. Ask the user if a compilation's range is ambiguous.
 
 Ask for confirmation or corrections. Apply corrections by editing `.data-staging/staging.json` directly (it is a plain JSON file). If the user wants to change a URL or rating, edit `.data-staging/input.txt` and rerun `stage`.
 

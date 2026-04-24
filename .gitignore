@@ -6,3 +6,4 @@ dev-docs/
 tandem.json
 .data-staging/
 .discogs-token
+__pycache__/
