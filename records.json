@@ -9,7 +9,7 @@
     ],
     "rating": 5,
     "genres": [
-      "Progressive Rock",
+      "Prog Rock",
       "Art Rock"
     ],
     "tracks": [
@@ -65,7 +65,7 @@
     ],
     "rating": 5,
     "genres": [
-      "Progressive Rock",
+      "Prog Rock",
       "Art Rock"
     ],
     "tracks": [
@@ -121,7 +121,7 @@
     ],
     "rating": 4,
     "genres": [
-      "Progressive Rock",
+      "Prog Rock",
       "Art Rock"
     ],
     "tracks": [
@@ -177,7 +177,7 @@
     ],
     "rating": 3,
     "genres": [
-      "Progressive Rock",
+      "Prog Rock",
       "Art Rock"
     ],
     "notes": "Haven't listened to this one very much, but it's great",
@@ -546,8 +546,8 @@
     ],
     "rating": 5,
     "genres": [
-      "Rock",
-      "Americana"
+      "Americana",
+      "Folk Rock"
     ],
     "notes": "Fantastic",
     "tracks": [
@@ -611,8 +611,7 @@
     ],
     "rating": 4,
     "genres": [
-      "Vocal Jazz",
-      "Jazz"
+      "Vocal Jazz"
     ],
     "tracks": [
       {
@@ -927,8 +926,8 @@
     ],
     "rating": 4,
     "genres": [
-      "Rock",
-      "Pop Rock"
+      "Pop Rock",
+      "Soft Rock"
     ],
     "notes": "Sunny day music; track pick: \"The Way It Is\"",
     "tracks": [
@@ -1046,7 +1045,8 @@
     "rating": 3,
     "genres": [
       "Pop",
-      "Soft Rock"
+      "Soft Rock",
+      "Easy Listening"
     ],
     "notes": "All the good Carpenters songs",
     "tracks": [
@@ -1167,7 +1167,8 @@
     ],
     "rating": 5,
     "genres": [
-      "Alternative Rock"
+      "Alternative Rock",
+      "Pop Rock"
     ],
     "tracks": [
       {
@@ -1497,8 +1498,8 @@
     ],
     "rating": 5,
     "genres": [
-      "Rock",
-      "Progressive Rock"
+      "Prog Rock",
+      "Art Rock"
     ],
     "tracks": [
       {
@@ -1550,7 +1551,7 @@
     "rating": 3,
     "genres": [
       "Rock",
-      "Progressive Rock"
+      "Prog Rock"
     ],
     "notes": "It's ok, but Caylon got it for me for my birthday; track pick: \"A Boat Lies Waiting\"",
     "tracks": [
@@ -1606,7 +1607,8 @@
     ],
     "rating": 3,
     "genres": [
-      "Rock"
+      "Rock",
+      "Pop Rock"
     ],
     "tracks": [
       {
@@ -1706,7 +1708,8 @@
     "rating": 3,
     "genres": [
       "Pop",
-      "Vocal Jazz"
+      "Vocal Jazz",
+      "Easy Listening"
     ],
     "tracks": [
       {
@@ -1921,7 +1924,6 @@
     "genres": [
       "Funk",
       "R&B",
-      "Soul",
       "Disco"
     ],
     "notes": "Dance parties",
@@ -2087,7 +2089,7 @@
     ],
     "rating": 5,
     "genres": [
-      "Rock and Roll",
+      "Rock & Roll",
       "Rock"
     ],
     "tracks": [
@@ -2199,7 +2201,7 @@
     ],
     "rating": 3,
     "genres": [
-      "Progressive Rock"
+      "Prog Rock"
     ],
     "notes": "track pick: \"Lucky Man\"",
     "tracks": [
@@ -2436,7 +2438,7 @@
     "rating": 3,
     "genres": [
       "Rock",
-      "Soft Rock"
+      "Southern Rock"
     ],
     "notes": "Track pick: So In To You",
     "tracks": [
@@ -2485,7 +2487,8 @@
     "rating": 3,
     "genres": [
       "Pop",
-      "Easy Listening"
+      "Easy Listening",
+      "Soundtrack"
     ],
     "tracks": [
       {
@@ -2787,7 +2790,6 @@
     "rating": 5,
     "genres": [
       "Rock",
-      "Pop",
       "Pop Rock",
       "Soft Rock"
     ],
@@ -2969,7 +2971,7 @@
     "genres": [
       "Rock",
       "Pop Rock",
-      "Progressive Rock"
+      "Prog Rock"
     ],
     "tracks": [
       {
@@ -3143,8 +3145,6 @@
     ],
     "rating": 2,
     "genres": [
-      "Rock",
-      "Pop",
       "Pop Rock",
       "Prog Rock",
       "Art Rock"
