@@ -47,6 +47,12 @@ KNOWN_URLS_FROM_STAGING = REPO_ROOT / ".data-staging" / "staging.json"
 # Stay under Discogs unauthenticated rate limit (25 req/min).
 THROTTLE_SECONDS = 2.5
 
+# Records where the user explicitly chose the release image over the master.
+# Keyed by discogs_url. Apply skips the master-image swap for these.
+PREFER_RELEASE_IMAGE = {
+    "https://www.discogs.com/release/1953621-John-Mayer-Continuum",
+}
+
 
 def throttle():
     time.sleep(THROTTLE_SECONDS)
@@ -290,10 +296,24 @@ def cmd_apply(args):
             failures.append(f"{artwork}: failed to fetch release ({e})")
             continue
 
-        img_url = pick_primary_image(release.get("images"))
+        img_url = None
+        img_source = "release"
+        master_id = release.get("master_id")
+        if master_id and url not in PREFER_RELEASE_IMAGE:
+            try:
+                master = discogs_get(f"/masters/{master_id}")
+                throttle()
+                img_url = pick_primary_image(master.get("images"))
+                if img_url:
+                    img_source = "master"
+            except Exception as e:
+                print(f"    master fetch failed ({e}), falling back to release image", file=sys.stderr)
         if not img_url:
-            failures.append(f"{artwork}: no primary image on release {release_id}")
+            img_url = pick_primary_image(release.get("images"))
+        if not img_url:
+            failures.append(f"{artwork}: no primary image on release {release_id} or its master")
             continue
+        print(f"    image source: {img_source}")
 
         final_path = REPO_ROOT / artwork
         try:
