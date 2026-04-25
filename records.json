@@ -4651,5 +4651,581 @@
         "title": "Guiding Light"
       }
     ]
+  },
+  {
+    "artwork": "images/little-river-band-sleeper-catcher.jpg",
+    "artist": "Little River Band",
+    "title": "Sleeper Catcher",
+    "year": [
+      1978,
+      1978
+    ],
+    "rating": 3,
+    "genres": [
+      "Pop Rock",
+      "Soft Rock",
+      "Yacht Rock"
+    ],
+    "discogs_url": "https://www.discogs.com/release/2302658-Little-River-Band-Sleeper-Catcher",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Shut Down Turn Off"
+      },
+      {
+        "side": "A",
+        "title": "Reminiscing"
+      },
+      {
+        "side": "A",
+        "title": "Red-headed Wild Flower"
+      },
+      {
+        "side": "A",
+        "title": "Light Of Day"
+      },
+      {
+        "side": "B",
+        "title": "Fall From Paradise"
+      },
+      {
+        "side": "B",
+        "title": "Lady"
+      },
+      {
+        "side": "B",
+        "title": "Sanity's Side"
+      },
+      {
+        "side": "B",
+        "title": "So Many Paths"
+      },
+      {
+        "side": "B",
+        "title": "One For The Road"
+      }
+    ]
+  },
+  {
+    "artwork": "images/little-river-band-first-under-the-wire.jpg",
+    "artist": "Little River Band",
+    "title": "First Under The Wire",
+    "year": [
+      1979,
+      1979
+    ],
+    "rating": 3,
+    "genres": [
+      "Pop Rock",
+      "Soft Rock",
+      "Yacht Rock"
+    ],
+    "discogs_url": "https://www.discogs.com/release/10511404-Little-River-Band-First-Under-The-Wire",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Lonesome Loser"
+      },
+      {
+        "side": "A",
+        "title": "The Rumor"
+      },
+      {
+        "side": "A",
+        "title": "By My Side"
+      },
+      {
+        "side": "A",
+        "title": "Cool Change"
+      },
+      {
+        "side": "A",
+        "title": "It's Not A Wonder"
+      },
+      {
+        "side": "B",
+        "title": "Hard Life (Prelude)"
+      },
+      {
+        "side": "B",
+        "title": "Hard Life"
+      },
+      {
+        "side": "B",
+        "title": "Middle Man"
+      },
+      {
+        "side": "B",
+        "title": "Man On The Run"
+      },
+      {
+        "side": "B",
+        "title": "Mistress Of Mine"
+      }
+    ]
+  },
+  {
+    "artwork": "images/little-river-band-little-river-band.jpg",
+    "artist": "Little River Band",
+    "title": "Little River Band",
+    "year": [
+      1975,
+      1975
+    ],
+    "rating": 3,
+    "genres": [
+      "Pop Rock",
+      "Soft Rock",
+      "Yacht Rock"
+    ],
+    "discogs_url": "https://www.discogs.com/release/2140203-Little-River-Band-Little-River-Band",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "It's A Long Way There"
+      },
+      {
+        "side": "A",
+        "title": "Curiosity (Killed The Cat)"
+      },
+      {
+        "side": "A",
+        "title": "Meanwhile"
+      },
+      {
+        "side": "A",
+        "title": "My Lady And Me"
+      },
+      {
+        "side": "B",
+        "title": "I'll Always Call Your Name"
+      },
+      {
+        "side": "B",
+        "title": "Emma"
+      },
+      {
+        "side": "B",
+        "title": "The Man In Black"
+      },
+      {
+        "side": "B",
+        "title": "Statue Of Liberty"
+      },
+      {
+        "side": "B",
+        "title": "I Know It"
+      }
+    ]
+  },
+  {
+    "artwork": "images/manhattan-transfer-the-the-best-of-the-manhattan-transfer.jpg",
+    "artist": "The Manhattan Transfer",
+    "title": "The Best Of The Manhattan Transfer",
+    "year": [
+      1975,
+      1981
+    ],
+    "rating": 2,
+    "genres": [
+      "Vocal Jazz",
+      "Pop",
+      "Swing"
+    ],
+    "discogs_url": "https://www.discogs.com/release/1629134-The-Manhattan-Transfer-The-Best-Of-The-Manhattan-Transfer",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Tuxedo Junction"
+      },
+      {
+        "side": "A",
+        "title": "Boy From New York City"
+      },
+      {
+        "side": "A",
+        "title": "Twilight Zone"
+      },
+      {
+        "side": "A",
+        "title": "Twilight Tone"
+      },
+      {
+        "side": "A",
+        "title": "Body And Soul"
+      },
+      {
+        "side": "A",
+        "title": "Candy"
+      },
+      {
+        "side": "A",
+        "title": "Four Brothers"
+      },
+      {
+        "side": "B",
+        "title": "Birdland"
+      },
+      {
+        "side": "B",
+        "title": "Gloria"
+      },
+      {
+        "side": "B",
+        "title": "Trickle Trickle"
+      },
+      {
+        "side": "B",
+        "title": "Operator"
+      },
+      {
+        "side": "B",
+        "title": "Java Jive"
+      },
+      {
+        "side": "B",
+        "title": "A Nightingale Sang In Berkeley Square"
+      }
+    ]
+  },
+  {
+    "artwork": "images/marty-robbins-gunfighter-ballads-and-trail-songs.jpg",
+    "artist": "Marty Robbins",
+    "title": "Gunfighter Ballads And Trail Songs",
+    "year": [
+      1959,
+      1959
+    ],
+    "rating": 5,
+    "genres": [
+      "Country",
+      "Western"
+    ],
+    "discogs_url": "https://www.discogs.com/release/4245794-Marty-Robbins-Gunfighter-Ballads-And-Trail-Songs",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Big Iron"
+      },
+      {
+        "side": "A",
+        "title": "Cool Water"
+      },
+      {
+        "side": "A",
+        "title": "Billy The Kid"
+      },
+      {
+        "side": "A",
+        "title": "A Hundred And Sixty Acres"
+      },
+      {
+        "side": "A",
+        "title": "They're Hanging Me Tonight"
+      },
+      {
+        "side": "A",
+        "title": "Strawberry Roan"
+      },
+      {
+        "side": "B",
+        "title": "El Paso"
+      },
+      {
+        "side": "B",
+        "title": "In The Valley"
+      },
+      {
+        "side": "B",
+        "title": "The Master's Call"
+      },
+      {
+        "side": "B",
+        "title": "Running Gun"
+      },
+      {
+        "side": "B",
+        "title": "Down In The Little Green Valley"
+      },
+      {
+        "side": "B",
+        "title": "Utah Carol"
+      }
+    ]
+  },
+  {
+    "artwork": "images/maynard-ferguson-carnival.jpg",
+    "artist": "Maynard Ferguson",
+    "title": "Carnival",
+    "year": [
+      1978,
+      1978
+    ],
+    "rating": 3,
+    "genres": [
+      "Jazz",
+      "Fusion"
+    ],
+    "discogs_url": "https://www.discogs.com/release/1366763-Maynard-Ferguson-Carnival",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "M. F. Carnival"
+      },
+      {
+        "side": "A",
+        "title": "Fantasy"
+      },
+      {
+        "side": "A",
+        "title": "Theme From \"Battlestar Galactica\""
+      },
+      {
+        "side": "A",
+        "title": "Stella By Starlight"
+      },
+      {
+        "side": "B",
+        "title": "Birdland"
+      },
+      {
+        "side": "B",
+        "title": "Baker Street"
+      },
+      {
+        "side": "B",
+        "title": "How Ya Doin' Baby"
+      },
+      {
+        "side": "B",
+        "title": "Over The Rainbow"
+      }
+    ]
+  },
+  {
+    "artwork": "images/men-at-work-business-as-usual.jpg",
+    "artist": "Men At Work",
+    "title": "Business As Usual",
+    "year": [
+      1981,
+      1981
+    ],
+    "rating": 2,
+    "genres": [
+      "Pop Rock"
+    ],
+    "notes": "It's a fun listen, don't skip just cause I gave it a 2.",
+    "discogs_url": "https://www.discogs.com/release/587059-Men-At-Work-Business-As-Usual",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Who Can It Be Now?"
+      },
+      {
+        "side": "A",
+        "title": "I Can See It In Your Eyes"
+      },
+      {
+        "side": "A",
+        "title": "Down Under"
+      },
+      {
+        "side": "A",
+        "title": "Underground"
+      },
+      {
+        "side": "A",
+        "title": "Helpless Automaton"
+      },
+      {
+        "side": "B",
+        "title": "People Just Love To Play With Words"
+      },
+      {
+        "side": "B",
+        "title": "Be Good Johnny"
+      },
+      {
+        "side": "B",
+        "title": "Touching The Untouchables"
+      },
+      {
+        "side": "B",
+        "title": "Catch A Star"
+      },
+      {
+        "side": "B",
+        "title": "Down By The Sea"
+      }
+    ]
+  },
+  {
+    "artwork": "images/merle-haggard-and-george-jones-a-taste-of-yesterday-s-wine.jpg",
+    "artist": "Merle Haggard And George Jones",
+    "title": "A Taste Of Yesterday's Wine",
+    "year": [
+      1982,
+      1982
+    ],
+    "rating": 3,
+    "genres": [
+      "Country"
+    ],
+    "notes": "No sleeve.",
+    "discogs_url": "https://www.discogs.com/sell/item/3076410847",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Yesterday's Wine"
+      },
+      {
+        "side": "A",
+        "title": "After I Sing All My Songs"
+      },
+      {
+        "side": "A",
+        "title": "I Think I've Found A Way"
+      },
+      {
+        "side": "A",
+        "title": "The Brothers"
+      },
+      {
+        "side": "A",
+        "title": "Mobile Bay"
+      },
+      {
+        "side": "B",
+        "title": "C.C. Waterback"
+      },
+      {
+        "side": "B",
+        "title": "Silver Eagle"
+      },
+      {
+        "side": "B",
+        "title": "Must've Been Drunk"
+      },
+      {
+        "side": "B",
+        "title": "I Haven't Found Her Yet"
+      },
+      {
+        "side": "B",
+        "title": "No Show Jones"
+      }
+    ]
+  },
+  {
+    "artwork": "images/michael-jackson-thriller.jpg",
+    "artist": "Michael Jackson",
+    "title": "Thriller",
+    "year": [
+      1982,
+      1982
+    ],
+    "rating": 4,
+    "genres": [
+      "Pop",
+      "Disco",
+      "Funk"
+    ],
+    "discogs_url": "https://www.discogs.com/release/2911293-Michael-Jackson-Thriller",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Wanna Be Startin' Somethin'"
+      },
+      {
+        "side": "A",
+        "title": "Baby Be Mine"
+      },
+      {
+        "side": "A",
+        "title": "The Girl Is Mine"
+      },
+      {
+        "side": "A",
+        "title": "Thriller"
+      },
+      {
+        "side": "B",
+        "title": "Beat It"
+      },
+      {
+        "side": "B",
+        "title": "Billie Jean"
+      },
+      {
+        "side": "B",
+        "title": "Human Nature"
+      },
+      {
+        "side": "B",
+        "title": "P.Y.T. (Pretty Young Thing)"
+      },
+      {
+        "side": "B",
+        "title": "The Lady In My Life"
+      }
+    ]
+  },
+  {
+    "artwork": "images/michael-jackson-off-the-wall.jpg",
+    "artist": "Michael Jackson",
+    "title": "Off The Wall",
+    "year": [
+      1979,
+      1979
+    ],
+    "rating": 4,
+    "genres": [
+      "Pop",
+      "Disco",
+      "Funk"
+    ],
+    "discogs_url": "https://www.discogs.com/release/120096-Michael-Jackson-Off-The-Wall",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Don't Stop 'Til You Get Enough"
+      },
+      {
+        "side": "A",
+        "title": "Rock With You"
+      },
+      {
+        "side": "A",
+        "title": "Working Day And Night"
+      },
+      {
+        "side": "A",
+        "title": "Get On The Floor"
+      },
+      {
+        "side": "B",
+        "title": "Off The Wall"
+      },
+      {
+        "side": "B",
+        "title": "Girlfriend"
+      },
+      {
+        "side": "B",
+        "title": "She's Out Of My Life"
+      },
+      {
+        "side": "B",
+        "title": "I Can't Help It"
+      },
+      {
+        "side": "B",
+        "title": "It's The Falling In Love"
+      },
+      {
+        "side": "B",
+        "title": "Burn This Disco Out"
+      }
+    ]
   }
 ]
