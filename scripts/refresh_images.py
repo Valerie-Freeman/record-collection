@@ -51,6 +51,11 @@ THROTTLE_SECONDS = 2.5
 # Keyed by discogs_url. Apply skips the master-image swap for these.
 PREFER_RELEASE_IMAGE = {
     "https://www.discogs.com/release/1953621-John-Mayer-Continuum",
+    "https://www.discogs.com/sell/item/4022573239",
+    "https://www.discogs.com/release/3613000-Bruce-Hornsby-And-The-Range-The-Way-It-Is",
+    "https://www.discogs.com/sell/item/929694942",
+    "https://www.discogs.com/release/4812577-Ferrante-Teicher-The-Peoples-Choice",
+    "https://www.discogs.com/release/2769874-Genesis-Abacab",
 }
 
 
