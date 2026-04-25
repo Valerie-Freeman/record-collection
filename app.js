@@ -197,6 +197,50 @@ if (state.error) {
     });
   }
 
+  const rubricOpen = document.getElementById("rubric-open");
+  const rubricClose = document.getElementById("rubric-close");
+  const rubricModal = document.getElementById("rubric-modal");
+
+  let rubricReturnFocus = null;
+  let rubricCloseTimer = null;
+
+  function setRubricOpen(open) {
+    if (!rubricModal || !rubricOpen) return;
+
+    if (rubricCloseTimer) {
+      clearTimeout(rubricCloseTimer);
+      rubricCloseTimer = null;
+    }
+
+    rubricOpen.setAttribute("aria-expanded", open ? "true" : "false");
+
+    if (open) {
+      document.body.classList.add("modal-open");
+      rubricModal.classList.remove("modal-out");
+      rubricModal.hidden = false;
+      rubricReturnFocus = document.activeElement;
+      rubricClose?.focus();
+    } else {
+      rubricModal.classList.add("modal-out");
+      if (rubricReturnFocus instanceof HTMLElement) {
+        rubricReturnFocus.focus();
+        rubricReturnFocus = null;
+      }
+      rubricCloseTimer = setTimeout(() => {
+        rubricModal.hidden = true;
+        rubricModal.classList.remove("modal-out");
+        document.body.classList.remove("modal-open");
+        rubricCloseTimer = null;
+      }, sheetCloseDelay());
+    }
+  }
+
+  rubricOpen?.addEventListener("click", () => setRubricOpen(true));
+  rubricClose?.addEventListener("click", () => setRubricOpen(false));
+  rubricModal?.addEventListener("click", (e) => {
+    if (e.target === rubricModal) setRubricOpen(false);
+  });
+
   const surpriseBtn = document.getElementById("surprise-me");
   surpriseBtn?.addEventListener("click", () => {
     const visible = visibleRecords(state.records, state);
@@ -253,6 +297,10 @@ if (state.error) {
 
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
+    if (rubricModal && !rubricModal.hidden) {
+      setRubricOpen(false);
+      return;
+    }
     if (state.openRecordId) {
       location.hash = "#/";
       return;

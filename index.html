@@ -19,9 +19,22 @@
   <body>
     <header class="app-header">
       <h1>Cabinet</h1>
-      <span id="record-count" class="record-count" aria-label="record count"
-        >0</span
-      >
+      <div class="app-header-meta">
+        <span id="record-count" class="record-count" aria-label="record count"
+          >0</span
+        >
+        <button
+          id="rubric-open"
+          class="help-btn"
+          type="button"
+          aria-haspopup="dialog"
+          aria-controls="rubric-modal"
+          aria-expanded="false"
+          aria-label="What do the ratings mean?"
+        >
+          ?
+        </button>
+      </div>
     </header>
     <main>
       <div class="top-bar">
@@ -111,6 +124,50 @@
         </footer>
       </section>
     </main>
+    <section
+      id="rubric-modal"
+      class="rubric-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="rubric-modal-title"
+      hidden
+    >
+      <div class="rubric-modal-card">
+        <header class="rubric-modal-header">
+          <h2 id="rubric-modal-title">Rating rubric</h2>
+          <button
+            id="rubric-close"
+            class="rubric-close"
+            type="button"
+            aria-label="Close rubric"
+          >
+            ✕
+          </button>
+        </header>
+        <dl class="rubric-list">
+          <div class="rubric-row">
+            <dt class="rubric-stars" aria-label="1 star">★<span>☆☆☆☆</span></dt>
+            <dd>Keeping it for some reason</dd>
+          </div>
+          <div class="rubric-row">
+            <dt class="rubric-stars" aria-label="2 stars">★★<span>☆☆☆</span></dt>
+            <dd>Alright</dd>
+          </div>
+          <div class="rubric-row">
+            <dt class="rubric-stars" aria-label="3 stars">★★★<span>☆☆</span></dt>
+            <dd>Good</dd>
+          </div>
+          <div class="rubric-row">
+            <dt class="rubric-stars" aria-label="4 stars">★★★★<span>☆</span></dt>
+            <dd>Great</dd>
+          </div>
+          <div class="rubric-row">
+            <dt class="rubric-stars" aria-label="5 stars">★★★★★</dt>
+            <dd>Favorite</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
     <section
       id="detail-sheet"
       class="detail-sheet"

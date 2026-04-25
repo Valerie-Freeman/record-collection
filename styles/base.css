@@ -117,13 +117,169 @@ img {
   border-radius: 999px;
 }
 
+.app-header-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.help-btn {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--accent);
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.help-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.rubric-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.rubric-modal[hidden] {
+  display: none;
+}
+
+.rubric-modal:not([hidden]):not(.modal-out) .rubric-modal-card {
+  animation: modal-pop-in 220ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.rubric-modal.modal-out .rubric-modal-card {
+  animation: modal-pop-out 180ms ease forwards;
+}
+
+.rubric-modal-card {
+  width: 100%;
+  max-width: 22rem;
+  background: var(--surface-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 1.4);
+  box-shadow: var(--glass-shadow);
+  overflow: hidden;
+}
+
+.rubric-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.rubric-modal-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.rubric-close {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.rubric-close:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.rubric-list {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.rubric-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.rubric-stars {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.rubric-stars span {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.rubric-list dd {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+@keyframes modal-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modal-pop-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
 body.sheet-open,
-body.detail-open {
+body.detail-open,
+body.modal-open {
   overflow: hidden;
 }
 
 body.sheet-open::before,
-body.detail-open::before {
+body.detail-open::before,
+body.modal-open::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -164,8 +320,10 @@ body.detail-open::before {
 @media (prefers-reduced-motion: reduce) {
   body.sheet-open::before,
   body.detail-open::before,
+  body.modal-open::before,
   .filter-sheet:not([hidden]),
   .detail-sheet:not([hidden]),
+  .rubric-modal:not([hidden]) .rubric-modal-card,
   .filter-options {
     animation: none;
     transition: none;
