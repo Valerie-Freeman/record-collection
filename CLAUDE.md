@@ -31,6 +31,7 @@ Every record's `artist` value must exist in `artists.json` exactly. Every string
   "rating": 5,
   "genres": ["Rock", "Americana"],
   "notes": "Brown album. Winchester pressing.",
+  "discogs_url": "https://www.discogs.com/release/1234567-The-Band-The-Band",
   "tracks": [
     { "side": "A", "title": "Across the Great Divide" },
     { "side": "A", "title": "Rag Mama Rag" },
@@ -48,6 +49,7 @@ Every record's `artist` value must exist in `artists.json` exactly. Every string
 | rating   | integer  | yes      | 1 to 5 inclusive                                     |
 | genres   | string[] | yes      | Non-empty; each must match a `genres.json` entry     |
 | notes    | string   | no       | Free text                                            |
+| discogs_url | string | yes      | Discogs `/release/<id>` or `/sell/item/<id>` URL the record was added from. Captures source provenance for cover art and metadata. See [ADR-003](dev-docs/adrs/003-discogs-url-as-record-field.md). |
 | tracks   | object[] | no       | Ordered array of `{ "side": string, "title": string }` objects. Array order is track order within each side. Sourced from Discogs. |
 
 Do not invent fields like `format`, `label`, `pressing`. Those are explicitly out of scope for v1 (PRD §11).
