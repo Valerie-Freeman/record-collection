@@ -3,14 +3,17 @@
 
 import datetime
 import json
+import re
 import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
-REQUIRED_RECORD_FIELDS = ("artwork", "artist", "title", "year", "rating", "genres")
+REQUIRED_RECORD_FIELDS = ("artwork", "artist", "title", "year", "rating", "genres", "discogs_url")
 ALLOWED_RECORD_FIELDS = REQUIRED_RECORD_FIELDS + ("notes", "tracks")
 ALLOWED_TRACK_FIELDS = {"side", "title"}
+
+DISCOGS_URL_RX = re.compile(r"^https?://(?:www\.)?discogs\.com/(?:[a-z]{2}/)?(?:release/\d+|sell/item/\d+)(?:\b|/|$)")
 
 
 def load_json(path):
@@ -111,6 +114,15 @@ def validate_record(record, index, errors, current_year):
 
     if "notes" in record and not isinstance(record["notes"], str):
         errors.append(f"{label}: 'notes' must be a string")
+
+    if "discogs_url" in record:
+        url = record["discogs_url"]
+        if not isinstance(url, str) or url == "":
+            errors.append(f"{label}: 'discogs_url' must be a non-empty string")
+        elif not DISCOGS_URL_RX.match(url):
+            errors.append(
+                f"{label}: 'discogs_url' must be a Discogs /release/<id> or /sell/item/<id> URL, got '{url}'"
+            )
 
     artwork = record.get("artwork")
     if isinstance(artwork, str) and artwork:

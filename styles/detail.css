@@ -87,7 +87,7 @@
   width: 120px;
   height: 120px;
   object-fit: cover;
-  border-radius: var(--radius);
+  border-radius: 5px;
   background: var(--pastel-gray);
   box-shadow: var(--glass-shadow);
 }

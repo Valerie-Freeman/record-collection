@@ -296,7 +296,7 @@
   width: 96px;
   height: 96px;
   object-fit: cover;
-  border-radius: calc(var(--radius) - 0.15rem);
+  border-radius: 5px;
   background: var(--pastel-gray);
 }
 

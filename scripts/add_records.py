@@ -52,7 +52,7 @@ USER_AGENT = "RecordCollectionBrowser/1.0 +https://github.com/Valerie-Freeman/re
 API_BASE = "https://api.discogs.com"
 MAX_IMAGE_BYTES = 100 * 1024
 TARGET_DIM = 600
-QUALITY_LEVELS = [85, 75, 65, 55, 45, 35]
+QUALITY_LEVELS = [85, 75, 65, 55, 45, 35, 25, 15]
 
 
 # ---------- HTTP ----------
@@ -162,13 +162,10 @@ def artwork_path(artist, title):
 # ---------- Image processing ----------
 
 def optimize_image(path: Path):
-    """Resize to 600x600 center-crop, iterate JPEG quality until under 100KB."""
+    """Scale longest edge to TARGET_DIM (preserving aspect ratio, no cropping),
+    iterate JPEG quality until under 100KB."""
     subprocess.run(
-        ["sips", "--resampleHeightWidthMax", "800", str(path)],
-        check=True, capture_output=True,
-    )
-    subprocess.run(
-        ["sips", "-c", str(TARGET_DIM), str(TARGET_DIM), str(path)],
+        ["sips", "-Z", str(TARGET_DIM), str(path)],
         check=True, capture_output=True,
     )
     tmp = path.with_suffix(".tmp.jpg")
@@ -283,6 +280,7 @@ def build_proposal(master_url, vinyl_url, rating, notes):
     }
     if notes:
         record["notes"] = notes
+    record["discogs_url"] = vinyl_url
     record["tracks"] = [{"side": t["side"], "title": t["title"]} for t in tracks]
 
     return record, flags, img_url
@@ -307,6 +305,7 @@ def format_record(r, is_last):
         ordered[key] = r[key]
     if r.get("notes"):
         ordered["notes"] = r["notes"]
+    ordered["discogs_url"] = r["discogs_url"]
     if r.get("tracks"):
         ordered["tracks"] = [{"side": t["side"], "title": t["title"]} for t in r["tracks"]]
     dumped = json.dumps(ordered, indent=2, ensure_ascii=False)
