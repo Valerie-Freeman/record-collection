@@ -5012,6 +5012,7 @@
     ],
     "rating": 2,
     "genres": [
+      "New Wave",
       "Pop Rock"
     ],
     "notes": "It's a fun listen, don't skip just cause I gave it a 2.",
@@ -5790,6 +5791,561 @@
       {
         "side": "B",
         "title": "Take Me Home"
+      }
+    ]
+  },
+  {
+    "artwork": "images/phil-collins-face-value.jpg",
+    "artist": "Phil Collins",
+    "title": "Face Value",
+    "year": [
+      1981,
+      1981
+    ],
+    "rating": 5,
+    "genres": [
+      "Rock",
+      "Pop Rock"
+    ],
+    "discogs_url": "https://www.discogs.com/release/667279-Phil-Collins-Face-Value",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "In The Air Tonight"
+      },
+      {
+        "side": "A",
+        "title": "This Must Be Love"
+      },
+      {
+        "side": "A",
+        "title": "Behind The Lines"
+      },
+      {
+        "side": "A",
+        "title": "The Roof Is Leaking"
+      },
+      {
+        "side": "A",
+        "title": "Droned"
+      },
+      {
+        "side": "A",
+        "title": "Hand In Hand"
+      },
+      {
+        "side": "B",
+        "title": "I Missed Again"
+      },
+      {
+        "side": "B",
+        "title": "You Know What I Mean"
+      },
+      {
+        "side": "B",
+        "title": "Thunder And Lightning"
+      },
+      {
+        "side": "B",
+        "title": "I'm Not Moving"
+      },
+      {
+        "side": "B",
+        "title": "If Leaving Me Is Easy"
+      },
+      {
+        "side": "B",
+        "title": "Tomorrow Never Knows"
+      },
+      {
+        "side": "B",
+        "title": "Over The Rainbow"
+      }
+    ]
+  },
+  {
+    "artwork": "images/pink-floyd-the-dark-side-of-the-moon.jpg",
+    "artist": "Pink Floyd",
+    "title": "The Dark Side Of The Moon",
+    "year": [
+      1973,
+      1973
+    ],
+    "rating": 5,
+    "genres": [
+      "Rock",
+      "Prog Rock"
+    ],
+    "discogs_url": "https://www.discogs.com/release/9287809-Pink-Floyd-The-Dark-Side-Of-The-Moon",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Speak To Me"
+      },
+      {
+        "side": "A",
+        "title": "Breathe (In The Air)"
+      },
+      {
+        "side": "A",
+        "title": "On The Run"
+      },
+      {
+        "side": "A",
+        "title": "Time"
+      },
+      {
+        "side": "A",
+        "title": "The Great Gig In The Sky"
+      },
+      {
+        "side": "B",
+        "title": "Money"
+      },
+      {
+        "side": "B",
+        "title": "Us And Them"
+      },
+      {
+        "side": "B",
+        "title": "Any Colour You Like"
+      },
+      {
+        "side": "B",
+        "title": "Brain Damage"
+      },
+      {
+        "side": "B",
+        "title": "Eclipse"
+      }
+    ]
+  },
+  {
+    "artwork": "images/pink-floyd-the-division-bell.jpg",
+    "artist": "Pink Floyd",
+    "title": "The Division Bell",
+    "year": [
+      1994,
+      1994
+    ],
+    "rating": 4,
+    "genres": [
+      "Rock",
+      "Prog Rock"
+    ],
+    "discogs_url": "https://www.discogs.com/release/8441806-Pink-Floyd-The-Division-Bell",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Cluster One"
+      },
+      {
+        "side": "A",
+        "title": "What Do You Want From Me"
+      },
+      {
+        "side": "A",
+        "title": "Poles Apart"
+      },
+      {
+        "side": "B",
+        "title": "Marooned"
+      },
+      {
+        "side": "B",
+        "title": "A Great Day For Freedom"
+      },
+      {
+        "side": "B",
+        "title": "Wearing The Inside Out"
+      },
+      {
+        "side": "C",
+        "title": "Take It Back"
+      },
+      {
+        "side": "C",
+        "title": "Coming Back To Life"
+      },
+      {
+        "side": "C",
+        "title": "Keep Talking"
+      },
+      {
+        "side": "D",
+        "title": "Lost For Words"
+      },
+      {
+        "side": "D",
+        "title": "High Hopes"
+      }
+    ]
+  },
+  {
+    "artwork": "images/the-police-synchronicity.jpg",
+    "artist": "The Police",
+    "title": "Synchronicity",
+    "year": [
+      1983,
+      1983
+    ],
+    "rating": 2,
+    "genres": [
+      "New Wave",
+      "Pop Rock"
+    ],
+    "discogs_url": "https://www.discogs.com/release/367750-The-Police-Synchronicity",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Synchronicity I"
+      },
+      {
+        "side": "A",
+        "title": "Walking In Your Footsteps"
+      },
+      {
+        "side": "A",
+        "title": "O My God"
+      },
+      {
+        "side": "A",
+        "title": "Mother"
+      },
+      {
+        "side": "A",
+        "title": "Miss Gradenko"
+      },
+      {
+        "side": "A",
+        "title": "Synchronicity II"
+      },
+      {
+        "side": "B",
+        "title": "Every Breath You Take"
+      },
+      {
+        "side": "B",
+        "title": "King Of Pain"
+      },
+      {
+        "side": "B",
+        "title": "Wrapped Around Your Finger"
+      },
+      {
+        "side": "B",
+        "title": "Tea In The Sahara"
+      }
+    ]
+  },
+  {
+    "artwork": "images/mort-garson-mother-earth-s-plantasia.jpg",
+    "artist": "Mort Garson",
+    "title": "Mother Earth's Plantasia",
+    "year": [
+      1976,
+      1976
+    ],
+    "rating": 3,
+    "genres": [
+      "Ambient",
+      "Experimental"
+    ],
+    "notes": "A gift from Henry",
+    "discogs_url": "https://www.discogs.com/release/530794-Mort-Garson-Mother-Earths-Plantasia",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Plantasia"
+      },
+      {
+        "side": "A",
+        "title": "Symphony For A Spider Plant"
+      },
+      {
+        "side": "A",
+        "title": "Baby's Tears Blues"
+      },
+      {
+        "side": "A",
+        "title": "Ode To An African Violet"
+      },
+      {
+        "side": "A",
+        "title": "Concerto For Philodendron & Pothos"
+      },
+      {
+        "side": "B",
+        "title": "Rhapsody In Green"
+      },
+      {
+        "side": "B",
+        "title": "Swingin' Spathiphyllums"
+      },
+      {
+        "side": "B",
+        "title": "You Don't Have To Walk A Begonia"
+      },
+      {
+        "side": "B",
+        "title": "A Mellow Mood For Maidenhair"
+      },
+      {
+        "side": "B",
+        "title": "Music To Soothe The Savage Snake Plant"
+      }
+    ]
+  },
+  {
+    "artwork": "images/pure-prairie-league-bustin-out.jpg",
+    "artist": "Pure Prairie League",
+    "title": "Bustin' Out",
+    "year": [
+      1972,
+      1972
+    ],
+    "rating": 4,
+    "genres": [
+      "Country Rock"
+    ],
+    "notes": "Such a perfect sunny day listen, with a bowl of watermelon and sweet tea.",
+    "discogs_url": "https://www.discogs.com/release/2932500-Pure-Prairie-League-Bustin-Out",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "Jazzman"
+      },
+      {
+        "side": "A",
+        "title": "Angel #9"
+      },
+      {
+        "side": "A",
+        "title": "Leave My Heart Alone"
+      },
+      {
+        "side": "A",
+        "title": "Early Morning Riser"
+      },
+      {
+        "side": "B",
+        "title": "Falling In And Out Of Love"
+      },
+      {
+        "side": "B",
+        "title": "Amie"
+      },
+      {
+        "side": "B",
+        "title": "Boulder Skies"
+      },
+      {
+        "side": "B",
+        "title": "Angel"
+      },
+      {
+        "side": "B",
+        "title": "Call Me, Tell Me"
+      }
+    ]
+  },
+  {
+    "artwork": "images/queen-news-of-the-world.jpg",
+    "artist": "Queen",
+    "title": "News Of The World",
+    "year": [
+      1977,
+      1977
+    ],
+    "rating": 3,
+    "genres": [
+      "Hard Rock",
+      "Pop Rock"
+    ],
+    "discogs_url": "https://www.discogs.com/release/443777-Queen-News-Of-The-World",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "We Will Rock You"
+      },
+      {
+        "side": "A",
+        "title": "We Are The Champions"
+      },
+      {
+        "side": "A",
+        "title": "Sheer Heart Attack"
+      },
+      {
+        "side": "A",
+        "title": "All Dead, All Dead"
+      },
+      {
+        "side": "A",
+        "title": "Spread Your Wings"
+      },
+      {
+        "side": "A",
+        "title": "Fight From The Inside"
+      },
+      {
+        "side": "B",
+        "title": "Get Down, Make Love"
+      },
+      {
+        "side": "B",
+        "title": "Sleeping On The Sidewalk"
+      },
+      {
+        "side": "B",
+        "title": "Who Needs You"
+      },
+      {
+        "side": "B",
+        "title": "It's Late"
+      },
+      {
+        "side": "B",
+        "title": "My Melancholy Blues"
+      }
+    ]
+  },
+  {
+    "artwork": "images/the-ramsey-lewis-trio-the-in-crowd.jpg",
+    "artist": "The Ramsey Lewis Trio",
+    "title": "The In Crowd",
+    "year": [
+      1965,
+      1965
+    ],
+    "rating": 3,
+    "genres": [
+      "Jazz",
+      "Soul"
+    ],
+    "notes": "Another one of PopPop and Janet's.",
+    "discogs_url": "https://www.discogs.com/sell/item/4133229126",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "The 'In' Crowd"
+      },
+      {
+        "side": "A",
+        "title": "Since I Fell For You"
+      },
+      {
+        "side": "A",
+        "title": "Tennessee Waltz"
+      },
+      {
+        "side": "A",
+        "title": "You Been Talkin' 'Bout Me Baby"
+      },
+      {
+        "side": "B",
+        "title": "Spartacus (Love Theme From)"
+      },
+      {
+        "side": "B",
+        "title": "Felicidade (Happiness) (From The Motion Picture \"Black Orpheus\")"
+      },
+      {
+        "side": "B",
+        "title": "Come Sunday"
+      }
+    ]
+  },
+  {
+    "artwork": "images/ramsey-lewis-solid-ivory-his-greatest-hits.jpg",
+    "artist": "Ramsey Lewis",
+    "title": "Solid Ivory: His Greatest Hits",
+    "year": [
+      1965,
+      1969
+    ],
+    "rating": 3,
+    "genres": [
+      "Jazz",
+      "Soul"
+    ],
+    "discogs_url": "https://www.discogs.com/release/1153727-Ramsey-Lewis-Solid-Ivory-His-Greatest-Hits",
+    "tracks": [
+      {
+        "side": "A",
+        "title": "The 'In' Crowd"
+      },
+      {
+        "side": "A",
+        "title": "Function At The Junction"
+      },
+      {
+        "side": "A",
+        "title": "Jade East"
+      },
+      {
+        "side": "A",
+        "title": "Since I Fell For You"
+      },
+      {
+        "side": "A",
+        "title": "Uptight (Everything's Alright)"
+      },
+      {
+        "side": "B",
+        "title": "Wade In The Water"
+      },
+      {
+        "side": "B",
+        "title": "Hurt So Bad"
+      },
+      {
+        "side": "B",
+        "title": "Felicidade (Happiness)"
+      },
+      {
+        "side": "B",
+        "title": "Maiden Voyage"
+      },
+      {
+        "side": "B",
+        "title": "Soul Man"
+      },
+      {
+        "side": "C",
+        "title": "Hang On Sloopy"
+      },
+      {
+        "side": "C",
+        "title": "Day Tripper"
+      },
+      {
+        "side": "C",
+        "title": "What Now My Love"
+      },
+      {
+        "side": "C",
+        "title": "Julia"
+      },
+      {
+        "side": "C",
+        "title": "Cry Baby Cry"
+      },
+      {
+        "side": "D",
+        "title": "Tennessee Waltz"
+      },
+      {
+        "side": "D",
+        "title": "Ain't That Peculiar"
+      },
+      {
+        "side": "D",
+        "title": "Les Fleur"
+      },
+      {
+        "side": "D",
+        "title": "A Hard Day's Night"
       }
     ]
   }
