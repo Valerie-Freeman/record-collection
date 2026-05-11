@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles/list.css" />
     <link rel="stylesheet" href="styles/filters.css" />
     <link rel="stylesheet" href="styles/detail.css" />
+    <link rel="stylesheet" href="styles/account.css" />
     <script type="module" src="app.js"></script>
   </head>
   <body>
@@ -33,6 +34,16 @@
           aria-label="What do the ratings mean?"
         >
           ?
+        </button>
+        <button
+          id="account-btn"
+          class="help-btn account-btn"
+          type="button"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+          aria-label="Sign in to edit"
+        >
+          <span class="account-glyph" aria-hidden="true">⚙</span>
         </button>
       </div>
     </header>
@@ -178,6 +189,14 @@
     >
       <header class="detail-header">
         <button
+          id="detail-edit"
+          class="detail-edit"
+          type="button"
+          hidden
+        >
+          Edit
+        </button>
+        <button
           id="detail-close"
           class="detail-close"
           type="button"
@@ -187,6 +206,92 @@
         </button>
       </header>
       <div id="detail-body" class="detail-body"></div>
+      <footer
+        id="detail-edit-footer"
+        class="detail-edit-footer"
+        hidden
+      >
+        <p
+          id="detail-edit-error"
+          class="detail-edit-error"
+          role="alert"
+          hidden
+        ></p>
+        <div class="detail-edit-actions">
+          <button
+            id="detail-cancel"
+            class="detail-cancel"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button
+            id="detail-save"
+            class="detail-save"
+            type="button"
+          >
+            Save
+          </button>
+        </div>
+      </footer>
+    </section>
+    <section
+      id="signin-modal"
+      class="signin-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="signin-modal-title"
+      hidden
+    >
+      <div class="signin-modal-card">
+        <header class="signin-modal-header">
+          <h2 id="signin-modal-title">Sign in to edit</h2>
+          <button
+            id="signin-close"
+            class="signin-close"
+            type="button"
+            aria-label="Close sign in"
+          >
+            ✕
+          </button>
+        </header>
+        <div class="signin-modal-body">
+          <p class="signin-blurb">
+            Owners only. Visitors can browse without signing in.
+          </p>
+          <button id="signin-google" class="signin-google" type="button">
+            Continue with Google
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      id="account-modal"
+      class="account-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="account-modal-title"
+      hidden
+    >
+      <div class="account-modal-card">
+        <header class="account-modal-header">
+          <h2 id="account-modal-title">Signed in</h2>
+          <button
+            id="account-close"
+            class="account-close"
+            type="button"
+            aria-label="Close account"
+          >
+            ✕
+          </button>
+        </header>
+        <div class="account-modal-body">
+          <p class="account-email" id="account-email">—</p>
+          <button id="signout-btn" class="signout-btn" type="button">
+            Sign out
+          </button>
+        </div>
+      </div>
     </section>
   </body>
 </html>

@@ -6,6 +6,21 @@ import { renderChips } from "./render-chips.js";
 
 export { buildFilterSheet } from "./render-filters.js";
 
+export function renderAccountButton(owner) {
+  const btn = document.getElementById("account-btn");
+  if (!btn) return;
+  const glyph = btn.querySelector(".account-glyph");
+  if (owner) {
+    btn.dataset.owner = owner;
+    btn.setAttribute("aria-label", `Account (${owner})`);
+    if (glyph) glyph.textContent = owner.charAt(0).toUpperCase();
+  } else {
+    delete btn.dataset.owner;
+    btn.setAttribute("aria-label", "Sign in to edit");
+    if (glyph) glyph.textContent = "\u2699"; // gear
+  }
+}
+
 export function installArtworkFallback() {
   document.addEventListener(
     "error",

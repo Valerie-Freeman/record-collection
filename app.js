@@ -1,7 +1,19 @@
-import { loadCollection } from "./data.js";
-import { render, buildFilterSheet, installArtworkFallback } from "./render.js";
+import { loadCollection, updateRecord } from "./data.js";
+import {
+  render,
+  buildFilterSheet,
+  installArtworkFallback,
+  renderAccountButton,
+} from "./render.js";
 import { startRouter } from "./router.js";
 import { visibleRecords } from "./filter.js";
+import { createModal } from "./modal.js";
+import {
+  signInWithGoogle,
+  signOut,
+  getOwner,
+  onOwnerChange,
+} from "./auth.js";
 
 const state = {
   records: [],
@@ -16,14 +28,114 @@ const state = {
     ratings: new Set(),
   },
   openRecordId: null,
+  owner: null,
+  editing: false,
+  draft: null,
   error: false,
 };
 
+function enterEditMode() {
+  const record = state.records.find((r) => r.id === state.openRecordId);
+  if (!record || !state.owner) return;
+  state.draft = structuredClone(record);
+  state.editing = true;
+  render(state);
+}
+
+function exitEditMode() {
+  state.editing = false;
+  state.draft = null;
+  render(state);
+}
+
+function showSaveError(message) {
+  const errEl = document.getElementById("detail-edit-error");
+  if (!errEl) return;
+  errEl.textContent = message;
+  errEl.hidden = false;
+}
+
+function clearSaveError() {
+  const errEl = document.getElementById("detail-edit-error");
+  if (!errEl) return;
+  errEl.textContent = "";
+  errEl.hidden = true;
+}
+
+function setSavingDisabled(disabled) {
+  const saveBtn = document.getElementById("detail-save");
+  const cancelBtn = document.getElementById("detail-cancel");
+  if (saveBtn) saveBtn.disabled = disabled;
+  if (cancelBtn) cancelBtn.disabled = disabled;
+}
+
+function diffDraft(record, draft) {
+  const updates = {};
+  if (draft.rating !== record.rating) {
+    updates.rating = draft.rating;
+  }
+  const normalizedNotes = draft.notes === "" ? null : draft.notes ?? null;
+  const currentNotes = record.notes ?? null;
+  if (normalizedNotes !== currentNotes) {
+    updates.notes = normalizedNotes;
+  }
+  return updates;
+}
+
+async function saveDraft() {
+  if (!state.editing || !state.draft) return;
+  const record = state.records.find((r) => r.id === state.openRecordId);
+  if (!record) return;
+
+  const updates = diffDraft(record, state.draft);
+  if (Object.keys(updates).length === 0) {
+    exitEditMode();
+    return;
+  }
+
+  clearSaveError();
+  setSavingDisabled(true);
+
+  try {
+    await updateRecord(record.db_id, updates);
+  } catch (err) {
+    setSavingDisabled(false);
+    showSaveError(err?.message || "Couldn't save changes.");
+    return;
+  }
+
+  if ("rating" in updates) record.rating = updates.rating;
+  if ("notes" in updates) {
+    if (updates.notes === null) delete record.notes;
+    else record.notes = updates.notes;
+  }
+
+  setSavingDisabled(false);
+  exitEditMode();
+}
+
+function syncRatingStars(rating) {
+  const container = document.querySelector("#detail-body .rating-input");
+  if (!container) return;
+  const buttons = container.querySelectorAll(".rating-star");
+  buttons.forEach((btn, idx) => {
+    const n = idx + 1;
+    const filled = n <= rating;
+    btn.classList.toggle("is-filled", filled);
+    btn.textContent = filled ? "\u2605" : "\u2606";
+    btn.setAttribute("aria-checked", n === rating ? "true" : "false");
+  });
+}
+
 try {
-  const { records, artists, genres } = await loadCollection();
-  state.records = records;
-  state.artists = artists;
-  state.genres = genres;
+  const [collection, owner] = await Promise.all([
+    loadCollection(),
+    getOwner(),
+  ]);
+  state.records = collection.records;
+  state.artists = collection.artists;
+  state.genres = collection.genres;
+  state.owner = owner;
 } catch (err) {
   console.error("Failed to load collection:", err);
   state.error = true;
@@ -34,6 +146,7 @@ if (state.error) {
 } else {
   installArtworkFallback();
   buildFilterSheet(state);
+  renderAccountButton(state.owner);
 
   const searchInput = document.getElementById("search-input");
   if (searchInput) {
@@ -197,48 +310,83 @@ if (state.error) {
     });
   }
 
-  const rubricOpen = document.getElementById("rubric-open");
-  const rubricClose = document.getElementById("rubric-close");
-  const rubricModal = document.getElementById("rubric-modal");
+  const rubricModalEl = document.getElementById("rubric-modal");
+  const rubricOpenBtn = document.getElementById("rubric-open");
+  const rubricCloseBtn = document.getElementById("rubric-close");
+  const signinModalEl = document.getElementById("signin-modal");
+  const accountModalEl = document.getElementById("account-modal");
+  const accountBtn = document.getElementById("account-btn");
 
-  let rubricReturnFocus = null;
-  let rubricCloseTimer = null;
+  const rubricModal = createModal({
+    modalEl: rubricModalEl,
+    openerEl: rubricOpenBtn,
+    closeEl: rubricCloseBtn,
+  });
 
-  function setRubricOpen(open) {
-    if (!rubricModal || !rubricOpen) return;
+  const signinModal = createModal({
+    modalEl: signinModalEl,
+    openerEl: null,
+    closeEl: document.getElementById("signin-close"),
+  });
 
-    if (rubricCloseTimer) {
-      clearTimeout(rubricCloseTimer);
-      rubricCloseTimer = null;
-    }
+  const accountModal = createModal({
+    modalEl: accountModalEl,
+    openerEl: accountBtn,
+    closeEl: document.getElementById("account-close"),
+  });
 
-    rubricOpen.setAttribute("aria-expanded", open ? "true" : "false");
+  rubricOpenBtn?.addEventListener("click", () => rubricModal.setOpen(true));
+  rubricCloseBtn?.addEventListener("click", () => rubricModal.setOpen(false));
+  rubricModalEl?.addEventListener("click", (e) => {
+    if (e.target === rubricModalEl) rubricModal.setOpen(false);
+  });
 
-    if (open) {
-      document.body.classList.add("modal-open");
-      rubricModal.classList.remove("modal-out");
-      rubricModal.hidden = false;
-      rubricReturnFocus = document.activeElement;
-      rubricClose?.focus();
+  document
+    .getElementById("signin-close")
+    ?.addEventListener("click", () => (location.hash = "#/"));
+  signinModalEl?.addEventListener("click", (e) => {
+    if (e.target === signinModalEl) location.hash = "#/";
+  });
+  document
+    .getElementById("signin-google")
+    ?.addEventListener("click", () => signInWithGoogle());
+
+  document
+    .getElementById("account-close")
+    ?.addEventListener("click", () => accountModal.setOpen(false));
+  accountModalEl?.addEventListener("click", (e) => {
+    if (e.target === accountModalEl) accountModal.setOpen(false);
+  });
+  document
+    .getElementById("signout-btn")
+    ?.addEventListener("click", async () => {
+      await signOut();
+      accountModal.setOpen(false);
+    });
+
+  accountBtn?.addEventListener("click", () => {
+    if (state.owner) {
+      const emailEl = document.getElementById("account-email");
+      if (emailEl) emailEl.textContent = state.owner;
+      accountModal.setOpen(true);
     } else {
-      rubricModal.classList.add("modal-out");
-      if (rubricReturnFocus instanceof HTMLElement) {
-        rubricReturnFocus.focus();
-        rubricReturnFocus = null;
-      }
-      rubricCloseTimer = setTimeout(() => {
-        rubricModal.hidden = true;
-        rubricModal.classList.remove("modal-out");
-        document.body.classList.remove("modal-open");
-        rubricCloseTimer = null;
-      }, sheetCloseDelay());
+      location.hash = "#/signin";
     }
-  }
+  });
 
-  rubricOpen?.addEventListener("click", () => setRubricOpen(true));
-  rubricClose?.addEventListener("click", () => setRubricOpen(false));
-  rubricModal?.addEventListener("click", (e) => {
-    if (e.target === rubricModal) setRubricOpen(false);
+  onOwnerChange((owner) => {
+    state.owner = owner;
+    renderAccountButton(owner);
+    if (owner) {
+      if (location.hash === "#/signin") location.hash = "#/";
+    } else {
+      accountModal.setOpen(false);
+      if (state.editing) {
+        state.editing = false;
+        state.draft = null;
+      }
+    }
+    render(state);
   });
 
   const surpriseBtn = document.getElementById("surprise-me");
@@ -253,6 +401,43 @@ if (state.error) {
   detailClose?.addEventListener("click", () => {
     location.hash = "#/";
   });
+
+  document
+    .getElementById("detail-edit")
+    ?.addEventListener("click", () => enterEditMode());
+
+  document
+    .getElementById("detail-cancel")
+    ?.addEventListener("click", () => exitEditMode());
+
+  document.getElementById("detail-body")?.addEventListener("click", (e) => {
+    if (!state.editing || !state.draft) return;
+    const el = e.target instanceof Element ? e.target : null;
+    if (!el) return;
+
+    const ratingBtn = el.closest("[data-edit-rating]");
+    if (ratingBtn) {
+      const value = Number(ratingBtn.dataset.editRating);
+      if (Number.isInteger(value) && value >= 1 && value <= 5) {
+        state.draft.rating = value;
+        syncRatingStars(value);
+      }
+      return;
+    }
+  });
+
+  document.getElementById("detail-body")?.addEventListener("input", (e) => {
+    if (!state.editing || !state.draft) return;
+    const el = e.target instanceof Element ? e.target : null;
+    const field = el?.getAttribute("data-edit-field");
+    if (field === "notes" && el instanceof HTMLTextAreaElement) {
+      state.draft.notes = el.value;
+    }
+  });
+
+  document
+    .getElementById("detail-save")
+    ?.addEventListener("click", () => saveDraft());
 
   const detailSheet = document.getElementById("detail-sheet");
   if (detailSheet) {
@@ -271,6 +456,18 @@ if (state.error) {
   let detailReturnFocusSelector = null;
 
   startRouter((route) => {
+    if (route.type === "signin") {
+      if (state.owner) {
+        location.hash = "#/";
+        return;
+      }
+      state.openRecordId = null;
+      render(state);
+      signinModal.setOpen(true);
+      return;
+    }
+    signinModal.setOpen(false);
+
     const prevId = state.openRecordId;
     const nextId = route.type === "record" ? route.id : null;
 
@@ -279,6 +476,11 @@ if (state.error) {
       detailReturnFocusSelector = card?.dataset.id
         ? `.card[data-id="${CSS.escape(card.dataset.id)}"] .card-link`
         : null;
+    }
+
+    if (prevId !== nextId && state.editing) {
+      state.editing = false;
+      state.draft = null;
     }
 
     state.openRecordId = nextId;
@@ -297,8 +499,16 @@ if (state.error) {
 
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
-    if (rubricModal && !rubricModal.hidden) {
-      setRubricOpen(false);
+    if (rubricModal.isOpen()) {
+      rubricModal.setOpen(false);
+      return;
+    }
+    if (accountModal.isOpen()) {
+      accountModal.setOpen(false);
+      return;
+    }
+    if (signinModal.isOpen()) {
+      location.hash = "#/";
       return;
     }
     if (state.openRecordId) {
