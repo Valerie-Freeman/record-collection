@@ -1,10 +1,4 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-
-const SUPABASE_URL = "https://ytwrcffjmhkayzlfxctr.supabase.co";
-const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0d3JjZmZqbWhrYXl6bGZ4Y3RyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0MDU0MjgsImV4cCI6MjA5Mjk4MTQyOH0.SAEJUu7hJt1tYmVhgyHkqMXBiMmqDNUBcrfjZvC7nSQ";
-
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+import { supabase } from "./supabase.js";
 
 function slugify(str) {
   return String(str)
@@ -25,6 +19,7 @@ function shapeRecord(row) {
     )
     .map(({ side, title }) => ({ side, title }));
   const record = {
+    db_id: row.id,
     artwork: row.artwork,
     artist: row.artist,
     title: row.title,
@@ -39,12 +34,28 @@ function shapeRecord(row) {
   return record;
 }
 
+export async function updateRecord(dbId, updates) {
+  const { data, error } = await supabase
+    .from("records")
+    .update(updates)
+    .eq("id", dbId)
+    .select()
+    .single();
+  if (error) {
+    if (error.code === "PGRST116") {
+      throw new Error("Update blocked. Sign in as the owner and try again.");
+    }
+    throw error;
+  }
+  return data;
+}
+
 export async function loadCollection() {
   const [recordsRes, artistsRes, genresRes] = await Promise.all([
     supabase
       .from("records")
       .select(
-        "artist, title, year_start, year_end, rating, notes, discogs_url, artwork, record_genres(genre), tracks(side, position, title)"
+        "id, artist, title, year_start, year_end, rating, notes, discogs_url, artwork, record_genres(genre), tracks(side, position, title)"
       ),
     supabase.from("artists").select("name").order("name"),
     supabase.from("genres").select("name").order("name"),

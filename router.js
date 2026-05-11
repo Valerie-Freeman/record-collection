@@ -3,6 +3,7 @@ function parseHash(hash) {
   const path = hash.replace(/^#/, "") || "/";
   const match = path.match(/^\/record\/(.+)$/);
   if (match) return { type: "record", id: match[1] };
+  if (path === "/signin") return { type: "signin" };
   return { type: "list" };
 }
 
