@@ -2,6 +2,17 @@
   font-size: 0.95rem;
 }
 
+.account-btn:not([data-owner]) {
+  border-color: transparent;
+  background: transparent;
+}
+
+.account-btn .account-glyph svg {
+  display: block;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
 .account-btn[data-owner] {
   color: var(--accent-contrast);
   background: var(--accent);
