@@ -1,4 +1,10 @@
-const RECORD_REQUIRED_FIELDS = ["artwork", "artist", "title", "year", "rating", "genres"];
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+const SUPABASE_URL = "https://ytwrcffjmhkayzlfxctr.supabase.co";
+const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0d3JjZmZqbWhrYXl6bGZ4Y3RyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0MDU0MjgsImV4cCI6MjA5Mjk4MTQyOH0.SAEJUu7hJt1tYmVhgyHkqMXBiMmqDNUBcrfjZvC7nSQ";
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 function slugify(str) {
   return String(str)
@@ -9,74 +15,48 @@ function slugify(str) {
     .replace(/^-+|-+$/g, "");
 }
 
-function checkRecords(data) {
-  if (!Array.isArray(data)) throw new Error("records.json is not an array");
-  data.forEach((r, i) => {
-    if (!r || typeof r !== "object") throw new Error(`records[${i}] is not an object`);
-    for (const f of RECORD_REQUIRED_FIELDS) {
-      if (!(f in r)) throw new Error(`records[${i}] missing field "${f}"`);
-    }
-    if (typeof r.artwork !== "string" || !r.artwork) throw new Error(`records[${i}].artwork must be a non-empty string`);
-    if (typeof r.artist !== "string" || !r.artist) throw new Error(`records[${i}].artist must be a non-empty string`);
-    if (typeof r.title !== "string" || !r.title) throw new Error(`records[${i}].title must be a non-empty string`);
-    if (
-      !Array.isArray(r.year) ||
-      r.year.length !== 2 ||
-      !r.year.every(Number.isInteger) ||
-      r.year[0] > r.year[1]
-    ) {
-      throw new Error(`records[${i}].year must be a [start, end] array of two integers with start <= end`);
-    }
-    if (!Number.isInteger(r.rating) || r.rating < 1 || r.rating > 5) {
-      throw new Error(`records[${i}].rating must be an integer 1..5`);
-    }
-    if (!Array.isArray(r.genres) || r.genres.length === 0) {
-      throw new Error(`records[${i}].genres must be a non-empty array`);
-    }
-    if (!r.genres.every((g) => typeof g === "string" && g.length > 0)) {
-      throw new Error(`records[${i}].genres must contain non-empty strings`);
-    }
-    if ("notes" in r && typeof r.notes !== "string") {
-      throw new Error(`records[${i}].notes must be a string`);
-    }
-  });
-}
-
-function checkStringList(data, name) {
-  if (!Array.isArray(data)) throw new Error(`${name} is not an array`);
-  const seen = new Set();
-  data.forEach((v, i) => {
-    if (typeof v !== "string" || v.length === 0) throw new Error(`${name}[${i}] must be a non-empty string`);
-    if (seen.has(v)) throw new Error(`${name} has duplicate entry "${v}"`);
-    seen.add(v);
-  });
-}
-
-async function fetchJson(path) {
-  const res = await fetch(path);
-  if (!res.ok) throw new Error(`fetch ${path} failed: ${res.status} ${res.statusText}`);
-  return res.json();
+function shapeRecord(row) {
+  const [start, end] = [row.year_start, row.year_end];
+  const yearPart = start === end ? `${start}` : `${start}-${end}`;
+  const tracks = (row.tracks ?? [])
+    .slice()
+    .sort((a, b) =>
+      a.side === b.side ? a.position - b.position : a.side < b.side ? -1 : 1
+    )
+    .map(({ side, title }) => ({ side, title }));
+  const record = {
+    artwork: row.artwork,
+    artist: row.artist,
+    title: row.title,
+    year: [start, end],
+    rating: row.rating,
+    genres: (row.record_genres ?? []).map((g) => g.genre),
+    discogs_url: row.discogs_url,
+    id: slugify(`${row.artist} ${row.title} ${yearPart}`),
+  };
+  if (row.notes) record.notes = row.notes;
+  if (tracks.length > 0) record.tracks = tracks;
+  return record;
 }
 
 export async function loadCollection() {
-  const [records, artists, genres] = await Promise.all([
-    fetchJson("records.json"),
-    fetchJson("artists.json"),
-    fetchJson("genres.json"),
+  const [recordsRes, artistsRes, genresRes] = await Promise.all([
+    supabase
+      .from("records")
+      .select(
+        "artist, title, year_start, year_end, rating, notes, discogs_url, artwork, record_genres(genre), tracks(side, position, title)"
+      ),
+    supabase.from("artists").select("name").order("name"),
+    supabase.from("genres").select("name").order("name"),
   ]);
 
-  checkRecords(records);
-  checkStringList(artists, "artists.json");
-  checkStringList(genres, "genres.json");
+  for (const res of [recordsRes, artistsRes, genresRes]) {
+    if (res.error) throw res.error;
+  }
 
-  const withIds = records.map((r) => {
-    const [start, end] = r.year;
-    const yearPart = start === end ? `${start}` : `${start}-${end}`;
-    return {
-      ...r,
-      id: slugify(`${r.artist} ${r.title} ${yearPart}`),
-    };
-  });
-
-  return { records: withIds, artists, genres };
+  return {
+    records: recordsRes.data.map(shapeRecord),
+    artists: artistsRes.data.map((a) => a.name),
+    genres: genresRes.data.map((g) => g.name),
+  };
 }
