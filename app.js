@@ -439,20 +439,6 @@ if (state.error) {
     .getElementById("detail-save")
     ?.addEventListener("click", () => saveDraft());
 
-  const detailSheet = document.getElementById("detail-sheet");
-  if (detailSheet) {
-    let touchStartY = 0;
-    detailSheet.addEventListener("touchstart", (e) => {
-      touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-    detailSheet.addEventListener("touchend", (e) => {
-      const dy = e.changedTouches[0].clientY - touchStartY;
-      if (dy > 80 && detailSheet.scrollTop === 0) {
-        location.hash = "#/";
-      }
-    }, { passive: true });
-  }
-
   let detailReturnFocusSelector = null;
 
   startRouter((route) => {
