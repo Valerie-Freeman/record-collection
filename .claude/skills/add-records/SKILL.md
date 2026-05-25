@@ -21,21 +21,26 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 
 `.env` (with `PROJECT_REF` and `DB_PASSWORD`) must also be present at the repo root; it is gitignored and not recreated automatically.
 
-## Step 1: Show the input template
+## Step 1: Read the input file
 
-When the skill is triggered without input data already present, respond with the template below, the rating rubric, and a short prompt. Wait for the user to paste back a filled version.
+The user provides records in `records-to-add.txt` at the repo root (gitignored). The file holds one or more `master/vinyl/rating/notes` blocks separated by blank lines:
 
 ```
-master:
-vinyl:
-rating:
-notes:
+master: https://www.discogs.com/master/...
+vinyl: https://www.discogs.com/release/...
+rating: 4
+notes: optional text
 
 master:
-vinyl:
-rating:
+vinyl: https://www.discogs.com/sell/item/...
+rating: 3
 notes:
 ```
+
+When the skill is triggered, read `records-to-add.txt`.
+
+- If it does not exist or is empty, create it with an empty ten-block template (ten `master/vinyl/rating/notes` blocks with no values, separated by blank lines), then tell the user to fill it in and re-trigger the skill. Mention the rating rubric and field rules below. Stop and wait.
+- If it has content, proceed to Step 2.
 
 **Rating rubric:**
 
@@ -45,7 +50,7 @@ notes:
 - 4 = Great
 - 5 = Favorite
 
-**Field rules to mention briefly:**
+**Field rules:**
 
 - `master` is the Discogs `/master/...` URL (year, genres, artwork). May be empty if the release has no master.
 - `vinyl` is the Discogs `/release/...` or `/sell/item/...` URL (gives the correct side-A/side-B split). Required.
@@ -55,11 +60,10 @@ notes:
 
 ## Step 2: Stage
 
-When the user pastes the filled template:
+With `records-to-add.txt` populated:
 
-1. Write it to `.data-staging/input.txt` (create the directory if needed).
-2. Run `.venv/bin/python scripts/add_records.py stage .data-staging/input.txt`.
-3. If it exits non-zero (duplicate record, parse error, Discogs API failure), stop and report the error verbatim. Do not try to bypass. Ask the user to clarify or correct.
+1. Run `.venv/bin/python scripts/add_records.py stage records-to-add.txt`.
+2. If it exits non-zero (duplicate record, parse error, Discogs API failure), stop and report the error verbatim. Do not try to bypass. Ask the user to clarify or correct.
 
 The script will print a numbered summary per record: artist/title/year/rating, genres, notes, track count, and any FLAGs (new artist, new genre, duplicate track positions, year mismatches, etc.). Images are downloaded to `.data-staging/images/` and optimized; they are not moved into `images/` until `apply` runs.
 
@@ -74,7 +78,7 @@ For each record, surface to the user:
 
 `year` is always a two-element `[start, end]` integer array. Studio albums use `[y, y]`; compilations use `[earliest, latest]` spanning the source recordings. Ask the user if a compilation's range is ambiguous.
 
-Ask for confirmation or corrections. Apply corrections by editing `.data-staging/staging.json` directly (it is a plain JSON file). If the user wants to change a URL or rating, edit `.data-staging/input.txt` and rerun `stage`.
+Ask for confirmation or corrections. Apply corrections by editing `.data-staging/staging.json` directly (it is a plain JSON file). If the user wants to change a URL or rating, edit `records-to-add.txt` and rerun `stage`.
 
 ### Genre rules
 
@@ -148,4 +152,6 @@ Ask the user to open the app and confirm the new records look right, cover art i
 
 ## Clean-up
 
-If the user abandons a batch, the staging dir can be deleted safely: `rm -rf .data-staging`. It is gitignored.
+After a batch applies successfully, ask the user whether to reset `records-to-add.txt`. If yes, overwrite it with the empty ten-block template (ten `master/vinyl/rating/notes` blocks with no values, separated by blank lines) so its entries are not re-staged next time. Both `records-to-add.txt` and `.data-staging/` are gitignored.
+
+If the user abandons a batch, the staging dir can be deleted safely: `rm -rf .data-staging`.

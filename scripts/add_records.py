@@ -142,6 +142,9 @@ def parse_input(text):
                 raise ValueError(f"Record {block_idx}: unrecognized line: {line!r}")
             key, value = m.group(1), m.group(2).strip()
             record[key] = value
+        # Skip fully-empty blocks (unused slots in the ten-block skeleton).
+        if not record["vinyl"] and not record["master"] and record["rating"] in (None, "") and not record["notes"]:
+            continue
         if not record["vinyl"]:
             raise ValueError(f"Record {block_idx}: vinyl link is required")
         if record["rating"] in (None, ""):

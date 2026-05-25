@@ -5,6 +5,7 @@
 dev-docs/
 tandem.json
 .data-staging/
+records-to-add.txt
 .discogs-token
 .env
 __pycache__/
