@@ -9,10 +9,14 @@ Two subcommands:
     art, and write a proposed record set to STAGING (JSON). Fails if any
     proposed record duplicates an existing (artist, title, year).
 
-  apply STAGING
-    Read STAGING and write the records into records.json (preserving the
-    project's custom formatting), update artists.json and genres.json, and
-    run the validator.
+  apply STAGING [--dry-run]
+    Read STAGING, move staged cover art into images/ (artwork stays in the
+    repo and is served by GitHub Pages), and insert the records, their genre
+    edges, and tracks into the Supabase database in one transaction. Artists
+    and genres auto-create via the canonical-list triggers. With --dry-run the
+    inserts run and the deferred constraints are checked, then everything rolls
+    back, so the batch can be validated against the live schema without
+    persisting. Requires psycopg2 and a .env with PROJECT_REF and DB_PASSWORD.
 
 Input format (stdin or file):
 
@@ -41,12 +45,17 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
+try:
+    import psycopg2
+    from psycopg2 import errors as psycopg2_errors
+except ImportError:  # surfaced with a clear message in connect()
+    psycopg2 = None
+    psycopg2_errors = None
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
-RECORDS_JSON = REPO_ROOT / "records.json"
-ARTISTS_JSON = REPO_ROOT / "artists.json"
-GENRES_JSON = REPO_ROOT / "genres.json"
 IMAGES_DIR = REPO_ROOT / "images"
 STAGING_IMAGES = REPO_ROOT / ".data-staging" / "images"
+ENV_FILE = REPO_ROOT / ".env"
 
 USER_AGENT = "RecordCollectionBrowser/1.0 +https://github.com/Valerie-Freeman/record-collection"
 API_BASE = "https://api.discogs.com"
@@ -286,62 +295,107 @@ def build_proposal(master_url, vinyl_url, rating, notes):
     return record, flags, img_url
 
 
-# ---------- Data-file I/O ----------
+# ---------- Supabase connection ----------
 
-def load_existing():
-    records = json.loads(RECORDS_JSON.read_text())
-    artists = json.loads(ARTISTS_JSON.read_text())
-    genres = json.loads(GENRES_JSON.read_text())
+def load_env():
+    """Parse .env at the repo root into a dict. Bare KEY=VALUE lines, no quotes."""
+    if not ENV_FILE.exists():
+        sys.exit(f"{ENV_FILE} not found; cannot connect to Supabase")
+    env = {}
+    for line in ENV_FILE.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        key, _, value = line.partition("=")
+        env[key.strip()] = value.strip()
+    return env
+
+
+def connect():
+    """Open a direct Postgres connection to Supabase (postgres role, bypasses RLS)."""
+    if psycopg2 is None:
+        sys.exit("psycopg2 is required for database access: pip install psycopg2-binary")
+    env = load_env()
+    project_ref = env.get("PROJECT_REF")
+    db_password = env.get("DB_PASSWORD")
+    if not project_ref or not db_password:
+        sys.exit("PROJECT_REF and DB_PASSWORD must be set in .env")
+    return psycopg2.connect(
+        host=f"db.{project_ref}.supabase.co",
+        port=5432,
+        dbname="postgres",
+        user="postgres",
+        password=db_password,
+        sslmode="require",
+    )
+
+
+def load_existing_from_db(conn):
+    """Read existing record tuples plus the canonical artist and genre lists.
+
+    The database is the source of truth now, so duplicate detection and the
+    new-artist / new-genre flags during review compare against it, not the
+    frozen JSON snapshot.
+    """
+    with conn.cursor() as cur:
+        cur.execute("select artist, title, year_start, year_end from records")
+        records = [
+            {"artist": a, "title": t, "year": [ys, ye]}
+            for (a, t, ys, ye) in cur.fetchall()
+        ]
+        cur.execute("select name from artists")
+        artists = [row[0] for row in cur.fetchall()]
+        cur.execute("select name from genres")
+        genres = [row[0] for row in cur.fetchall()]
     return records, artists, genres
 
 
-def artist_sort_key(name):
-    return re.sub(r"^The\s+", "", name, flags=re.IGNORECASE).lower()
+def insert_records(conn, records, dry_run=False):
+    """Insert records, their genre edges, and tracks in one transaction.
 
+    Artists and genres auto-create via the canonical-list triggers; the
+    deferred constraint triggers verify the bidirectional invariant at COMMIT.
+    With dry_run, the deferred constraints are forced to fire immediately and
+    the whole transaction rolls back, so the batch is validated against the
+    live schema without persisting anything.
+    """
+    with conn.cursor() as cur:
+        for r in records:
+            cur.execute(
+                "insert into records "
+                "(artist, title, year_start, year_end, rating, notes, discogs_url, artwork) "
+                "values (%s, %s, %s, %s, %s, %s, %s, %s) returning id",
+                (
+                    r["artist"], r["title"], r["year"][0], r["year"][1],
+                    r["rating"], r.get("notes"), r["discogs_url"], r["artwork"],
+                ),
+            )
+            record_id = cur.fetchone()[0]
 
-def format_record(r, is_last):
-    ordered = {}
-    for key in ("artwork", "artist", "title", "year", "rating", "genres"):
-        ordered[key] = r[key]
-    if r.get("notes"):
-        ordered["notes"] = r["notes"]
-    ordered["discogs_url"] = r["discogs_url"]
-    if r.get("tracks"):
-        ordered["tracks"] = [{"side": t["side"], "title": t["title"]} for t in r["tracks"]]
-    dumped = json.dumps(ordered, indent=2, ensure_ascii=False)
-    indented = "\n".join("  " + line for line in dumped.splitlines())
-    return indented + ("" if is_last else ",")
+            for genre in r["genres"]:
+                cur.execute(
+                    "insert into record_genres (record_id, genre) values (%s, %s)",
+                    (record_id, genre),
+                )
 
+            position_by_side = {}
+            for track in r.get("tracks", []):
+                side = track["side"]
+                position_by_side[side] = position_by_side.get(side, 0) + 1
+                cur.execute(
+                    "insert into tracks (record_id, side, position, title) "
+                    "values (%s, %s, %s, %s)",
+                    (record_id, side, position_by_side[side], track["title"]),
+                )
 
-def append_records_to_file(new_records):
-    content = RECORDS_JSON.read_text()
-    if not content.rstrip().endswith("]"):
-        raise RuntimeError("records.json does not end with ']'")
-    idx = content.rfind("]")
-    prefix = content[:idx]
-    last_brace = prefix.rfind("  }")
-    if last_brace < 0:
-        # Empty array -- unlikely but handle
-        prefix_new = prefix
+        if dry_run:
+            # Force the deferred canonical-list triggers to fire now, then discard.
+            cur.execute("set constraints all immediate")
+
+    if dry_run:
+        conn.rollback()
     else:
-        prefix_new = prefix[: last_brace + 3] + "," + prefix[last_brace + 3 :]
-
-    new_text = prefix_new.rstrip() + "\n"
-    for i, r in enumerate(new_records):
-        new_text += format_record(r, is_last=(i == len(new_records) - 1))
-        new_text += "\n"
-    new_text += "]\n"
-    RECORDS_JSON.write_text(new_text)
-
-
-def write_sorted_list(path, items, sort_key):
-    items = sorted(set(items), key=sort_key)
-    lines = ["["]
-    for i, item in enumerate(items):
-        comma = "," if i < len(items) - 1 else ""
-        lines.append(f"  {json.dumps(item)}{comma}")
-    lines.append("]")
-    path.write_text("\n".join(lines) + "\n")
+        conn.commit()
 
 
 # ---------- stage ----------
@@ -350,7 +404,11 @@ def cmd_stage(args):
     input_text = Path(args.input).read_text() if args.input != "-" else sys.stdin.read()
     inputs = parse_input(input_text)
 
-    existing_records, existing_artists, existing_genres = load_existing()
+    conn = connect()
+    try:
+        existing_records, existing_artists, existing_genres = load_existing_from_db(conn)
+    finally:
+        conn.close()
     existing_tuples = {(r["artist"], r["title"], tuple(r["year"])) for r in existing_records}
     existing_tuples_ci = {
         (r["artist"].lower(), r["title"].lower(), tuple(r["year"])): (r["artist"], r["title"])
@@ -468,35 +526,70 @@ def cmd_apply(args):
         clean = {k: v for k, v in r.items() if not k.startswith("_")}
         records_to_add.append(clean)
 
-    # Move staged images into place
+    # Guard: the database requires a resolved year range and at least one genre.
     for r in records_to_add:
-        final_path = REPO_ROOT / r["artwork"]
-        staging_path = STAGING_IMAGES / final_path.name
-        if staging_path.exists():
-            final_path.parent.mkdir(parents=True, exist_ok=True)
-            shutil.move(str(staging_path), str(final_path))
-        elif not final_path.exists():
-            print(f"ERROR: no staged image for {r['artwork']}", file=sys.stderr)
+        year = r.get("year")
+        if not year or year[0] is None or year[1] is None:
+            print(
+                f"ERROR: {r['artist']} - {r['title']} has no year range; "
+                f"set it in {args.staging} before applying",
+                file=sys.stderr,
+            )
+            return 1
+        if not r.get("genres"):
+            print(
+                f"ERROR: {r['artist']} - {r['title']} has no genres; "
+                f"set them in {args.staging} before applying",
+                file=sys.stderr,
+            )
             return 1
 
-    append_records_to_file(records_to_add)
+    # Move staged images into images/ (artwork stays in the repo, served by Pages).
+    # Done before the insert so a missing image fails fast without touching the DB.
+    # Skipped under --dry-run, which only validates the database insert and would
+    # otherwise leave moved files behind after the transaction rolls back.
+    if not args.dry_run:
+        for r in records_to_add:
+            final_path = REPO_ROOT / r["artwork"]
+            staging_path = STAGING_IMAGES / final_path.name
+            if staging_path.exists():
+                final_path.parent.mkdir(parents=True, exist_ok=True)
+                shutil.move(str(staging_path), str(final_path))
+            elif not final_path.exists():
+                print(f"ERROR: no staged image for {r['artwork']}", file=sys.stderr)
+                return 1
 
-    existing_artists = set(json.loads(ARTISTS_JSON.read_text()))
-    existing_genres = set(json.loads(GENRES_JSON.read_text()))
+    conn = connect()
+    try:
+        insert_records(conn, records_to_add, dry_run=args.dry_run)
+    except psycopg2.Error as e:
+        conn.rollback()
+        conn.close()
+        if psycopg2_errors and isinstance(e, psycopg2_errors.UniqueViolation):
+            sys.exit(
+                "\nDuplicate record already in the database "
+                "(same artist, title, and year range). Nothing was inserted."
+            )
+        sys.exit(f"\nDatabase insert failed, rolled back: {e}")
+    conn.close()
+
+    if args.dry_run:
+        print(
+            f"[dry-run] Validated {len(records_to_add)} record(s) against the live "
+            f"schema; rolled back, nothing persisted.",
+            file=sys.stderr,
+        )
+        return 0
+
+    print(f"Inserted {len(records_to_add)} record(s) into the database:", file=sys.stderr)
     for r in records_to_add:
-        existing_artists.add(r["artist"])
-        for g in r["genres"]:
-            existing_genres.add(g)
-    write_sorted_list(ARTISTS_JSON, existing_artists, artist_sort_key)
-    write_sorted_list(GENRES_JSON, existing_genres, str.lower)
-
-    print(f"Applied {len(records_to_add)} record(s).", file=sys.stderr)
-
-    result = subprocess.run(
-        [sys.executable, str(REPO_ROOT / "scripts" / "validate_records.py")],
-        cwd=str(REPO_ROOT),
+        print(f"  - {r['artist']} - {r['title']} ({r['year'][0]}-{r['year'][1]})", file=sys.stderr)
+    print(
+        "\nThe row data is live now. Commit and push the new image file(s) under "
+        "images/ so GitHub Pages can serve the cover art.",
+        file=sys.stderr,
     )
-    return result.returncode
+    return 0
 
 
 # ---------- CLI ----------
@@ -510,8 +603,13 @@ def main():
     p_stage.add_argument("--out", default=".data-staging/staging.json", help="Staging JSON output path")
     p_stage.set_defaults(func=cmd_stage)
 
-    p_apply = sub.add_parser("apply", help="Apply a staging JSON to the data files")
+    p_apply = sub.add_parser("apply", help="Insert a staging JSON into the database")
     p_apply.add_argument("staging", nargs="?", default=".data-staging/staging.json")
+    p_apply.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Run the inserts and deferred-constraint checks, then roll back without persisting.",
+    )
     p_apply.set_defaults(func=cmd_apply)
 
     args = parser.parse_args()

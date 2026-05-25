@@ -7,6 +7,8 @@ description: Add one or more records to the collection from Discogs links. Use w
 
 Primary data-entry workflow for this project. Drives `scripts/add_records.py` with user-in-the-loop review.
 
+The collection lives in Supabase (see [ADR-004](../../../dev-docs/adrs/004-replace-static-json-with-deployed-database.md)). `stage` reads the existing collection from the database to detect duplicates and flag new artists/genres; `apply` inserts the new rows into the database. Cover art is the exception: it still lives in the repo under `images/` and is served by GitHub Pages, so a new record's image needs a git commit and push (the row data itself does not). Both subcommands need `psycopg2` and a `.env` at the repo root with `PROJECT_REF` and `DB_PASSWORD`.
+
 ## Step 1: Show the input template
 
 When the skill is triggered without input data already present, respond with the template below, the rating rubric, and a short prompt. Wait for the user to paste back a filled version.
@@ -54,8 +56,8 @@ The script will print a numbered summary per record: artist/title/year/rating, g
 For each record, surface to the user:
 
 - The proposed year (a `[start, end]` range; see below), genres (see **Genre rules** below), and anything flagged.
-- Any new artists being added to `artists.json` (spelling, leading "The", ampersand vs. "and").
-- Any new genres being added to `genres.json`.
+- Any new artists being added to the collection (spelling, leading "The", ampersand vs. "and"). `apply` creates the canonical artist row automatically, so this review is the only guard against a typo'd variant.
+- Any new genres being added to the collection.
 - Compilation records: `year` must span the source recordings' master release years, not the compilation's own release year. The staging script detects compilations via the Discogs format descriptor and flags them with `year: [y, y]` as a placeholder. Before applying, resolve the real `[earliest, latest]` range (look at the tracklist, use Discogs to date tracks if needed) and edit `.data-staging/staging.json`. See [ADR-002](../../../dev-docs/adrs/002-year-as-range.md) for the rationale.
 
 `year` is always a two-element `[start, end]` integer array. Studio albums use `[y, y]`; compilations use `[earliest, latest]` spanning the source recordings. Ask the user if a compilation's range is ambiguous.
@@ -69,7 +71,7 @@ The staging script emits every Discogs `genre` and `style` concatenated and dedu
 **Hard rules:**
 
 - **Max 3 genres per record.** If the proposal has more, trim.
-- **Prioritize using entries already in `genres.json`.** That file is the canonical vocabulary. Try to match a genre to what's already in the list if possible. If a record genuinely needs a genre that does not exist there, flag it to the user and add it to `genres.json` in the same commit; do not silently introduce a new canonical entry.
+- **Prioritize using genres already in the collection.** The `genres` table is the canonical vocabulary, and the `stage` summary flags any proposed genre not already in it. Try to match to an existing genre. If a record genuinely needs a new one, flag it to the user for confirmation; `apply` creates the canonical row automatically on insert, so this review is the only safeguard against silently introducing a stray genre.
 - **Prefer short forms** when both exist: `Prog Rock` (not "Progressive Rock"), `Rock & Roll` (not "Rock and Roll"), `Neo-Soul` (not "Neo Soul").
 
 **Map common Discogs terms to their canonical equivalent:**
@@ -105,32 +107,32 @@ The genre audit script at `scripts/_genre_audit.py` is available if a broader co
 
 ## Step 4: Apply
 
+Optionally dry-run first: `python3 scripts/add_records.py apply --dry-run` runs the inserts and forces the deferred constraint checks against the live schema, then rolls back without persisting or moving any images. Use it to catch a constraint problem before it lands.
+
 Once the user confirms, run `python3 scripts/add_records.py apply`. This:
 
-- Moves staged images into `images/`.
-- Appends the records to `records.json` (preserving the project's custom formatting).
-- Updates `artists.json` and `genres.json` with any new entries (sorted, ignoring "The").
-- Runs `scripts/validate_records.py` and exits with its status.
+- Moves the staged images into `images/` (cover art stays in the repo, served by GitHub Pages).
+- Inserts the records, their genre edges, and tracks into the Supabase database in one transaction. New artists and genres are created automatically by the canonical-list triggers.
+- Reports the inserted records.
 
-If the validator fails, stop and report. Do not try to bypass.
+The row data is live in the database the moment `apply` succeeds; no push is needed for it to appear. There is no validator step anymore: the database constraints are the validation. If the insert fails (duplicate tuple, constraint violation, connection error), stop and report the error verbatim. Do not try to bypass.
 
-## Step 5: Browser check
+## Step 5: Commit and push the cover art
 
-Ask the user to open the app and confirm the new records look right. Do not skip this.
+The record data is already live. The only thing left in git is the new image file(s) under `images/`, which GitHub Pages needs in order to serve the cover art.
 
-## Step 6: Commit
+**Always ask before committing and before pushing.**
 
-**Always ask before committing.** When the user confirms, craft a commit message in conventional-commit form:
+- Stage only the new image(s): `git add images/<file>.jpg`. Do not stage `records.json`, `artists.json`, or `genres.json`; those are a frozen snapshot now and this workflow no longer updates them.
+- Commit message, conventional-commit form:
+  - Single record: `data: add <title> by <artist>`
+  - Small batch: `data: add <N> records (<artist1>, <artist2>, ...)`
+- Never include `Co-Authored-By` trailers.
+- Push so GitHub Pages deploys the art.
 
-- Single record: `data: add <title> by <artist>`
-- Small batch: `data: add <N> records (<artist1>, <artist2>, ...)`
-- Genre/artist-only: match the specific change (e.g. `data: add genre "Easy Listening"`)
+## Step 6: Browser check
 
-Never include `Co-Authored-By` trailers. Stage all changed files in one commit (records.json, artists.json, genres.json, and any new images).
-
-## Step 7: Push
-
-**Always ask before pushing.** Do not push automatically.
+Ask the user to open the app and confirm the new records look right, cover art included. Note: a new record's data shows immediately, but its image renders as a title fallback tile until the image push has deployed; once Pages updates, the art appears. Do not skip this.
 
 ## Clean-up
 
