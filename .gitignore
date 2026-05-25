@@ -8,3 +8,4 @@ tandem.json
 .discogs-token
 .env
 __pycache__/
+.venv/
