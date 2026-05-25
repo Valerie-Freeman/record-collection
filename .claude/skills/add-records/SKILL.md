@@ -9,6 +9,18 @@ Primary data-entry workflow for this project. Drives `scripts/add_records.py` wi
 
 The collection lives in Supabase (see [ADR-004](../../../dev-docs/adrs/004-replace-static-json-with-deployed-database.md)). `stage` reads the existing collection from the database to detect duplicates and flag new artists/genres; `apply` inserts the new rows into the database. Cover art is the exception: it still lives in the repo under `images/` and is served by GitHub Pages, so a new record's image needs a git commit and push (the row data itself does not). Both subcommands need `psycopg2` and a `.env` at the repo root with `PROJECT_REF` and `DB_PASSWORD`.
 
+## Setup (do this before Step 2)
+
+`psycopg2` is not in the system `python3`; it lives in a gitignored project virtualenv at `.venv/`. Run every `add_records.py` command in this skill as `.venv/bin/python scripts/add_records.py ...`, not `python3 ...`.
+
+If `.venv/` does not exist yet (fresh clone), create it once:
+
+```
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+```
+
+`.env` (with `PROJECT_REF` and `DB_PASSWORD`) must also be present at the repo root; it is gitignored and not recreated automatically.
+
 ## Step 1: Show the input template
 
 When the skill is triggered without input data already present, respond with the template below, the rating rubric, and a short prompt. Wait for the user to paste back a filled version.
@@ -46,7 +58,7 @@ notes:
 When the user pastes the filled template:
 
 1. Write it to `.data-staging/input.txt` (create the directory if needed).
-2. Run `python3 scripts/add_records.py stage .data-staging/input.txt`.
+2. Run `.venv/bin/python scripts/add_records.py stage .data-staging/input.txt`.
 3. If it exits non-zero (duplicate record, parse error, Discogs API failure), stop and report the error verbatim. Do not try to bypass. Ask the user to clarify or correct.
 
 The script will print a numbered summary per record: artist/title/year/rating, genres, notes, track count, and any FLAGs (new artist, new genre, duplicate track positions, year mismatches, etc.). Images are downloaded to `.data-staging/images/` and optimized; they are not moved into `images/` until `apply` runs.
@@ -107,9 +119,9 @@ The genre audit script at `scripts/_genre_audit.py` is available if a broader co
 
 ## Step 4: Apply
 
-Optionally dry-run first: `python3 scripts/add_records.py apply --dry-run` runs the inserts and forces the deferred constraint checks against the live schema, then rolls back without persisting or moving any images. Use it to catch a constraint problem before it lands.
+Optionally dry-run first: `.venv/bin/python scripts/add_records.py apply --dry-run` runs the inserts and forces the deferred constraint checks against the live schema, then rolls back without persisting or moving any images. Use it to catch a constraint problem before it lands.
 
-Once the user confirms, run `python3 scripts/add_records.py apply`. This:
+Once the user confirms, run `.venv/bin/python scripts/add_records.py apply`. This:
 
 - Moves the staged images into `images/` (cover art stays in the repo, served by GitHub Pages).
 - Inserts the records, their genre edges, and tracks into the Supabase database in one transaction. New artists and genres are created automatically by the canonical-list triggers.
