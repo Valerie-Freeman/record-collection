@@ -1,0 +1,58 @@
+name: Backup collection to JSON
+
+# Exports the full collection from Supabase to backup/collection.json and commits
+# it when it changed. Three things at once:
+#   1. An off-Supabase backup (the free tier has no downloadable backups).
+#   2. A git-versioned audit log of the collection, restoring what the move off
+#      static JSON gave up (ADR-004).
+#   3. A daily read against Supabase, which also keeps the project from pausing.
+#
+# Uses the SUPABASE_URL and SUPABASE_ANON_KEY repo secrets (public-read RLS, no
+# database password needed). export_backup.py is standard-library only.
+#
+# This commits only when the data changed, so a static collection produces no
+# commits. The separate keep-alive workflow is what guarantees Supabase activity
+# regardless; this job is backup and audit log, not the pause safety net.
+
+on:
+  schedule:
+    # Daily at 05:37 UTC, off-peak and staggered from the keep-alive job.
+    - cron: "37 5 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: backup
+  cancel-in-progress: false
+
+jobs:
+  export:
+    name: Export and commit snapshot
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Export collection from Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: python scripts/export_backup.py
+
+      - name: Commit snapshot if it changed
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain backup/collection.json)" ]; then
+            echo "Collection unchanged since last snapshot; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add backup/collection.json
+          git commit -m "chore(backup): snapshot collection $(date -u +%Y-%m-%d)"
+          git push
