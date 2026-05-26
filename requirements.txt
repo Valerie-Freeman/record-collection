@@ -1,7 +1,6 @@
-# Python dependencies for the data-entry and import scripts in scripts/.
+# Python dependencies for the data-entry script in scripts/.
 # The shipped site has no runtime dependencies; this is tooling only.
 #   python3 -m pip install -r requirements.txt
 #
-# scripts/validate_records.py uses only the standard library.
-# scripts/add_records.py and scripts/import_to_supabase.py need a Postgres driver.
+# scripts/add_records.py needs a Postgres driver to insert into Supabase.
 psycopg2-binary>=2.9

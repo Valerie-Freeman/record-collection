@@ -119,8 +119,6 @@ The staging script emits every Discogs `genre` and `style` concatenated and dedu
 
 **When presenting to the user**, show: proposed genres (your trimmed set), Discogs raw `genres + styles` (so they can second-guess you), any mapping you applied, and any new canonical entries that need approval.
 
-The genre audit script at `scripts/_genre_audit.py` is available if a broader consistency check is ever needed again.
-
 ## Step 4: Apply
 
 Optionally dry-run first: `.venv/bin/python scripts/add_records.py apply --dry-run` runs the inserts and forces the deferred constraint checks against the live schema, then rolls back without persisting or moving any images. Use it to catch a constraint problem before it lands.
@@ -139,7 +137,7 @@ The record data is already live. The only thing left in git is the new image fil
 
 **Always ask before committing and before pushing.**
 
-- Stage only the new image(s): `git add images/<file>.jpg`. Do not stage `records.json`, `artists.json`, or `genres.json`; those are a frozen snapshot now and this workflow no longer updates them.
+- Stage only the new image(s): `git add images/<file>.jpg`. The record data is in Supabase, not in the repo, so there are no data files to stage.
 - Commit message, conventional-commit form:
   - Single record: `data: add <title> by <artist>`
   - Small batch: `data: add <N> records (<artist1>, <artist2>, ...)`

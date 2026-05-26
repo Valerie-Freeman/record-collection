@@ -1,32 +1,19 @@
-name: Validate and Deploy
+name: Deploy
+
+# The collection lives in Supabase; data validation is enforced by the database
+# schema (canonical-list triggers, constraints), not by a CI step. This workflow
+# only publishes the static site to GitHub Pages on pushes to main.
 
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
 
 permissions:
   contents: read
 
 jobs:
-  validate:
-    name: Validate records
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Run validator
-        run: python scripts/validate_records.py
-
   deploy:
     name: Deploy to GitHub Pages
-    needs: validate
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     permissions:
