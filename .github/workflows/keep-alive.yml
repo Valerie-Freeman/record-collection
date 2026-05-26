@@ -1,0 +1,66 @@
+name: Keep Supabase awake
+
+# Supabase free-tier projects are paused after ~7 days of low activity
+# (https://supabase.com/docs/guides/platform/going-into-prod). A paused project
+# takes the site's data layer offline: the frontend still loads from Pages, but
+# every query fails until the project is resumed from the dashboard. This job
+# runs a tiny read against the public REST endpoint daily so the project keeps
+# registering activity.
+#
+# The values come from repo secrets (Settings > Secrets and variables > Actions):
+#   SUPABASE_URL       the project URL, e.g. https://<ref>.supabase.co
+#   SUPABASE_ANON_KEY  the public anon key (same one shipped in supabase.js;
+#                      RLS is what protects the data, not the secrecy of this key)
+#
+# Caveat: GitHub disables scheduled workflows after 60 days with no repository
+# activity. Scheduled runs do not count as activity, so if the repo goes that
+# long without a commit, re-enable this workflow from the Actions tab (or push
+# any commit). A future Supabase-to-JSON backup job would also keep the repo
+# active by committing, which would make this caveat moot.
+
+on:
+  schedule:
+    # Daily at 06:17 UTC. Off-peak and off the top of the hour, since GitHub
+    # delays or drops cron runs that pile up at :00. Daily leaves a ~7-run
+    # buffer before the pause window, which tolerates an occasional skip.
+    - cron: "17 6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: keep-alive
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    name: Ping Supabase REST endpoint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Query a row to register database activity
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${SUPABASE_URL:-}" ] || [ -z "${SUPABASE_ANON_KEY:-}" ]; then
+            echo "::error::SUPABASE_URL or SUPABASE_ANON_KEY secret is not set."
+            exit 1
+          fi
+
+          # Hit a public-read table with a trivial query so a real database read
+          # runs, not just a gateway handshake.
+          code=$(curl -sS --max-time 30 -o /tmp/body -w "%{http_code}" \
+            "${SUPABASE_URL}/rest/v1/genres?select=name&limit=1" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}")
+
+          echo "HTTP ${code}"
+          if [ "${code}" -lt 200 ] || [ "${code}" -ge 300 ]; then
+            echo "::error::Keep-alive ping failed (HTTP ${code}). Body: $(cat /tmp/body)"
+            exit 1
+          fi
+
+          echo "Supabase responded OK; project kept active."
