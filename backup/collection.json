@@ -1,7 +1,7 @@
 {
   "_comment": "Generated backup of the Supabase collection. Do not edit by hand; this file is overwritten by .github/workflows/backup.yml. It is a restore artifact and a git-versioned audit log, not the source of truth (the database is). No timestamp is stored here so the file changes only when the collection changes; the commit date records when.",
   "counts": {
-    "records": 153,
+    "records": 154,
     "artists": 110,
     "genres": 45
   },
@@ -10634,6 +10634,84 @@
           "side": "F",
           "position": 5,
           "title": "Papa Was A Rollin' Stone"
+        }
+      ]
+    },
+    {
+      "artist": "Thunder Jackson",
+      "title": "Hello Stranger",
+      "year": [
+        2024,
+        2024
+      ],
+      "rating": 4,
+      "notes": "Moody, evening time listen, just like the first record. Pairs well with Coldplay.",
+      "discogs_url": "https://www.discogs.com/release/34601308-Thunder-Jackson-Hello-Stranger-",
+      "artwork": "images/thunder-jackson-hello-stranger.jpg",
+      "genres": [
+        "Indie Rock",
+        "Pop"
+      ],
+      "tracks": [
+        {
+          "side": "A",
+          "position": 1,
+          "title": "Spoonfed Desire"
+        },
+        {
+          "side": "A",
+          "position": 2,
+          "title": "Hello Stranger"
+        },
+        {
+          "side": "A",
+          "position": 3,
+          "title": "The Fever & The Dream"
+        },
+        {
+          "side": "A",
+          "position": 4,
+          "title": "Steady Freddy"
+        },
+        {
+          "side": "A",
+          "position": 5,
+          "title": "Terminal Uniqueness"
+        },
+        {
+          "side": "A",
+          "position": 6,
+          "title": "Grace Kelly"
+        },
+        {
+          "side": "B",
+          "position": 1,
+          "title": "Wasted Talent"
+        },
+        {
+          "side": "B",
+          "position": 2,
+          "title": "I Let Ghosts"
+        },
+        {
+          "side": "B",
+          "position": 3,
+          "title": "Modern World"
+        },
+        {
+          "side": "B",
+          "position": 4,
+          "title": "War & TV Dinners"
+        },
+        {
+          "side": "B",
+          "position": 5,
+          "title": "In The Movies"
+        },
+        {
+          "side": "B",
+          "position": 6,
+          "title": "Ruby"
         }
       ]
     },
